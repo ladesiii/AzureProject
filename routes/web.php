@@ -9,6 +9,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/Proyectos', [ProyectosController::class, 'index' ] );
+Route::get('/index', [TareasController::class, 'index'])->name('index');
 
+Route::get('/Proyectos', [ProyectosController::class, 'index' ] );
 
