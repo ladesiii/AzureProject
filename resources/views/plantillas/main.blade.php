@@ -58,7 +58,7 @@
 
         <div style="background-color: white; width:60%; align-items:center; border:solid #8BE7F9 30px; ">
             <h2 style="margin: 10px">TAREAS DE NOMBRE PROYECTO</h2>
-            
+            <div></div>
         </div>
     </section>
 
