@@ -8,4 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/Proyectos', [ProyectosController::class, 'index' ] );
+
+
