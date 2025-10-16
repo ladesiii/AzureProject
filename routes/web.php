@@ -14,4 +14,4 @@ Route::get('/index', [TareasController::class, 'index']);
 
 Route::get('/max', function (){
     return view('max');
-});
+});//hgukvgvgj
