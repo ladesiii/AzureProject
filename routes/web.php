@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareasController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('landing');
+})->name('landing');
 
 
 Route::get('/index', [TareasController::class, 'index']);
