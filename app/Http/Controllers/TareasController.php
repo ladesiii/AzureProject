@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TareasController extends Controller
 {
-    function index() : Returntype {
+    function index(){
         return view("tareas.tareas");
     }
 }
