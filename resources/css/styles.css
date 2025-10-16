@@ -1,0 +1,22 @@
+html{
+    padding: 0;
+    margin: 0;
+    
+}
+.nav-landing{
+    background-color: #0993AE;
+}
+.titulo-header{
+    font-family: 'Space Grotesk';
+    font-size: 35px;
+    color: white;
+}
+.btn-auth{
+    font-family: 'Lato';
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #2AD3F4;
+    padding: 10px;
+    border-color: none;
+}
