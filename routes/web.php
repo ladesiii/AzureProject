@@ -7,8 +7,8 @@ use App\Http\Controllers\TareasController;
 
 Route::get('/', function () {
     return view('landing');
-})->name('landingg');
-
+})->name('landing');
+/// aixhJBQDQW UV WCH WWC CQ LQJKDF WE WFLWE WELFLFLFLFLFFLFLFLFLFLFLFLFLLLLL
 
 Route::get('/index', [TareasController::class, 'index']);
 
