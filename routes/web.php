@@ -25,6 +25,6 @@ Route::get('/max', function (){
 Route::get('/proyecto', function () {
     return view('proyecto');
 
-}) ;
+})->name('proyecto');
 
 
