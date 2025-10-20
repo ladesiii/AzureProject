@@ -18,13 +18,15 @@
                     <img src="{{ asset('img/logo.png') }}" alt="Logo" width="70" height="70" class="d-inline-block">
                     <span class="ms-2 fw-bold align-middle titulo-header">AzureProject</span>
                 </a>
-                <div>
-                    <button type="button" class=" btn-auth">INICIAR SESIÓN</button>
-                    <button type="button" class=" btn-auth ">REGISTRARSE</button>
+                <div class="ms-auto">
+                    <button type="button" class="btn-auth me-3">INICIAR SESIÓN</button>
+                    <button type="button" class="btn-auth me-3">REGISTRARSE</button>
                 </div>
             </div>
         </nav>
-
     </header>
-    @yield('content')
+    <main class="d-flex align-items-center justify-content-between min-vh-100">
+        @yield('content')
+    </main>
+
 </body>

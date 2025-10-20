@@ -8,7 +8,6 @@ use App\Http\Controllers\ProyectosController;
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
-/// aixhJBQDQW UV WCH WWC CQ LQJKDF WE WFLWE WELFLFLFLFLFFLFLFLFLFLFLFLFLLLLL
 
 Route::get('/index', [TareaController::class, 'index']);
 
@@ -18,10 +17,11 @@ Route::get('/index', [TareaController::class, 'index']);
 //Web page Tareas
 Route::get('/max', function (){
     return view('max');
+
 });//hgukvgvgj
 
 
 //Web Page Proyecto (handled by controller)
 Route::get('/proyecto', function () {
     return view('proyecto');
-})  ;
+}) ;
