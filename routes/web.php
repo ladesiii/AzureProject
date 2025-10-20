@@ -8,10 +8,9 @@ use App\Http\Controllers\TareasController;
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
-/// aixhJBQDQW UV WCH WWC CQ LQJKDF WE WFLWE WELFLFLFLFLFFLFLFLFLFLFLFLFLLLLL
 
 Route::get('/index', [TareasController::class, 'index']);
 
 Route::get('/max', function (){
     return view('max');
-});//hgukvgvgj
+});
