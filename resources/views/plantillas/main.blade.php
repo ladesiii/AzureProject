@@ -30,22 +30,24 @@
 
 
             <li class="nav-item">
-                <button
-                    style="background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px 10px 30px; margin:10px;"
-                    type="button">INICIO
-                </button>
+                <a href="{{ url('/') }}"
+                    style="display:inline-block; text-decoration:none; background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px; margin:10px;"
+                    role="button">INICIO</a>
             </li>
             <li class="nav-item">
-                <button
-                    style="background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px 10px 30px; margin:10px;"
-                    type="button">PROYECTOS
-                </button>
+                <a href="{{ route('proyecto') }}"
+                    style="display:inline-block; text-decoration:none; background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px; margin:10px;"
+                    role="button">PROYECTOS</a>
             </li>
             <li class="nav-item">
-                <button
-                    style="background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px 10px 30px; margin:10px;"
-                    type="button">TAREAS
-                </button>
+                <a href="{{ url('/index') }}"
+                    style="display:inline-block; text-decoration:none; background-color: #2AD3F4; color:white; border:none; border-radius:25%; padding:10px 30px; margin:10px;"
+                    role="button">TAREAS</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('/index') }}"
+                    style="display:inline-block; text-decoration:none; background-color: #ffffff22; color:white; border:1px solid #2AD3F4; border-radius:25%; padding:10px 20px; margin:10px;"
+                    role="button">Buscar</a>
             </li>
             <p style="padding: 25px 0px 25px 0px"></p>
             <li class="nav-item">

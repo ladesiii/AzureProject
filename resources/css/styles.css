@@ -1,3 +1,4 @@
+/* Landing */
 html{
     padding: 0;
     margin: 0;
@@ -22,6 +23,15 @@ html{
     padding: 10px 20px 10px 20px;
     border-color: none;
 }
+
+/*Registro*/
+
+/*Inicio de sesion*/
+
+/*Proyectos*/
+
+/*Tareas*/
+
 .btn-auth:hover{
     border: 3px white solid;
 }
@@ -30,3 +40,4 @@ html{
     border-radius: 30px;
     border: 15px solid #2AD3F4;
 }
+
