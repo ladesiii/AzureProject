@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 class ProyectosController extends Controller
 {
 
-            function proyecto()  {
-                return view("proyectos.proyecto");
+    // Route target for /proyecto
+    public function proyecto()
+    {
+        return view('proyecto_index');
+    }
 
-}}
+}
 
 
 

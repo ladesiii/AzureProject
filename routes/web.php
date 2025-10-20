@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::get('/index', [TareaController::class, 'index']);
 
-Route::get('/proyecto', [ProyectosController::class, 'proyecto']);
+
 
 
 //Web page Tareas
@@ -21,7 +21,7 @@ Route::get('/max', function (){
 });//hgukvgvgj
 
 
-//Web Page Proyecto
-Route::get('/proyecto', function(){
+//Web Page Proyecto (handled by controller)
+Route::get('/proyecto', function () {
     return view('proyecto');
-}) -> name('proyecto');
+})  ;
