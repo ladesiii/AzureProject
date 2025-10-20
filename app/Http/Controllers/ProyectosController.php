@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProyectosController extends Controller
 {
 
-            function index()  {
+            function proyecto()  {
                 return view("proyectos.proyecto");
 
 }}
