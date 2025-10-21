@@ -1,5 +1,10 @@
-@extends('Plantillas.main')
+@extends('Plantillas.leftnavbar')
+
+@section('Titulo')
+    Proyecto
+@endsection
 
 @section('contenido')
-	@include('proyecto_index')
+    <h1>Proyecto</h1>
+
 @endsection

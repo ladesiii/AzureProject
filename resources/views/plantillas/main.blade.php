@@ -28,35 +28,10 @@
 
 <body>
 
-    <section class="main-section">
-        <ul class="sidebar nav flex-column">
-            <li class="nav-item">
-                <h1>AzureProject</h1>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url('/') }}" class="btn-nav">INICIO</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('proyecto') }}" class="btn-nav">PROYECTOS</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ url('/index') }}" class="btn-nav">TAREAS</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ url('/index') }}" class="btn-nav-outline">Buscar</a>
-            </li>
-
-            <li class="nav-item">
-                <button class="btn-nav" type="button">Cerrar sesión</button>
-            </li>
-        </ul>
-
-        <div class="content">
+    <div class="content">
             <h2>TAREAS DE NOMBRE PROYECTO</h2>
             <div></div>
         </div>
-    </section>
 
     <div class="container">
         @yield('contenido')
