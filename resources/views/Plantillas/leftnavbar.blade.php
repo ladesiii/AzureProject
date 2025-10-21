@@ -39,6 +39,7 @@
     </header>
 
 
+
     <main class="MainContent w-100 pe-4">
         @yield('contenido')
     </main>
