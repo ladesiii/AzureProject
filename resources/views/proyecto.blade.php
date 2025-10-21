@@ -1,6 +1,8 @@
 @extends('Plantillas.leftnavbar')
 
 @section('contenido')
+
+<div class="sobrefondo">
     <h1 class="Pagina-titulo">PROYECTOS</h1>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -18,6 +20,6 @@
             </ul>
         </div>
     </div>
-
+</div>
 @endsection
 

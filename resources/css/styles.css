@@ -38,9 +38,13 @@ body{
 .card-proyecto{
     width: 20rem;
     margin-left: 10%;
-    border: solid #2AD3F4 5px;
+    border: solid #0993AE 5px;
     border-radius: 20px;
+    color: black;
+}
 
+.card-body{
+    background-color: #2AD3F4;
 }
 
 .Pagina-titulo{
@@ -48,7 +52,17 @@ body{
     margin-top: 6%;
 }
 
+.MainContent{
+    background-color: #8BE7F9;
 
+}
+
+.sobre-fondo{
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 10px;
+}
 
 
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
