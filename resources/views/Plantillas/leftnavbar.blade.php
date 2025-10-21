@@ -11,13 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
-    <title>Document</title>
 </head>
 
 <body class="d-flex">
     <header>
         <nav class="main-section">
             <ul class="sidebar nav flex-column min-vh-100">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110" class="d-inline-block">
                 <li class="nav-item">
                     <h1>AzureProject</h1>
                 </li>
@@ -39,12 +39,10 @@
     </header>
 
 
-    <main class="MainContent">
+
+    <main class="MainContent w-100 pe-4">
         @yield('contenido')
     </main>
-
-
-
 
 </body>
 

@@ -31,6 +31,25 @@ body{
 
 /* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
 
+.styleMybotton{
+    background-color: red !important;
+}
+
+.card-proyecto{
+    width: 20rem;
+    margin-left: 10%;
+    border: solid #2AD3F4 5px;
+    border-radius: 20px;
+
+}
+
+.Pagina-titulo{
+    margin-left: 10%;
+    margin-top: 6%;
+}
+
+
+
 
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
