@@ -24,4 +24,7 @@ Route::get('/max', function (){
 //Web Page Proyecto (handled by controller)
 Route::get('/proyecto', function () {
     return view('proyecto');
-}) ;
+
+})->name('proyecto');
+
+
