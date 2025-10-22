@@ -33,7 +33,10 @@ html{
 .styleMybotton{
     background-color: red !important;
 }
-
+/*.Encabezado{
+    display: flex;
+    justify-content: space-between;
+}
 .card-proyecto{
     width: 20rem;
     margin-left: 10%;
@@ -44,11 +47,11 @@ html{
 
 .card-body{
     background-color: #2AD3F4;
-}
+}*/
 
 .Pagina-titulo{
     margin-left: 10%;
-    margin-top: 6%;
+    margin-top: 10%;
 }
 
 .MainContent{
@@ -56,7 +59,7 @@ html{
 
 }
 
-.sobre-fondo{
+.sobrefondo{
     background-color: white;
     border-radius: 10px;
     margin: 10px;
