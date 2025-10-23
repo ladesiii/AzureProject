@@ -19,8 +19,8 @@
                     <span class="ms-2 fw-bold align-middle titulo-header">AzureProject</span>
                 </a>
                 <div class="ms-auto">
-                    <button type="button" class="btn-auth me-3">INICIAR SESIÓN</button>
-                    <button type="button" class="btn-auth me-3">REGISTRARSE</button>
+                    <a class="btn-auth me-3">INICIAR SESIÓN</a>
+                    <a class="btn-auth me-3">REGISTRARSE</a>
                 </div>
             </div>
         </nav>
