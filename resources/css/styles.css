@@ -29,11 +29,11 @@ html{
 /*Inicio de sesion*/
 
 /* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
-
-.styleMybotton{
-    background-color: red !important;
+.Encabezado{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
 }
-
 .card-proyecto{
     width: 20rem;
     margin-left: 10%;
@@ -44,11 +44,11 @@ html{
 
 .card-body{
     background-color: #2AD3F4;
+
 }
 
 .Pagina-titulo{
-    margin-left: 10%;
-    margin-top: 10%;
+
 }
 
 .MainContent{
@@ -59,9 +59,8 @@ html{
 .sobrefondo{
     background-color: white;
     border-radius: 10px;
-    margin: 30px;
-    margin-left: 10px;
     height: 50%;
+    margin: 28px;
 }
 
 
