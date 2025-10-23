@@ -31,13 +31,12 @@
                 <li class="nav-item">
                     <a href="{{ url('/index') }}" class="btn-base btn-primary">TAREAS</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item bottonCerrar">
                     <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
                 </li>
             </ul>
         </nav>
     </header>
-
 
 
     <main class="MainContent w-100 pe-4">

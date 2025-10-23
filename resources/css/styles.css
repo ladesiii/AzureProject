@@ -49,7 +49,7 @@ body{
 
 .Pagina-titulo{
     margin-left: 10%;
-    margin-top: 6%;
+    margin-top: 10%;
 }
 
 .MainContent{
@@ -57,15 +57,22 @@ body{
 
 }
 
-.sobre-fondo{
+.sobrefondo{
     background-color: white;
     border-radius: 10px;
-    margin: 10px;
+    margin: 30px;
     margin-left: 10px;
+    height: 50%;
 }
 
 
+
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
+
+/*Botton de cerrar sesion*/
+.bottonCerrar{
+    margin-top: 500px;
+}
 
 
 /* Sidebar */
@@ -93,6 +100,8 @@ body{
     padding: 10px 30px;
     margin: 10px;
 }
+
+
 
 .btn-nav-outline {
     /* kept for backward compatibility - prefer using .btn-base + .btn-outline */
