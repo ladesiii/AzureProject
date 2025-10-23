@@ -21,8 +21,8 @@
                 <hr>
                 <li class="list-group-item">Proxima Tarea para finalizar</li>
                 <hr>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <a href="#" class="card-link" ><img src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
+                <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
             </div>
         </div>
 
