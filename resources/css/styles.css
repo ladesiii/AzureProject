@@ -33,10 +33,7 @@ html{
 .styleMybotton{
     background-color: red !important;
 }
-/*.Encabezado{
-    display: flex;
-    justify-content: space-between;
-}
+
 .card-proyecto{
     width: 20rem;
     margin-left: 10%;
@@ -47,7 +44,7 @@ html{
 
 .card-body{
     background-color: #2AD3F4;
-}*/
+}
 
 .Pagina-titulo{
     margin-left: 10%;
@@ -62,12 +59,19 @@ html{
 .sobrefondo{
     background-color: white;
     border-radius: 10px;
-    margin: 10px;
+    margin: 30px;
     margin-left: 10px;
+    height: 50%;
 }
 
 
+
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
+
+/*Botton de cerrar sesion*/
+.bottonCerrar{
+    margin-top: 500px;
+}
 
 
 /* Sidebar */
@@ -95,6 +99,8 @@ html{
     padding: 10px 30px;
     margin: 10px;
 }
+
+
 
 .btn-nav-outline {
     /* kept for backward compatibility - prefer using .btn-base + .btn-outline */

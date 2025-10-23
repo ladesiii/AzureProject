@@ -11,15 +11,18 @@
         </div>
 
 
-        <div class="card card-proyecto">
-            <div class="card-body ">
-                <h4 class="card-title">Nombre Proyecto</h4>
-                <ul class="list-group">
-                    <li class="list-group-item">Proxima Tarea para finalizar</li>
-                    <li class="list-group-item">Proxima Tarea para finalizar</li>
-                    <li class="list-group-item">Proxima Tarea para finalizar</li>
-                </ul>
+        <div class="card card-proyecto" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <hr>
+                <li class="list-group-item">Proxima Tarea para finalizar</li>
+                <li class="list-group-item">Proxima Tarea para finalizar</li>
+                <li class="list-group-item">Proxima Tarea para finalizar</li>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
             </div>
         </div>
+
+
     </div>
 @endsection
