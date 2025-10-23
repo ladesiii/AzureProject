@@ -1,19 +1,22 @@
 /* Landing */
-body{
+body {
     padding: 0;
     margin: 0;
     text-decoration: none !important;
 
 }
-.nav-landing{
+
+.nav-landing {
     background-color: #0993AE;
 }
-.titulo-header{
+
+.titulo-header {
     font-family: 'Space Grotesk';
     font-size: 32px;
     color: white;
 }
-.btn-auth{
+
+.btn-auth {
     font-family: 'Lato';
     font-weight: bold;
     color: white;
@@ -22,7 +25,7 @@ body{
     background-color: #2AD3F4;
     padding: 10px 20px 10px 20px;
     border: none;
-     text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 /*Registro*/
@@ -30,38 +33,49 @@ body{
 /*Inicio de sesion*/
 
 /* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
-.Encabezado{
+
+body{
+    width: 100%;
+}
+
+
+.Encabezado {
     display: flex;
     justify-content: space-between;
     padding: 30px;
 }
-.card-proyecto{
-    width: 20rem;
+
+.card-proyecto {
+    width: 90%;
     margin-left: 30px;
-    border: solid #0993AE 5px;
     border-radius: 20px;
-    color: black;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-body{
-
+.card-body {
+    border: #0993AE 5px solid;
+    border-radius: 5%;
     background-color: #2AD3F4;
-
+    max-width: 18rem;
+    min-width: 18rem;
+    margin: 10px;
 }
 
-.Pagina-titulo{
-/*Poner tipografia*/
+.Pagina-titulo {
+    /*Poner tipografia*/
 }
 
-.MainContent{
+.MainContent {
     background-color: #8BE7F9;
 
 }
 
-.sobrefondo{
+.sobrefondo {
     background-color: white;
     border-radius: 10px;
-    height: 50%;
+    height: 95%;
     margin: 28px;
 }
 
@@ -70,8 +84,8 @@ body{
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
 /*Botton de cerrar sesion*/
-.bottonCerrar{
-    margin-top: 500px;
+.bottonCerrar {
+    margin-top: 400px;
 }
 
 
@@ -155,15 +169,17 @@ body{
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-.btn-auth:hover{
+.btn-auth:hover {
     border: 2px white solid;
 }
-.img-landing{
+
+.img-landing {
     width: 900px;
     border-radius: 30px;
     border: 15px solid #2AD3F4;
 }
-.color-letra{
+
+.color-letra {
     color: #0993AE;
     font-weight: bold;
 }
