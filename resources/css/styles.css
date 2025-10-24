@@ -37,19 +37,20 @@ body{
 }
 .card-proyecto{
     width: 20rem;
-    margin-left: 10%;
+    margin-left: 30px;
     border: solid #0993AE 5px;
     border-radius: 20px;
     color: black;
 }
 
 .card-body{
+
     background-color: #2AD3F4;
 
 }
 
 .Pagina-titulo{
-
+/*Poner tipografia*/
 }
 
 .MainContent{
