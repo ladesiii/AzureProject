@@ -17,23 +17,35 @@
     <header>
         <nav class="main-section">
             <ul class="sidebar nav flex-column min-vh-100">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110" class="d-inline-block">
-                <li class="nav-item">
-                    <h1>AzureProject</h1>
-                </li>
+                <div class="h33 row">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110"
+                        class="d-inline-block">
+                    <li class="nav-item">
+                        <h2>AzureProject</h2>
+                    </li>
+                </div>
 
-                <li class="nav-item">
-                    <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('proyecto') }}" class="btn-base btn-primary">PROYECTOS</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('/index') }}" class="btn-base btn-primary">TAREAS</a>
-                </li>
-                <li class="nav-item bottonCerrar">
-                    <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
-                </li>
+
+                <div class="h33 row">
+
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('proyecto') }}" class="btn-base btn-primary">PROYECTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/index') }}" class="btn-base btn-primary">TAREAS</a>
+                    </li>
+
+                </div>
+
+                <div class="h33 row">
+                    <li class="nav-item bottonCerrar">
+                        <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
+                    </li>
+                </div>
+
             </ul>
         </nav>
     </header>
