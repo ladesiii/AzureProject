@@ -55,13 +55,14 @@ body{
 
 .MainContent{
     background-color: #8BE7F9;
+    min-height: 100vh;
 
 }
 
 .sobrefondo{
     background-color: white;
     border-radius: 10px;
-    height: 50%;
+    height: 50% auto;
     margin: 28px;
 }
 
@@ -76,6 +77,7 @@ body{
 
 
 /* Sidebar */
+
 .sidebar {
     padding: 40px;
     width: 25%;
@@ -84,7 +86,36 @@ body{
     align-items: center;
 }
 
-.sidebar h1 {
+.row{
+    display: flex;
+    align-items: center;
+    
+}
+
+.h33{
+    height: 33.333%;
+}
+
+.main-section{
+    height: 100% auto;
+}
+
+.sidebar {
+    padding: 40px;
+    /* Make the sidebar fixed so it stays visible while the page scrolls */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* full viewport height */
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    background-color: #0993AE;
+}
+
+.sidebar h2 {
     color: white;
     margin-bottom: 25px;
 }
