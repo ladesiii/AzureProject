@@ -17,7 +17,7 @@
     <header>
         <nav class="main-section">
             <ul class="sidebar nav flex-column min-vh-100">
-                <div class="h33 row">
+                <div class="h33 sideblock">
                     <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110"
                         class="d-inline-block">
                     <li class="nav-item">
@@ -26,7 +26,7 @@
                 </div>
 
 
-                <div class="h33 row">
+                <div class="h33 sideblock">
 
                     <li class="nav-item">
                         <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
@@ -40,7 +40,7 @@
 
                 </div>
 
-                <div class="h33 row">
+                <div class="h33 sideblock">
                     <li class="nav-item bottonCerrar">
                         <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
                     </li>
