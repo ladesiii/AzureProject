@@ -12,11 +12,9 @@ Route::get('/', function () {
 Route::get('/index', [TareaController::class, 'index']);
 
 
-
-
 //Web page Tareas
-Route::get('/max', function (){
-    return view('max');
+Route::get('/tareas', function (){
+    return view('tareas');
 
 });//hgukvgvgj
 
