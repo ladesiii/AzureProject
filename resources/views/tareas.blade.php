@@ -3,7 +3,7 @@
 @section('contenido')
     <div class="sobrefondo">
         <div class="Encabezado">
-            <h1 class="Pagina-titulo">PROYECTOS</h1>
+            <h1 class="Pagina-titulo">TAREAS</h1>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="button" class="btn btn-primary btn-lg">Crear Proyectos</button>
