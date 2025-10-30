@@ -1,0 +1,211 @@
+/* Landing */
+body{
+    padding: 0;
+    margin: 0;
+    text-decoration: none !important;
+
+}
+.nav-landing{
+    background-color: #0993AE;
+}
+.titulo-header{
+    font-family: 'Space Grotesk';
+    font-size: 32px;
+    color: white;
+}
+.btn-auth{
+    font-family: 'Lato';
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #2AD3F4;
+    padding: 10px 20px 10px 20px;
+    border: none;
+     text-decoration: none !important;
+}
+
+
+/*Inicio de sesion*/
+
+/* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
+.Encabezado{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+.card-proyecto{
+    width: 20rem;
+    margin-left: 30px;
+    border: solid #0993AE 5px;
+    border-radius: 20px;
+    color: black;
+}
+
+.card-body{
+
+    background-color: #2AD3F4;
+
+}
+
+.Pagina-titulo{
+/*Poner tipografia*/
+}
+
+.MainContent{
+    background-color: #8BE7F9;
+
+}
+
+.sobrefondo{
+    background-color: white;
+    border-radius: 10px;
+    height: 50%;
+    margin: 28px;
+}
+
+/* ---------------------------------------------------- Registro -------------------------------------------------------------- */
+#divIzquierdo {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#divDerecho {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    background-color: #2AD3F4;
+}
+
+.contenedor-registro {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contenedor-registro h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+#azpInicio{
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.formRegistro{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.formRegistro .form-control{
+    border: 2px solid #0993AE;
+    border-radius: 8px;
+}
+/* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
+
+/*Botton de cerrar sesion*/
+.bottonCerrar{
+    margin-top: 500px;
+}
+
+
+/* Sidebar */
+.sidebar {
+    padding: 40px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h1 {
+    color: white;
+    margin-bottom: 25px;
+}
+
+.btn-nav {
+    /* kept for backward compatibility - prefer using .btn-base + .btn-primary */
+    display: inline-block;
+    text-decoration: none;
+    background-color: #2AD3F4;
+    color: white;
+    border: none;
+    border-radius: 25%;
+    padding: 10px 30px;
+    margin: 10px;
+}
+
+
+
+.btn-nav-outline {
+    /* kept for backward compatibility - prefer using .btn-base + .btn-outline */
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.13);
+    color: white;
+    border: 1px solid #2AD3F4;
+    border-radius: 25%;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+/* DRY button utilities */
+.btn-base {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 25%;
+    padding: 10px 30px;
+    margin: 10px;
+}
+
+.btn-primary {
+    background-color: #2AD3F4;
+}
+
+.btn-outline {
+    background-color: rgba(255, 255, 255, 0.13);
+    color: white;
+    border: 1px solid #2AD3F4;
+    padding: 10px 20px;
+}
+
+/* Content */
+.main-section {
+    display: flex;
+    padding-left: 35px;
+    background-color: #0993AE;
+}
+
+.content {
+    background-color: white;
+    width: 60%;
+    align-items: center;
+    border: solid #8BE7F9 30px;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.btn-auth:hover{
+    border: 2px white solid;
+}
+.img-landing{
+    width: 900px;
+    border-radius: 30px;
+    border: 15px solid #2AD3F4;
+}
+.color-letra{
+    color: #0993AE;
+    font-weight: bold;
+}

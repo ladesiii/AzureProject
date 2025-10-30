@@ -6,9 +6,13 @@ use App\Http\Controllers\TareaController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\ProyectosController;
 
+Route::get('/pepe', function () {
+    return "Esto es una mierda";
+});
+
 Route::get('/', function () {
-    return view('landing');
-})->name('landing');
+    return view('registro');
+})->name('registro');
 
 Route::get('/index', [TareaController::class, 'index']);
 
@@ -17,7 +21,7 @@ Route::get('/index', [TareaController::class, 'index']);
 Route::get('/tareas', function (){
     return view('tareas');
 
-});//hgukvgvgj
+});
 
 
 //Web Page Proyecto (handled by controller)
