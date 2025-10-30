@@ -9,8 +9,6 @@
                 <button type="button" class="btn btn-primary btn-lg">Crear Proyectos</button>
             </div>
         </div>
-
-<<<<<<< Updated upstream
         <div id="container">
 
             <div id="empezar" class="bloque">
@@ -145,24 +143,4 @@
 
     </div>
 @endsection
-=======
 
-        <div class="card card-proyecto" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <a href="#" class="card-link" ><img src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
-                <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
-            </div>
-        </div>
-
-
-    </div>
-@endsection
->>>>>>> Stashed changes
