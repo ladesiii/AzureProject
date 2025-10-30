@@ -13,7 +13,14 @@ Route::get('/index', [TareaController::class, 'index']);
 
 
 //Web page Tareas
+<<<<<<< Updated upstream
 Route::get('/tareas', [TareaController::class, 'index'])->name('tareas');
+=======
+Route::get('/tareas', function (){
+    return view('tareas');
+
+});//hgukvgvgj
+>>>>>>> Stashed changes
 
 
 //Web Page Proyecto (handled by controller)
