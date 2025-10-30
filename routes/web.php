@@ -16,7 +16,7 @@ Route::get('/index', [TareaController::class, 'index']);
 Route::get('/tareas', function (){
     return view('tareas');
 
-});//hgukvgvgj
+})->name('tareas');//hgukvgvgj
 
 
 //Web Page Proyecto (handled by controller)
