@@ -1,19 +1,24 @@
 /* Landing */
-body{
+body {
     padding: 0;
     margin: 0;
     text-decoration: none !important;
+    height: 100%;
+    width: 100%;
 
 }
-.nav-landing{
+
+.nav-landing {
     background-color: #0993AE;
 }
-.titulo-header{
+
+.titulo-header {
     font-family: 'Space Grotesk';
     font-size: 32px;
     color: white;
 }
-.btn-auth{
+
+.btn-auth {
     font-family: 'Lato';
     font-weight: bold;
     color: white;
@@ -22,7 +27,7 @@ body{
     background-color: #2AD3F4;
     padding: 10px 20px 10px 20px;
     border: none;
-     text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 /*Registro*/
@@ -30,70 +35,98 @@ body{
 /*Inicio de sesion*/
 
 /* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
-.Encabezado{
+
+body{
+    width: 100%;
+}
+
+
+.Encabezado {
     display: flex;
     justify-content: space-between;
     padding: 30px;
 }
-.card-proyecto{
-    width: 20rem;
+
+.card-proyecto {
+    width: 90%;
     margin-left: 30px;
-    border: solid #0993AE 5px;
     border-radius: 20px;
-    color: black;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-body{
-
+.card-body {
+    border: #0993AE 5px solid;
+    border-radius: 5%;
     background-color: #2AD3F4;
 
 }
 
-.Pagina-titulo{
-/*Poner tipografia*/
+.Pagina-titulo {
+    /*Poner tipografia*/
 }
 
-.MainContent{
+.MainContent {
     background-color: #8BE7F9;
+    /* push main content to the right so it doesn't sit under the fixed sidebar */
+    margin-left: 25%;
     min-height: 100vh;
-
 }
 
-.sobrefondo{
+.sobrefondo {
     background-color: white;
     border-radius: 10px;
-    height: 50% auto;
+    height: 50%;
     margin: 28px;
+    padding-bottom: 20px;
 }
 
 
 
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
+.card-tareas{
+    width: 20rem;
+    border: solid #0993AE 5px;
+    color: black;
+    margin: 20px;
+}
+
+.separador{
+    height: 70% auto;
+    width: 10px;
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.bloque{
+    width: 30%;
+    height: 60%;
+    text-align: center;
+    margin: 10px;
+}
+
+.pizarra{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 /*Botton de cerrar sesion*/
-.bottonCerrar{
-    margin-top: 500px;
+.bottonCerrar {
+    margin-top: 400px;
 }
 
 
 /* Sidebar */
-
-.sidebar {
-    padding: 40px;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sideblock{
-    align-items: center;
-    
-}
-
-.h33{
-    height: 33.333%;
-}
 
 .main-section{
     height: 100% auto;
@@ -106,14 +139,14 @@ body{
     top: 0;
     left: 0;
     height: 100vh; /* full viewport height */
-    width: 15%;
+    width: 10%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     z-index: 1000;
-    background-color: #0993AE;
 }
 
-.sidebar h2 {
+.sidebar h1 {
     color: white;
     margin-bottom: 25px;
 }
@@ -126,7 +159,7 @@ body{
     color: white;
     border: none;
     border-radius: 25%;
-    padding: 30px;
+    padding: 10px 30px;
     margin: 10px;
 }
 
@@ -184,15 +217,17 @@ body{
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-.btn-auth:hover{
+.btn-auth:hover {
     border: 2px white solid;
 }
-.img-landing{
+
+.img-landing {
     width: 900px;
     border-radius: 30px;
     border: 15px solid #2AD3F4;
 }
-.color-letra{
+
+.color-letra {
     color: #0993AE;
     font-weight: bold;
 }

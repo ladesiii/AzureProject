@@ -25,4 +25,4 @@ Route::get('/proyecto', function () {
 
 })->name('proyecto');
 
-
+//dqwxqwqdqd
