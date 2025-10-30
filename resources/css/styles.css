@@ -70,6 +70,7 @@ body{
 .MainContent {
     background-color: #8BE7F9;
     min-height: 100vh;
+    margin-left: 17%;
 }
 
 .sobrefondo {
@@ -120,7 +121,19 @@ body{
 
 /*Botton de cerrar sesion*/
 .bottonCerrar {
-    margin-top: 400px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 16px; /* small spacing from very bottom edge if desired */
+}
+
+.logoBlock {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 16px; 
 }
 
 
@@ -132,7 +145,7 @@ body{
 }
 
 .h33{
-    height: 33.333%;
+    height: auto;
 }
 
 .main-section{
@@ -145,11 +158,13 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh; /* full viewport height */
-    width: 15%;
+    height: 100vh;
+    width: 17%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* center the sidebar items vertically as a group */
+    justify-content: center;
     z-index: 1000;
     background-color: #0993AE;
 }
@@ -157,6 +172,35 @@ body{
 .sidebar h2 {
     color: white;
     margin-bottom: 25px;
+}
+
+.sidebar .sideblock,
+.sidebar .row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sidebar .nav-item {
+    width: 100%;
+    text-align: center;
+}
+.sidebar .btn-base,
+.sidebar .btn-primary,
+.sidebar .btn-outline {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.sidebar img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 .btn-nav {

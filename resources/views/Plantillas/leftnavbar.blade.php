@@ -17,12 +17,9 @@
     <header>
         <nav class="main-section">
             <ul class="sidebar nav flex-column min-vh-100">
-<<<<<<< Updated upstream
                 <div class="h33 sideblock">
-=======
-                <div class="h33 row">
->>>>>>> Stashed changes
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110"
+                <div class="h33 row logoBlock">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width: 200px"
                         class="d-inline-block">
                     <li class="nav-item">
                         <h2>AzureProject</h2>
@@ -30,12 +27,8 @@
                 </div>
 
 
-<<<<<<< Updated upstream
                 <div class="h33 sideblock">
-=======
                 <div class="h33 row">
->>>>>>> Stashed changes
-
                     <li class="nav-item">
                         <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
                     </li>
@@ -48,11 +41,8 @@
 
                 </div>
 
-<<<<<<< Updated upstream
                 <div class="h33 sideblock">
-=======
                 <div class="h33 row">
->>>>>>> Stashed changes
                     <li class="nav-item bottonCerrar">
                         <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
                     </li>
