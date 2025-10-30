@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TareaController extends Controller
+class registroController extends Controller
 {
-    function tareas(){
-        return view("tareas");
+
+function registro()
+    {
+        return view('registro');
     }
 }
