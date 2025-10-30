@@ -13,17 +13,14 @@ Route::get('/', function () {
 
 //Web page Tareas
 
-<<<<<<< HEAD
 Route::get('/tareas', [TareaController::class, 'index'])->name('tareas');
 
 Route::get('/tareas', function (){
     return view('tareas');
 
 })->name('tareas');//hgukvgvgj
-=======
 Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 //hgukvgvgj
->>>>>>> origin/main
 
 
 
