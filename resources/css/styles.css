@@ -70,7 +70,7 @@ body{
 .MainContent {
     background-color: #8BE7F9;
     /* push main content to the right so it doesn't sit under the fixed sidebar */
-    margin-left: 15%;
+    margin-left: 25%;
     min-height: 100vh;
 }
 
@@ -127,6 +127,15 @@ body{
 
 
 /* Sidebar */
+.row{
+    display: flex;
+    align-items: center;
+    
+}
+
+.h33{
+    height: 33.333%;
+}
 
 .main-section{
     height: 100% auto;
@@ -139,49 +148,14 @@ body{
     top: 0;
     left: 0;
     height: 100vh; /* full viewport height */
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* distribute blocks: top, center, bottom */
-    align-items: center; /* center items horizontally */
-    flex-wrap: nowrap;
-    background-color: #0993AE;
-    z-index: 1000;
-}
-
-.sidebar .sideblock {
-    /* position blocks absolutely so their positions don't shift on resize */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* allow content to size naturally */
-    width: auto;
-}
-.sidebar > .sideblock:first-child {
-    top: 40px; /* keep a little spacing from top (matches sidebar padding) */
-    transform: translateX(-50%); /* only horizontal centering */
-}
-.sidebar > .sideblock:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%); /* perfectly vertically centered */
-}
-.sidebar > .sideblock:last-child {
-    bottom: 40px; /* keep spacing from bottom */
-    transform: translateX(-50%);
-}
-.sidebar .nav-item {
-    text-align: center;
-    width: 100%;
-}
-.sidebar img {
-    display: block;
-    margin: 0 auto 10px;
+    z-index: 1000;
 }
 
-.sidebar h1 {
+.sidebar h2 {
     color: white;
     margin-bottom: 25px;
 }
