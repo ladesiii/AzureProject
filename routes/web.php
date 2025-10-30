@@ -13,16 +13,17 @@ Route::get('/index', [TareaController::class, 'index']);
 
 
 //Web page Tareas
+
+Route::get('/tareas', [TareaController::class, 'index'])->name('tareas');
+
 Route::get('/tareas', function (){
     return view('tareas');
 
 })->name('tareas');//hgukvgvgj
 
 
-//Web Page Proyecto (handled by controller)
-Route::get('/proyecto', function () {
-    return view('proyecto');
 
-})->name('proyecto');
+//Web Page Proyecto (handled by controller)
+Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
 
 //dqwxqwqdqd

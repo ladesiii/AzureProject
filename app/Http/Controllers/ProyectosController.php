@@ -11,7 +11,7 @@ class ProyectosController extends Controller
     // Route target for /proyecto
     public function proyecto()
     {
-        return view('proyecto_index');
+        return view('proyecto');
     }
 
 }
