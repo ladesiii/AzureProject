@@ -69,6 +69,10 @@ body{
 
 .MainContent {
     background-color: #8BE7F9;
+<<<<<<< Updated upstream
+=======
+    /* push main content to the right so it doesn't sit under the fixed sidebar */
+>>>>>>> Stashed changes
     min-height: 100vh;
 }
 

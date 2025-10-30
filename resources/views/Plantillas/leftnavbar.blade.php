@@ -17,7 +17,11 @@
     <header>
         <nav class="main-section">
             <ul class="sidebar nav flex-column min-vh-100">
+<<<<<<< Updated upstream
                 <div class="h33 sideblock">
+=======
+                <div class="h33 row">
+>>>>>>> Stashed changes
                     <img src="{{ asset('img/logo.png') }}" alt="Logo" width="110" height="110"
                         class="d-inline-block">
                     <li class="nav-item">
@@ -26,7 +30,11 @@
                 </div>
 
 
+<<<<<<< Updated upstream
                 <div class="h33 sideblock">
+=======
+                <div class="h33 row">
+>>>>>>> Stashed changes
 
                     <li class="nav-item">
                         <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
@@ -40,7 +48,11 @@
 
                 </div>
 
+<<<<<<< Updated upstream
                 <div class="h33 sideblock">
+=======
+                <div class="h33 row">
+>>>>>>> Stashed changes
                     <li class="nav-item bottonCerrar">
                         <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
                     </li>
