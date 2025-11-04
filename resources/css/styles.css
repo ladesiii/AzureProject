@@ -60,7 +60,11 @@ body{
     border: #0993AE 5px solid;
     border-radius: 5%;
     background-color: #2AD3F4;
+    cursor:move;
+}
 
+.card-body-proyecto {
+    margin: 10px;
 }
 
 .Pagina-titulo {

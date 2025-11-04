@@ -1,6 +1,8 @@
 @extends('Plantillas.leftnavbar')
 
 @section('contenido')
+
+
     <div class="sobrefondo">
         <div class="Encabezado">
             <h1 class="Pagina-titulo">TAREAS</h1>
@@ -141,6 +143,76 @@
         </div>
 
     </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select cards and columns
+            const cards = document.querySelectorAll('.card-tareas');
+            const columns = document.querySelectorAll('.pizarra');
+
+            // Make cards draggable and set ids if missing
+            cards.forEach((card, index) => {
+                if (!card.id) card.id = `card-${Date.now()}-${index}`;
+                card.setAttribute('draggable', 'true');
+
+                card.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', card.id);
+                    e.dataTransfer.effectAllowed = 'move';
+                    card.classList.add('dragging');
+                });
+
+                card.addEventListener('dragend', () => {
+                    card.classList.remove('dragging');
+                    document.querySelectorAll('.pizarra').forEach(p => p.classList.remove('dragover'));
+                });
+            });
+
+            // Helper to find insertion point
+            function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('.card-tareas:not(.dragging)')];
+
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: Number.NEGATIVE_INFINITY }).element;
+            }
+
+            // Setup drop targets
+            columns.forEach(col => {
+                col.addEventListener('dragover', (e) => {
+                    e.preventDefault(); // allow drop
+                    col.classList.add('dragover');
+                    const dragging = document.querySelector('.dragging');
+                    const afterElement = getDragAfterElement(col, e.clientY);
+                    if (!dragging) return;
+                    if (afterElement == null) {
+                        col.appendChild(dragging);
+                    } else {
+                        col.insertBefore(dragging, afterElement);
+                    }
+                });
+
+                col.addEventListener('dragleave', () => {
+                    col.classList.remove('dragover');
+                });
+
+                col.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    col.classList.remove('dragover');
+                    const id = e.dataTransfer.getData('text/plain');
+                    const card = document.getElementById(id);
+                    if (card) col.appendChild(card);
+                });
+            });
+        });
+    </script>
+
 @endsection
 
 
