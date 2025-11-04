@@ -13,13 +13,13 @@
     </script>
     <title>Registro</title>
 </head>
-
+{{-- el css es el de la carpeta public --}}
 <body>
 <div id="divIzquierdo">
     <div class="contenedor-registro">
         <h2>Te damos la bienvenida a <h2 id="azpInicio">AzureProject</h2></h2>
         <form class="formRegistro">
-            <div class="mb-3">
+            <div class="mb-3">{{-- mb-3 es estilo de bootstrap --}}
                 <label for="emailadress" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
@@ -33,9 +33,15 @@
             </div>
             <button type="submit" class="btn btn-primary">Registrarse</button>
         </form>
+            <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
     </div>
 </div>
 <div id="divDerecho">
+    <div class="textoDerecho">
+        <h2>COMIENZA A GESTIONAR</h2>
+        <h2>TUS PROYECTOS</h2>
+    </div>
+    <img class="imagenRegistro" src="{{ asset('img/logo.png') }}" alt="Imagen de registro">
 </div>
 </body>
 

@@ -30,3 +30,5 @@ Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyect
 //Registro
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
 
+Route::view('/login', 'login')->name('login');
+

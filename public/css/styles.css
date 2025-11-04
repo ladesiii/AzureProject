@@ -78,7 +78,65 @@ body{
     width: 50%;
     float: left;
     min-height: 100vh;
-    background-color: #2AD3F4;
+    background-color: #0993AE;
+}
+
+
+#divDerecho {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    background-color: #0993AE;
+    display: flex;
+    flex-direction: column; /* apilar texto encima de la imagen */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* espacio interior para que el texto no quede pegado */
+}
+
+.imagenRegistro {
+    max-width: 40%;
+    height: auto;
+    display: block;
+}
+
+.textoDerecho {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px; /* separacion entre texto e imagen */
+}
+
+.textoDerecho h2{
+    margin: 0;
+    font-size: 32px; /* aumentado para mayor visibilidad */
+}
+
+.contenedor-registro p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+.contenedor-registro p a {
+    color: #0993AE;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contenedor-registro p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive: reducir tamaños en pantallas pequeñas */
+@media (max-width: 600px) {
+    .textoDerecho h2{
+        font-size: 20px;
+    }
+    .textoDerecho .subtexto{
+        font-size: 14px;
+    }
+    .imagenRegistro{
+        max-width: 90%;
+    }
 }
 
 .contenedor-registro {
@@ -88,11 +146,11 @@ body{
 }
 
 .contenedor-registro h2 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 28px;
 }
 #azpInicio{
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-size: 28px;
     font-weight: bold;
 }
@@ -109,6 +167,11 @@ body{
     border: 2px solid #0993AE;
     border-radius: 8px;
 }
+
+.formRegistro button[type="submit"] {
+    margin-top: 20px;
+}
+
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
 /*Botton de cerrar sesion*/
