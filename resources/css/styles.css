@@ -1,19 +1,24 @@
 /* Landing */
-body{
+body {
     padding: 0;
     margin: 0;
     text-decoration: none !important;
+    height: 100%;
+    width: 100%;
 
 }
-.nav-landing{
+
+.nav-landing {
     background-color: #0993AE;
 }
-.titulo-header{
+
+.titulo-header {
     font-family: 'Space Grotesk';
     font-size: 32px;
     color: white;
 }
-.btn-auth{
+
+.btn-auth {
     font-family: 'Lato';
     font-weight: bold;
     color: white;
@@ -22,7 +27,7 @@ body{
     background-color: #2AD3F4;
     padding: 10px 20px 10px 20px;
     border: none;
-     text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 /*Registro*/
@@ -30,39 +35,50 @@ body{
 /*Inicio de sesion*/
 
 /* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
-.Encabezado{
+
+body{
+    width: 100%;
+}
+
+
+.Encabezado {
     display: flex;
     justify-content: space-between;
     padding: 30px;
 }
-.card-proyecto{
-    width: 20rem;
+
+.card-proyecto {
+    width: 90%;
     margin-left: 30px;
-    border: solid #0993AE 5px;
     border-radius: 20px;
-    color: black;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.card-body{
-
+.card-body {
+    border: #0993AE 5px solid;
+    border-radius: 5%;
     background-color: #2AD3F4;
 
 }
 
-.Pagina-titulo{
-/*Poner tipografia*/
+.Pagina-titulo {
+    /*Poner tipografia*/
 }
 
-.MainContent{
+.MainContent {
     background-color: #8BE7F9;
-
+    min-height: 100vh;
+    margin-left: 17%;
 }
 
-.sobrefondo{
+.sobrefondo {
     background-color: white;
     border-radius: 10px;
-    height: 50%;
+    height: 50% auto;
     margin: 28px;
+    padding-bottom: 20px;
 }
 
 /* ---------------------------------------------------- Registro -------------------------------------------------------------- */
@@ -78,24 +94,122 @@ body{
 
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
+.card-tareas{
+    width: 20rem;
+    border: solid #0993AE 5px;
+    color: black;
+    margin: 20px;
+}
+
+.separador{
+    height: 70% auto;
+    width: 10px;
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.bloque{
+    width: 30%;
+    height: 60%;
+    text-align: center;
+    margin: 10px;
+}
+
+.pizarra{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 /*Botton de cerrar sesion*/
-.bottonCerrar{
-    margin-top: 500px;
+.bottonCerrar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 16px; /* small spacing from very bottom edge if desired */
+}
+
+.logoBlock {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 16px; 
 }
 
 
 /* Sidebar */
+.row{
+    display: flex;
+    align-items: center;
+    
+}
+
+.h33{
+    height: auto;
+}
+
+.main-section{
+    height: 100% auto;
+}
+
 .sidebar {
     padding: 40px;
-    width: 25%;
+    /* Make the sidebar fixed so it stays visible while the page scrolls */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 17%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* center the sidebar items vertically as a group */
+    justify-content: center;
+    z-index: 1000;
+    background-color: #0993AE;
 }
 
-.sidebar h1 {
+.sidebar h2 {
     color: white;
     margin-bottom: 25px;
+}
+
+.sidebar .sideblock,
+.sidebar .row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sidebar .nav-item {
+    width: 100%;
+    text-align: center;
+}
+.sidebar .btn-base,
+.sidebar .btn-primary,
+.sidebar .btn-outline {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.sidebar img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 .btn-nav {
@@ -149,7 +263,6 @@ body{
 /* Content */
 .main-section {
     display: flex;
-    padding-left: 35px;
     background-color: #0993AE;
 }
 
@@ -158,21 +271,22 @@ body{
     width: 60%;
     align-items: center;
     border: solid #8BE7F9 30px;
-    margin-left: 20px;
     padding: 10px;
 }
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-.btn-auth:hover{
+.btn-auth:hover {
     border: 2px white solid;
 }
-.img-landing{
+
+.img-landing {
     width: 900px;
     border-radius: 30px;
     border: 15px solid #2AD3F4;
 }
-.color-letra{
+
+.color-letra {
     color: #0993AE;
     font-weight: bold;
 }
