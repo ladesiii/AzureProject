@@ -10,8 +10,6 @@
             </div>
         </div>
         <div id="container">
-
-            <h1>ola</h1>
             <div id="empezar" class="bloque">
                 <h3>POR EMPEZAR</h3>
 
