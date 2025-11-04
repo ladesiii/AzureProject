@@ -82,15 +82,51 @@ body{
 }
 
 /* ---------------------------------------------------- Registro -------------------------------------------------------------- */
-.bichota{
-    background-color: #8BE7F9;
-    border: solid #0993AE 30px;
-    border-radius: 20px;
-    padding: 20px;
+#divIzquierdo {
     width: 50%;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    float: left;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#divDerecho {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    background-color: #2AD3F4;
+}
+
+.contenedor-registro {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contenedor-registro h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+#azpInicio{
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.formRegistro{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.formRegistro .form-control{
+    border: 2px solid #0993AE;
+    border-radius: 8px;
+}
+
 
 /* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
 
@@ -142,7 +178,7 @@ body{
     top: 0;
     width: 100%;
     text-align: center;
-    padding-top: 16px; 
+    padding-top: 16px;
 }
 
 
@@ -150,7 +186,7 @@ body{
 .row{
     display: flex;
     align-items: center;
-    
+
 }
 
 .h33{
