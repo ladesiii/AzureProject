@@ -247,6 +247,24 @@
                         makeCardDraggable(card);
                     });
                 })();
+
+
+            //
+            //  BORRAR TAREA
+            //
+
+            (function setupDeleteButtons() {
+                // Delegación de eventos para manejar clicks en botones de borrar
+                document.body.addEventListener('click', function(e) {
+                    if (e.target && e.target.closest('a.card-link img[alt="trash"]')) {
+                        e.preventDefault();
+                        const card = e.target.closest('.card-tareas');
+                        if (card) {
+                            card.remove(); // Elimina la tarjeta del DOM
+                        }
+                    }
+                });
+            })();
         });
     </script>
 
