@@ -8,7 +8,7 @@
             <h1 class="Pagina-titulo">TAREAS</h1>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn btn-primary btn-lg">Crear Proyectos</button>
+                <button type="button" class="btn btn-primary btn-lg">Crear tarea</button>
             </div>
         </div>
         <div id="container">
@@ -16,56 +16,8 @@
                 <h3>POR EMPEZAR</h3>
 
                 <div class="pizarra">
-                    <div class="card card-tareas" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Dejar de odiarte</h5>
-                            <hr>
-                            <li class="list-group-item">Ayuda estoy triste</li>
-                            <hr>
-                            <li class="list-group-item">La vida se me hace bola</li>
-                            <hr>
-                            <li class="list-group-item">matadme ya</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                                    class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                                    class="d-inline-block"></a>
-                        </div>
-                    </div>
 
-                    <div class="card card-tareas" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                                    class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                                    class="d-inline-block"></a>
-                        </div>
-                    </div>
-
-                    <div class="card card-tareas" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                                    class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                                    class="d-inline-block"></a>
-                        </div>
-                    </div>
+                    
 
                 </div>
 
@@ -147,6 +99,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+
+            // 
+            //      MOVER TAREAS ENTRE COLUMNAS
+            //
+
+
             //Seleccionamos todas las tarjetas y columnas
             const cards = document.querySelectorAll('.card-tareas');
             const columns = document.querySelectorAll('.pizarra');
@@ -189,7 +148,6 @@
                 }, { offset: Number.NEGATIVE_INFINITY }).element;
             }
 
-
             // Configura los eventos de las columnas para permitir soltar las tarjetas
             columns.forEach(col => { //Cada columna
                 col.addEventListener('dragover', (e) => { //Mientras se arrastra sobre la columna
@@ -219,8 +177,80 @@
                     if (card) col.appendChild(card); //Añade la tarjeta a la columna
                 });
             });
+
+
+
+
+            
+            // 
+            //      CREAR TAREA NUEVA
+            //
+
+
+            // Helper to make a card draggable (used for newly created cards)
+                function makeCardDraggable(card) {
+                    if (!card.id) card.id = `card-${Date.now()}-${Math.floor(Math.random()*10000)}`;
+                    card.setAttribute('draggable', 'true');
+
+                    card.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', card.id);
+                        e.dataTransfer.effectAllowed = 'move';
+                        card.classList.add('dragging');
+                    });
+
+                    card.addEventListener('dragend', () => {
+                        card.classList.remove('dragging');
+                        document.querySelectorAll('.pizarra').forEach(p => p.classList.remove('dragover'));
+                    });
+                }
+
+                // Crear nueva tarjeta al hacer click en el botón "Crear tarea"
+                (function setupCreateButton() {
+                    // Busca el botón por texto (evita tocar el HTML)
+                    const btns = Array.from(document.querySelectorAll('button'));
+                    const createBtn = btns.find(b => b.textContent.trim().toLowerCase().includes('crear tarea')) || btns[0];
+                    if (!createBtn) return;
+
+                    createBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const startPizarra = document.querySelector('#empezar .pizarra');
+                        if (!startPizarra) return;
+
+                        // Construye la tarjeta
+                        const card = document.createElement('div');
+                        card.className = 'card card-tareas';
+                        card.style.width = '18rem';
+
+                        const body = document.createElement('div');
+                        body.className = 'card-body';
+                        // usa las rutas de asset del servidor para las imágenes
+                        const editUrl = "{{ asset('img/edit.png') }}";
+                        const trashUrl = "{{ asset('img/trash.png') }}";
+
+                        body.innerHTML = `
+                            <h5 class="card-title">TAREA NUEVA</h5>
+                            <hr>
+                            <li class="list-group-item">Descripcion de una tarea completamente nueva</li>
+                            <hr>
+                            <li class="list-group-item">esto es nuevo</li>
+                            <hr>
+                            <li class="list-group-item">lo juro, es nuevo</li>
+                            <hr>
+                            <a href="#" class="card-link"><img src="${editUrl}" alt="edit" class="d-inline-block"></a>
+                            <a href="#" class="card-link"><img src="${trashUrl}" alt="trash" class="d-inline-block"></a>
+                        `;
+
+                        card.appendChild(body);
+                        startPizarra.appendChild(card);
+
+                        // Hacerla arrastrable
+                        makeCardDraggable(card);
+                    });
+                })();
         });
     </script>
+
+
 
 @endsection
 
