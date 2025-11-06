@@ -26,22 +26,8 @@ body {
     display: inline-block;
     cursor: pointer;
 }
-
-/* Estilo específico para botones en el header */
-header .btn-auth {
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-    padding: 8px 18px; /* Ajustado para compensar el borde */
-}
-
 header .btn-auth:hover {
     border-color: white;
-    background-color: #2AD3F4; /* Mantiene el color de fondo original */
-}
-
-/* Estilo específico para el botón del main */
-main .btn-auth:hover {
-    background-color: #0993AE;
 }
 /* Hacer que el botón del formulario tenga el mismo hover que el del main */
 .auth-form .btn-auth:hover {
@@ -393,17 +379,56 @@ body{
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
+    margin: 10px;
 }
 
 .card-body {
     border: #0993AE 5px solid;
     border-radius: 5%;
-    background-color: #2AD3F4;
-    cursor:move;
+    background-color: #8BE7F9;
+    cursor: move;
+    /* dejar un poco de espacio para los iconos en la esquina */
+    padding: 18px 18px 16px 18px;
+    position: relative;
 }
 
 .card-body-proyecto {
-    margin: 10px;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px; /* altura más compacta pero consistente */
+}
+
+.card-body-proyecto .card-title {
+    margin-bottom: 8px;
+    padding: 0 6px;
+}
+
+.card-body-proyecto .list-group-item {
+    margin: 4px 6px;
+    background: transparent;
+    border: none;
+    padding-left: 0;
+}
+
+/* Colocar los iconos en la parte inferior del card, alineados a la derecha, con pequeño margen */
+.card-body-proyecto .project-actions {
+    margin-top: auto; /* empuja los iconos hacia abajo */
+    display: flex;
+    flex-wrap: nowrap; /* evitar que los iconos salten a otra línea */
+    white-space: nowrap; /* prevenir wrap por zoom */
+    gap: 8px;
+    justify-content: flex-end; /* alineados a la derecha dentro del card */
+    align-items: center;
+    padding-bottom: 6px; /* pequeño espacio respecto al borde inferior */
+}
+
+.card-body-proyecto .project-actions a img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .Pagina-titulo {
@@ -536,6 +561,10 @@ body{
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
+    width: 200px; /* mismo ancho para todos los botones del sidebar */
+    text-align: center;
+    border-radius: 20px; /* esquinas suavemente curvadas */
+    padding: 10px 0; /* fijar padding vertical y centrar texto */
 }
 
 .sidebar img {
@@ -575,8 +604,7 @@ body{
     text-decoration: none;
     color: white;
     border: none;
-    border-radius: 25%;
-    padding: 10px 30px;
+    /* keep outer margin but remove conflicting border-radius */
     margin: 10px;
 }
 
