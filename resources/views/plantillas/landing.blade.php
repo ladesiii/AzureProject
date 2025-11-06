@@ -11,22 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="nav-landing">
-        <nav class="navbar d-flex align-items-center ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('landing') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="Logo" width="70" height="70" class="d-inline-block">
-                    <span class="ms-2 fw-bold align-middle titulo-header">AzureProject</span>
-                </a>
-                <div class="ms-auto">
-                    <a class="btn-auth me-3">INICIAR SESIÓN</a>
-                    <a class="btn-auth me-3">REGISTRARSE</a>
+    <div class="d-flex flex-column vh-100">
+        <header class="nav-landing">
+            <nav class="navbar d-flex align-items-center">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ route('landing') }}">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" width="70" height="70" class="d-inline-block">
+                        <span class="ms-2 fw-bold align-middle titulo-header">AzureProject</span>
+                    </a>
+                    <div class="ms-auto">
+                        <a class="btn-auth me-3">INICIAR SESIÓN</a>
+                        <a class="btn-auth me-3">REGISTRARSE</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <main class="d-flex align-items-center justify-content-between min-vh-100">
-        @yield('content')
-    </main>
+            </nav>
+        </header>
+        <main class="flex-grow-1 d-flex align-items-center overflow-auto">
+            @yield('content')
+        </main>
+    </div>
 
 </body>

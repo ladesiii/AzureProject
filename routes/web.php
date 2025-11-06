@@ -10,22 +10,10 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-Route::get('/index', [TareaController::class, 'index']);
-
-
-//Web page Tareas
-
-Route::get('/tareas', [TareaController::class, 'index'])->name('tareas');
-
-Route::get('/tareas', function (){
-    return view('tareas');
-
-
-})->name('tareas');//hgukvgvgj
+// Web page Tareas
 Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
 //Web Page Proyecto (handled by controller)
 Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');
 
-//dqwxqwqdqd
