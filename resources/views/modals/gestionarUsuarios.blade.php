@@ -1,25 +1,23 @@
-<!-- Modal Editar Proyecto -->
-<div class="modal fade" id="modalEditarProyecto" tabindex="-1" aria-labelledby="modalEditarProyectoLabel" aria-hidden="true">
+<!-- Modal Gestionar Usuarios -->
+<div class="modal fade" id="modalGestionarUsuarios" tabindex="-1" aria-labelledby="modalGestionarUsuariosLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content custom-modal-create">
       <!-- Header personalizado -->
       <div class="modal-header custom-modal-header">
-        <h5 class="modal-title text-white fw-bold mb-0">EDITAR PROYECTO</h5>
+        <h5 class="modal-title text-white fw-bold mb-0">GESTIONAR USUARIOS</h5>
       </div>
 
       <!-- Cuerpo -->
-      <form id="formEditarProyecto" method="POST" action="">
+      <form id="formGestionarUsuarios" method="POST" action="">
         @csrf
-        @method('PUT')
         <div class="modal-body">
           <div class="mb-3">
-            <label for="nombreProyectoEdit" class="form-label">Nombre del proyecto</label>
-            <input type="text" class="form-control custom-input" id="nombreProyectoEdit" name="nombre" placeholder="Ej. Nuevo CRM" required>
+            <p class="fw-bold mb-2">Proyecto: <span id="nombreProyectoGestionar"></span></p>
           </div>
 
           <div class="mb-3">
-            <label for="usuarioBusquedaEdit" class="form-label">Añadir usuarios</label>
-            <select class="form-select custom-input" id="usuarioBusquedaEdit" name="usuario_add">
+            <label for="usuarioBusquedaGestionar" class="form-label">Añadir usuarios</label>
+            <select class="form-select custom-input" id="usuarioBusquedaGestionar" name="usuario_add">
               <option selected disabled>Selecciona un usuario</option>
               @isset($usuarios)
                 @foreach($usuarios as $u)
@@ -30,8 +28,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="usuarioQuitarEdit" class="form-label">Quitar usuarios</label>
-            <select class="form-select custom-input" id="usuarioQuitarEdit" name="usuario_remove">
+            <label for="usuarioQuitarGestionar" class="form-label">Quitar usuarios</label>
+            <select class="form-select custom-input" id="usuarioQuitarGestionar" name="usuario_remove">
               <option selected disabled>Selecciona un usuario</option>
               @isset($usuariosProyecto)
                 @foreach($usuariosProyecto as $u)
