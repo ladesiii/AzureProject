@@ -22,37 +22,43 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 28px;
+    font-size: clamp(1.25rem, 3.5vw, 2rem); /* larger and responsive */
     letter-spacing: 0.4px;
-    margin-bottom: 5rem; /* mayor espacio entre texto y logo (escritorio) */
     color: #ffffff;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.auth-side .logo-container {
+    margin-top: 3rem !important;
+    padding-top: 2rem;
 }
 
 /* Ajustes responsivos del espacio entre texto y logo */
 @media (max-width: 992px) {
     .auth-side .logo-text {
-        margin-bottom: 2rem; /* tablet */
+        margin-bottom: 3rem; /* tablet */
         font-size: 26px;
     }
 }
 
 @media (max-width: 768px) {
     .auth-side .logo-text {
-        margin-bottom: 1.5rem; /* móvil */
+        margin-bottom: 2.5rem; /* móvil */
         font-size: 22px;
     }
 }
 
 /* Tamaño del logo en la sección de autenticación */
 .auth-side .logo-img {
-    max-width: 360px; /* mucho más grande en escritorio */
+    max-width: 420px; /* más grande en escritorio */
     width: auto;
     height: auto;
 }
 
 @media (max-width: 992px) {
     .auth-side .logo-img {
-        max-width: 260px; /* tamaño intermedio en tablet */
+        max-width: 320px; /* tamaño intermedio en tablet */
     }
 }
 
@@ -95,6 +101,10 @@ header .btn-auth:hover {
 main .btn-auth:hover {
     background-color: #0993AE;
 }
+/* Hacer que el botón del formulario tenga el mismo hover que el del main */
+.auth-form .btn-auth:hover {
+    background-color: #0993AE;
+}
 
 /*Registro*/
 
@@ -120,15 +130,115 @@ main .btn-auth:hover {
     transition: all 0.5s ease;
 }
 
+/* Centrar el bloque interno horizontalmente y alinear verticalmente */
+.auth-side .side-inner {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* --- Sección del formulario --- */
 .auth-form {
     width: 50vw;           /* Mitad exacta del ancho */
     height: 100vh;         /* Toda la altura */
     background-color: #fff;
     display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 2rem;
+}
+
+/* Espaciado interno adicional en el formulario */
+.auth-form .mb-3 {
+    margin-bottom: 1.25rem; /* más espacio entre grupos */
+}
+
+.auth-form .btn-auth {
+    margin-top: 1rem; /* separar el botón de los campos */
+}
+
+@media (max-width: 576px) {
+    .auth-form .mb-3 {
+        margin-bottom: 1rem; /* un poco menos en pantallas muy pequeñas */
+    }
+    .auth-form .btn-auth {
+        margin-top: 0.75rem;
+    }
+}
+
+/* Estilos para los inputs del formulario */
+.auth-form .form-control {
+    border-color: #0993AE;
+    border-width: 2px;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.auth-form .form-control:focus {
+    border-color: #0993AE;
+    box-shadow: 0 0 0 0.25rem rgba(9, 147, 174, 0.25);
+}
+
+/* Labels: usar estilo por defecto de Bootstrap (sin overrides) */
+
+/* Estilos para el header del formulario */
+.form-header {
+    position: relative;
+    z-index: 1;
+}
+
+.form-header a {
+    transition: opacity 0.3s ease;
+}
+
+.form-header a:hover {
+    opacity: 0.8;
+}
+
+.form-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.form-header a:hover .form-logo {
+    transform: scale(1.05);
+}
+
+.form-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0993AE;
+    transition: color 0.3s ease;
+}
+
+.form-welcome-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0993AE;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Estilo para el título h3 del formulario */
+.auth-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 2.25rem;
+    color: #333;
+    line-height: 1.3;
+}
+
+.auth-title .color-letra {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 2.25rem;
+    display: block;
+    margin-top: 0.75rem;
 }
 
 /* --- Posición según vista --- */
@@ -141,16 +251,46 @@ main .btn-auth:hover {
 }
 
 /* --- Responsive --- */
-@media (max-width: 768px) {
+@media (max-width: 991px) {  /* Breakpoint de Bootstrap para tablet */
     .auth-container {
         flex-direction: column;
-        height: auto;
     }
 
-    .auth-side,
+    .auth-side {
+        display: none !important; /* Ocultar completamente el div del logo */
+    }
+
     .auth-form {
-        width: 100vw;
-        height: auto;
+        width: 100%;
+        min-height: 100vh;
+        padding: 2rem;
+    }
+
+    .form-header {
+        margin-bottom: 2rem;
+    }
+
+    .form-logo {
+        height: 35px;
+    }
+
+    .form-title {
+        font-size: 1.25rem;
+    }
+
+    .form-welcome-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-logo {
+        height: 30px;
+    }
+
+    .form-title {
+        font-size: 1.1rem;
     }
 }
 
@@ -397,9 +537,12 @@ body{
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .img-landing {
-    width: 900px;
+    width: 100%;            /* fill its column */
+    max-width: 800px;      /* slightly smaller max so it isn't too dominant */
     border-radius: 30px;
     border: 15px solid #2AD3F4;
+    box-sizing: border-box; /* include border in sizing */
+    display: inline-block;
 }
 
 .color-letra {

@@ -16,4 +16,8 @@ Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 //Web Page Proyecto (handled by controller)
 Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');
+// Registro view (simple GET route)
+Route::get('/registro', function () {
+    return view('registro');
+})->name('registro');
 
