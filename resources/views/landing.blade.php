@@ -23,7 +23,7 @@
                     <button type="button" class="btn-auth">CREAR PROYECTO</button>
                 </div>
             </div>
-            <div class="col-12 col-lg-5 text-center">
+            <div class="col-12 col-lg-6 text-center">
                 <img src="{{ asset('img/landing.png') }}" alt="Logo" class="img-fluid img-landing">
             </div>
         </div>
