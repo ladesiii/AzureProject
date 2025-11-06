@@ -1,4 +1,6 @@
-/* Landing */
+/* ====== GENERAL (base, botones, tipografía) ====== */
+/* Nota: Secciones por vistas más abajo: LANDING, LOGIN, PROYECTOS, TAREAS, y al final MODALS */
+/* ====== GENERAL: base ====== */
 body {
     padding: 0;
     margin: 0;
@@ -7,67 +9,7 @@ body {
     width: 100%;
 }
 
-.nav-landing {
-    background-color: #0993AE;
-}
-
-.titulo-header {
-    font-family: 'Space Grotesk';
-    font-size: 32px;
-    color: white;
-}
-
-/* Logo text en la sección de autenticación: Space Grotesk en mayúsculas */
-.auth-side .logo-text {
-    font-family: 'Space Grotesk', sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: clamp(1.25rem, 3.5vw, 2rem); /* larger and responsive */
-    letter-spacing: 0.4px;
-    color: #ffffff;
-    position: relative;
-    margin-bottom: 0;
-}
-
-.auth-side .logo-container {
-    margin-top: 3rem !important;
-    padding-top: 2rem;
-}
-
-/* Ajustes responsivos del espacio entre texto y logo */
-@media (max-width: 992px) {
-    .auth-side .logo-text {
-        margin-bottom: 3rem; /* tablet */
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 768px) {
-    .auth-side .logo-text {
-        margin-bottom: 2.5rem; /* móvil */
-        font-size: 22px;
-    }
-}
-
-/* Tamaño del logo en la sección de autenticación */
-.auth-side .logo-img {
-    max-width: 420px; /* más grande en escritorio */
-    width: auto;
-    height: auto;
-}
-
-@media (max-width: 992px) {
-    .auth-side .logo-img {
-        max-width: 320px; /* tamaño intermedio en tablet */
-    }
-}
-
-@media (max-width: 768px) {
-    .auth-side .logo-img {
-        max-width: 180px; /* tamaño más pequeño en móviles */
-    }
-}
-
+/* ====== GENERAL: botones ====== */
 .btn-auth {
     font-family: 'Lato';
     font-weight: bold;
@@ -106,9 +48,20 @@ main .btn-auth:hover {
     background-color: #0993AE;
 }
 
-/*Registro*/
+/* ====== VIEWS: LANDING ====== */
+.nav-landing {
+    background-color: #0993AE;
+}
 
-/*Inicio de sesion*/
+.titulo-header {
+    font-family: 'Space Grotesk';
+    font-size: 32px;
+    color: white;
+}
+
+/* ====== VIEWS: Registro (auth) ====== */
+
+/* ====== VIEWS: LOGIN (auth) ====== */
 /* --- General --- */
 .auth-container {
     display: flex;
@@ -139,6 +92,29 @@ main .btn-auth:hover {
     justify-content: center;
 }
 
+/* Logo/texto de la parte izquierda del login */
+.auth-side .logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.auth-side .logo-container {
+    margin-top: 3rem !important;
+    padding-top: 2rem;
+}
+
+/* Tamaño del logo en la sección de autenticación */
+.auth-side .logo-img {
+    max-width: 420px;
+    width: auto;
+    height: auto;
+}
 
 /* --- Sección del formulario --- */
 .auth-form {
@@ -167,6 +143,23 @@ main .btn-auth:hover {
     }
 }
 
+/* Ajustes responsivos del espacio y tamaños del logo/texto en login */
+@media (max-width: 992px) {
+    .auth-side .logo-text {
+        margin-bottom: 3rem; /* tablet */
+        font-size: 26px;
+    }
+    .auth-side .logo-img { max-width: 320px; }
+}
+
+@media (max-width: 768px) {
+    .auth-side .logo-text {
+        margin-bottom: 2.5rem; /* móvil */
+        font-size: 22px;
+    }
+    .auth-side .logo-img { max-width: 180px; }
+}
+
 /* Estilos para los inputs del formulario */
 .auth-form .form-control {
     border-color: #0993AE;
@@ -182,7 +175,6 @@ main .btn-auth:hover {
 }
 
 /* Labels: usar estilo por defecto de Bootstrap (sin overrides) */
-
 /* Estilos para el header del formulario */
 .form-header {
     position: relative;
@@ -213,6 +205,102 @@ main .btn-auth:hover {
     font-weight: 700;
     color: #0993AE;
     transition: color 0.3s ease;
+}
+
+/* ====== MODALS (Crear Proyecto) ====== */
+.custom-modal-create {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* para que el header curvo no desborde */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.custom-modal-header {
+    background-color: #0993AE;
+    color: #fff;
+    border-bottom: none;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* título centrado */
+}
+
+.custom-modal-header .modal-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.btn-close-white {
+    position: absolute;
+    left: 18px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.btn-close-white:hover { opacity: 0.85; }
+
+/* Inputs del modal con estilos del login y borde más redondeado */
+.custom-modal-create .custom-input {
+    border: 2px solid #0993AE;
+    border-radius: 16px;
+    padding: 0.75rem 1rem;
+}
+
+.custom-modal-create .custom-input:focus {
+    border-color: #0993AE;
+    box-shadow: 0 0 0 0.25rem rgba(9,147,174,0.25);
+}
+
+/* (limpieza) Estilo antiguo .btn-cancelar ya no se usa */
+
+/* Labels en negrita dentro del modal */
+.custom-modal-create .form-label {
+    font-weight: 700;
+}
+
+/* Botón CREAR con el mismo hover que el main de la landing */
+.custom-modal-create .btn-auth {
+    padding: 10px 24px; /* consistencia visual en el modal */
+}
+.custom-modal-create .btn-auth:hover {
+    background-color: #0993AE;
+}
+
+/* Utilidad para unificar la forma (píldora) de ambos botones del modal */
+.btn-pill {
+    border-radius: 20px !important;
+    padding: 10px 24px !important;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    border: none;
+}
+
+/* Asegurar que CANCELAR (btn-danger) esté en bold dentro del modal */
+/* Variante danger usando el mismo estilo base del botón */
+.custom-modal-create .btn-auth.bg-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+.custom-modal-create .btn-auth.bg-danger:hover {
+    background-color: #bb2d3b !important;
+}
+
+/* Ambos botones comparten exactamente la misma forma; solo cambia el color de fondo */
+/* Backdrop del modal más oscuro */
+.modal-backdrop {
+    background-color: #000; /* base negra */
+}
+.modal-backdrop.show {
+    opacity: 0.8; /* más oscuro que el default */
 }
 
 .form-welcome-title {
@@ -255,29 +343,23 @@ main .btn-auth:hover {
     .auth-container {
         flex-direction: column;
     }
-
     .auth-side {
         display: none !important; /* Ocultar completamente el div del logo */
     }
-
     .auth-form {
         width: 100%;
         min-height: 100vh;
         padding: 2rem;
     }
-
     .form-header {
         margin-bottom: 2rem;
     }
-
     .form-logo {
         height: 35px;
     }
-
     .form-title {
         font-size: 1.25rem;
     }
-
     .form-welcome-title {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
@@ -288,20 +370,15 @@ main .btn-auth:hover {
     .form-logo {
         height: 30px;
     }
-
     .form-title {
         font-size: 1.1rem;
     }
 }
 
-
-
-/* --------------------------------------------------------------------------------- Proyectos ------------------------------------------------------ */
-
+/* ====== VIEWS: PROYECTOS ====== */
 body{
     width: 100%;
 }
-
 
 .Encabezado {
     display: flex;
@@ -350,10 +427,7 @@ body{
     padding-bottom: 20px;
 }
 
-
-
-/* ---------------------------------------------------- Tareas -------------------------------------------------------------- */
-
+/* ====== VIEWS: TAREAS ====== */
 .card-tareas{
     width: 20rem;
     border: solid #0993AE 5px;
@@ -387,7 +461,6 @@ body{
     justify-content: center;
 }
 
-
 /*Botton de cerrar sesion*/
 .bottonCerrar {
     position: absolute;
@@ -405,12 +478,10 @@ body{
     padding-top: 16px;
 }
 
-
 /* Sidebar */
 .row{
     display: flex;
     align-items: center;
-
 }
 
 .h33{
@@ -484,8 +555,6 @@ body{
     margin: 10px;
 }
 
-
-
 .btn-nav-outline {
     /* kept for backward compatibility - prefer using .btn-base + .btn-outline */
     display: inline-block;
@@ -533,7 +602,6 @@ body{
     border: solid #8BE7F9 30px;
     padding: 10px;
 }
-
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .img-landing {

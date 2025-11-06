@@ -7,9 +7,9 @@
         <div class="Encabezado">
             <h1 class="Pagina-titulo">PROYECTOS</h1>
 
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn btn-primary btn-lg">Crear Proyectos</button>
-            </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearProyecto">CREAR PROYECTO</button>
+                        </div>
         </div>
 
 
@@ -101,3 +101,4 @@
 
     </div>
 @endsection
+        @include('modals.crearProyecto')
