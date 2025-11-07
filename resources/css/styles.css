@@ -478,6 +478,7 @@ body{
     height: 60%;
     text-align: center;
     margin: 10px;
+    align-items: center;
 }
 
 .pizarra{
