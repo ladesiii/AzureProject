@@ -2,6 +2,9 @@
 
 @section('contenido')
 
+<head>
+    <title>Tareas</title>
+</head>
 
     <div class="sobrefondo">
         <div class="Encabezado">
