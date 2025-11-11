@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+
+            //
+            //      MOVER TAREAS ENTRE COLUMNAS
+            //
+
+
             //Seleccionamos todas las tarjetas y columnas
             const cards = document.querySelectorAll('.card-tareas');
             const columns = document.querySelectorAll('.pizarra');
@@ -7,35 +13,35 @@ document.addEventListener('DOMContentLoaded', function () {
             //Hace que las tarjetas sean arrastrables
             cards.forEach((card, index) => {
                 if (!card.id) card.id = `card-${Date.now()}-${index}`;
-                card.setAttribute('mover', 'true');
+                card.setAttribute('draggable', 'true');
 
                 //Mientras se arrastra la tarjeta
                 card.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', card.id); //se guarda el id de la tarjeta
                     e.dataTransfer.effectAllowed = 'move'; // Indica que se va a mover
-                    card.classList.add('dragging'); // Estilo visual al arrastrar
+                    card.classList.add('moviendo'); // Estilo visual al arrastrar
                 });
 
                 //Cuando se suelta la tarjeta
                 card.addEventListener('dragend', () => {
-                    card.classList.remove('dragging'); // Quita el estilo visual
+                    card.classList.remove('moviendo'); // Quita el estilo visual
                     document.querySelectorAll('.pizarra').forEach(p => p.classList.remove('dragover')); // Quita el estilo de las columnas
                 });
             });
 
             // Función para obtener el elemento después del cual se debe insertar la tarjeta arrastrada
             function getDragAfterElement(container, y) {
-                const moverElements = [...container.querySelectorAll('.card-tareas:not(.dragging)')]; 
+                const draggableElements = [...container.querySelectorAll('.card-tareas:not(.moviendo)')]; 
                 //Guarda todos los elementos arrastrables excepto el que se está arrastrando
 
                 // Encontrar el elemento más cercano del raton
-                return moverElements.reduce((closest, child) => {
+                return draggableElements.reduce((closest, child) => {
                     const box = child.getBoundingClientRect(); // Obtiene las dimensiones del elemento
                     const offset = y - box.top - box.height / 2; // Calcula el tamaño del elemento
 
                     if (offset < 0 && offset > closest.offset) { //Si el raton está encima del elemento
                         return { offset: offset, element: child }; //Devuelve el elemento más cercano
-                    } 
+                    }
                     else {
                         return closest; //Sino, devuelve el más cercano encontrado hasta ahora
                     }
@@ -47,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 col.addEventListener('dragover', (e) => { //Mientras se arrastra sobre la columna
                     e.preventDefault();
                     col.classList.add('dragover'); // Estilo visual de la columna al arrastrar sobre ella
-                    const dragging = document.querySelector('.dragging'); // Obtiene la tarjeta que se está arrastrando
+                    const moviendo = document.querySelector('.moviendo'); // Obtiene la tarjeta que se está arrastrando
                     const afterElement = getDragAfterElement(col, e.clientY); // Obtiene el elemento después del cual se debe insertar
-                    if (!dragging) return; // Si no hay tarjeta arrastrándose, salir
+                    if (!moviendo) return; // Si no hay tarjeta arrastrándose, salir
                     if (afterElement == null) { //Si no hay elemento después del cual insertar
-                        col.appendChild(dragging); //Añade al final
+                        col.appendChild(moviendo); //Añade al final
                     } else { //Si hay un elemento después del cual insertar
-                        col.insertBefore(dragging, afterElement); //Inserta antes de ese elemento
+                        col.insertBefore(moviendo, afterElement); //Inserta antes de ese elemento
                     }
                 });
 
