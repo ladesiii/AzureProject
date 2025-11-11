@@ -3,9 +3,13 @@
 @section('contenido')
 
 <head>
+
     <title>Tareas</title>
 </head>
 
+    <title>Tareas</title>
+
+</head>
     <div class="sobrefondo">
         <div class="Encabezado">
             <h1 class="Pagina-titulo">TAREAS</h1>
@@ -50,23 +54,22 @@
                                     class="d-inline-block"></a>
                         </div>
                     </div>
+                    
 
-                    <div class="card card-tareas" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                                    class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                                    class="d-inline-block"></a>
-                        </div>
-                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="separador"></div>
+
+            <div id="haciendo" class="bloque">
+                <h3>EN PROCESO</h3>
+
+                <div class="pizarra">
+
+                    
                 </div>
             </div>
 
@@ -76,22 +79,7 @@
                 <h3>ACABADO</h3>
 
                 <div class="pizarra">
-                    <div class="card card-tareas" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                                    class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                                    class="d-inline-block"></a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -122,18 +110,19 @@
                 card.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', card.id); //se guarda el id de la tarjeta
                     e.dataTransfer.effectAllowed = 'move'; // Indica que se va a mover
-                    card.classList.add('dragging'); // Estilo visual al arrastrar
+                    card.classList.add('moviendo'); // Estilo visual al arrastrar
                 });
 
                 //Cuando se suelta la tarjeta
                 card.addEventListener('dragend', () => {
-                    card.classList.remove('dragging'); // Quita el estilo visual
+                    card.classList.remove('moviendo'); // Quita el estilo visual
                     document.querySelectorAll('.pizarra').forEach(p => p.classList.remove('dragover')); // Quita el estilo de las columnas
                 });
             });
 
             // Función para obtener el elemento después del cual se debe insertar la tarjeta arrastrada
             function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('.card-tareas:not(.moviendo)')]; 
                 const draggableElements = [...container.querySelectorAll('.card-tareas:not(.dragging)')];
                 //Guarda todos los elementos arrastrables excepto el que se está arrastrando
 
@@ -156,18 +145,18 @@
                 col.addEventListener('dragover', (e) => { //Mientras se arrastra sobre la columna
                     e.preventDefault();
                     col.classList.add('dragover'); // Estilo visual de la columna al arrastrar sobre ella
-                    const dragging = document.querySelector('.dragging'); // Obtiene la tarjeta que se está arrastrando
+                    const moviendo = document.querySelector('.moviendo'); // Obtiene la tarjeta que se está arrastrando
                     const afterElement = getDragAfterElement(col, e.clientY); // Obtiene el elemento después del cual se debe insertar
-                    if (!dragging) return; // Si no hay tarjeta arrastrándose, salir
+                    if (!moviendo) return; // Si no hay tarjeta arrastrándose, salir
                     if (afterElement == null) { //Si no hay elemento después del cual insertar
-                        col.appendChild(dragging); //Añade al final
+                        col.appendChild(moviendo); //Añade al final
                     } else { //Si hay un elemento después del cual insertar
-                        col.insertBefore(dragging, afterElement); //Inserta antes de ese elemento
+                        col.insertBefore(moviendo, afterElement); //Inserta antes de ese elemento
                     }
                 });
 
                 //Quita el estilo cuando se sale de la columna
-                col.addEventListener('dragleave', () => { //Cuando se sale de la columna
+                col.addEventListener('columOut', () => { //Cuando se sale de la columna
                     col.classList.remove('dragover'); //Quita el estilo de la columna
                 });
 
