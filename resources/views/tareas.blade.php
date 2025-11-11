@@ -2,6 +2,9 @@
 
 @section('contenido')
 
+<head>
+    <title>Tareas</title>
+</head>
 
     <div class="sobrefondo">
         <div class="Encabezado">
@@ -17,7 +20,7 @@
 
                 <div class="pizarra">
 
-                    
+
 
                 </div>
 
@@ -101,7 +104,7 @@
         document.addEventListener('DOMContentLoaded', function () {
 
 
-            // 
+            //
             //      MOVER TAREAS ENTRE COLUMNAS
             //
 
@@ -131,7 +134,7 @@
 
             // Función para obtener el elemento después del cual se debe insertar la tarjeta arrastrada
             function getDragAfterElement(container, y) {
-                const draggableElements = [...container.querySelectorAll('.card-tareas:not(.dragging)')]; 
+                const draggableElements = [...container.querySelectorAll('.card-tareas:not(.dragging)')];
                 //Guarda todos los elementos arrastrables excepto el que se está arrastrando
 
                 // Encontrar el elemento más cercano del raton
@@ -141,7 +144,7 @@
 
                     if (offset < 0 && offset > closest.offset) { //Si el raton está encima del elemento
                         return { offset: offset, element: child }; //Devuelve el elemento más cercano
-                    } 
+                    }
                     else {
                         return closest; //Sino, devuelve el más cercano encontrado hasta ahora
                     }
