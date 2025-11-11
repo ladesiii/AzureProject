@@ -26,9 +26,11 @@ body {
     display: inline-block;
     cursor: pointer;
 }
+
 header .btn-auth:hover {
     border-color: white;
 }
+
 /* Hacer que el botón del formulario tenga el mismo hover que el del main */
 .auth-form .btn-auth:hover {
     background-color: #0993AE;
@@ -53,15 +55,19 @@ header .btn-auth:hover {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 100vh; /* Toda la pantalla */
+    height: 100vh;
+    /* Toda la pantalla */
     overflow: hidden;
 }
 
 /* --- Sección del logo / color --- */
 .auth-side {
-    width: 50vw;           /* Mitad exacta del ancho */
-    height: 100vh;         /* Toda la altura */
-    background-color: #0993AE; /* Tu color personalizado */
+    width: 50vw;
+    /* Mitad exacta del ancho */
+    height: 100vh;
+    /* Toda la altura */
+    background-color: #0993AE;
+    /* Tu color personalizado */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,8 +110,10 @@ header .btn-auth:hover {
 
 /* --- Sección del formulario --- */
 .auth-form {
-    width: 50vw;           /* Mitad exacta del ancho */
-    height: 100vh;         /* Toda la altura */
+    width: 50vw;
+    /* Mitad exacta del ancho */
+    height: 100vh;
+    /* Toda la altura */
     background-color: #fff;
     display: flex;
     padding: 2rem;
@@ -113,17 +121,21 @@ header .btn-auth:hover {
 
 /* Espaciado interno adicional en el formulario */
 .auth-form .mb-3 {
-    margin-bottom: 1.25rem; /* más espacio entre grupos */
+    margin-bottom: 1.25rem;
+    /* más espacio entre grupos */
 }
 
 .auth-form .btn-auth {
-    margin-top: 1rem; /* separar el botón de los campos */
+    margin-top: 1rem;
+    /* separar el botón de los campos */
 }
 
 @media (max-width: 576px) {
     .auth-form .mb-3 {
-        margin-bottom: 1rem; /* un poco menos en pantallas muy pequeñas */
+        margin-bottom: 1rem;
+        /* un poco menos en pantallas muy pequeñas */
     }
+
     .auth-form .btn-auth {
         margin-top: 0.75rem;
     }
@@ -132,18 +144,26 @@ header .btn-auth:hover {
 /* Ajustes responsivos del espacio y tamaños del logo/texto en login */
 @media (max-width: 992px) {
     .auth-side .logo-text {
-        margin-bottom: 3rem; /* tablet */
+        margin-bottom: 3rem;
+        /* tablet */
         font-size: 26px;
     }
-    .auth-side .logo-img { max-width: 320px; }
+
+    .auth-side .logo-img {
+        max-width: 320px;
+    }
 }
 
 @media (max-width: 768px) {
     .auth-side .logo-text {
-        margin-bottom: 2.5rem; /* móvil */
+        margin-bottom: 2.5rem;
+        /* móvil */
         font-size: 22px;
     }
-    .auth-side .logo-img { max-width: 180px; }
+
+    .auth-side .logo-img {
+        max-width: 180px;
+    }
 }
 
 /* Estilos para los inputs del formulario */
@@ -197,8 +217,9 @@ header .btn-auth:hover {
 .custom-modal-create {
     background-color: #ffffff;
     border-radius: 12px;
-    overflow: hidden; /* para que el header curvo no desborde */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    /* para que el header curvo no desborde */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .custom-modal-header {
@@ -208,7 +229,8 @@ header .btn-auth:hover {
     padding: 12px 16px;
     display: flex;
     align-items: center;
-    justify-content: center; /* título centrado */
+    justify-content: center;
+    /* título centrado */
 }
 
 .custom-modal-header .modal-title {
@@ -230,7 +252,9 @@ header .btn-auth:hover {
     cursor: pointer;
 }
 
-.btn-close-white:hover { opacity: 0.85; }
+.btn-close-white:hover {
+    opacity: 0.85;
+}
 
 /* Inputs del modal con estilos del login y borde más redondeado */
 .custom-modal-create .custom-input {
@@ -241,7 +265,7 @@ header .btn-auth:hover {
 
 .custom-modal-create .custom-input:focus {
     border-color: #0993AE;
-    box-shadow: 0 0 0 0.25rem rgba(9,147,174,0.25);
+    box-shadow: 0 0 0 0.25rem rgba(9, 147, 174, 0.25);
 }
 
 /* (limpieza) Estilo antiguo .btn-cancelar ya no se usa */
@@ -253,8 +277,10 @@ header .btn-auth:hover {
 
 /* Botón CREAR con el mismo hover que el main de la landing */
 .custom-modal-create .btn-auth {
-    padding: 10px 24px; /* consistencia visual en el modal */
+    padding: 10px 24px;
+    /* consistencia visual en el modal */
 }
+
 .custom-modal-create .btn-auth:hover {
     background-color: #0993AE;
 }
@@ -276,6 +302,7 @@ header .btn-auth:hover {
     background-color: #dc3545 !important;
     color: #fff !important;
 }
+
 .custom-modal-create .btn-auth.bg-danger:hover {
     background-color: #bb2d3b !important;
 }
@@ -283,10 +310,13 @@ header .btn-auth:hover {
 /* Ambos botones comparten exactamente la misma forma; solo cambia el color de fondo */
 /* Backdrop del modal más oscuro */
 .modal-backdrop {
-    background-color: #000; /* base negra */
+    background-color: #000;
+    /* base negra */
 }
+
 .modal-backdrop.show {
-    opacity: 0.8; /* más oscuro que el default */
+    opacity: 0.8;
+    /* más oscuro que el default */
 }
 
 .form-welcome-title {
@@ -325,27 +355,36 @@ header .btn-auth:hover {
 }
 
 /* --- Responsive --- */
-@media (max-width: 991px) {  /* Breakpoint de Bootstrap para tablet */
+@media (max-width: 991px) {
+
+    /* Breakpoint de Bootstrap para tablet */
     .auth-container {
         flex-direction: column;
     }
+
     .auth-side {
-        display: none !important; /* Ocultar completamente el div del logo */
+        display: none !important;
+        /* Ocultar completamente el div del logo */
     }
+
     .auth-form {
         width: 100%;
         min-height: 100vh;
         padding: 2rem;
     }
+
     .form-header {
         margin-bottom: 2rem;
     }
+
     .form-logo {
         height: 35px;
     }
+
     .form-title {
         font-size: 1.25rem;
     }
+
     .form-welcome-title {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
@@ -356,54 +395,65 @@ header .btn-auth:hover {
     .form-logo {
         height: 30px;
     }
+
     .form-title {
         font-size: 1.1rem;
     }
 }
 
 /* ====== VIEWS: PROYECTOS ====== */
-body{
+body {
     width: 100%;
 }
 
+/* Encabezado de la página */
 .Encabezado {
     display: flex;
     justify-content: space-between;
     padding: 30px;
 }
 
-.card-proyecto {
-    width: 90%;
-    margin-left: 30px;
-    border-radius: 20px;
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px;
-}
 
+/* Cuerpo de la tarjeta */
 .card-body {
+    max-width: 20%;
     border: #0993AE 5px solid;
     border-radius: 5%;
     background-color: #8BE7F9;
-    cursor: move;
-    /* dejar un poco de espacio para los iconos en la esquina */
     padding: 18px 18px 16px 18px;
     position: relative;
+    flex: 1 0 30%; /* explanation below */
 }
 
+/* Tarjeta de proyecto */
+.card-proyecto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 90%;
+    margin: 30px;
+}
+
+/* Contenido del proyecto en la tarjeta */
 .card-body-proyecto {
+    width: 33%;
+    border: solid #0993AE 5px;
+    border-radius: 15px;
     margin: 12px;
     display: flex;
     flex-direction: column;
-    min-height: 200px; /* altura más compacta pero consistente */
+    min-height: 250px;
+    padding: 0px;
 }
 
+/* Título del proyecto */
 .card-body-proyecto .card-title {
     margin-bottom: 8px;
     padding: 0 6px;
 }
 
+/* Elementos de la lista en la tarjeta */
 .card-body-proyecto .list-group-item {
     margin: 4px 6px;
     background: transparent;
@@ -411,18 +461,23 @@ body{
     padding-left: 0;
 }
 
-/* Colocar los iconos en la parte inferior del card, alineados a la derecha, con pequeño margen */
+/* Contenedor de acciones del proyecto */
 .card-body-proyecto .project-actions {
-    margin-top: auto; /* empuja los iconos hacia abajo */
+    margin-top: auto;
+    /* Empuja las acciones hacia abajo */
     display: flex;
-    flex-wrap: nowrap; /* evitar que los iconos salten a otra línea */
-    white-space: nowrap; /* prevenir wrap por zoom */
+    flex-wrap: nowrap;
+    /* Evita que los iconos salten de línea */
+    white-space: nowrap;
+    /* Previene el salto de línea en zoom */
     gap: 8px;
-    justify-content: flex-end; /* alineados a la derecha dentro del card */
+    justify-content: flex-end;
+    /* Alinea los iconos a la derecha */
     align-items: center;
-    padding-bottom: 6px; /* pequeño espacio respecto al borde inferior */
+    padding-bottom: 6px;
 }
 
+/* Iconos de acciones */
 .card-body-proyecto .project-actions a img {
     display: block;
     width: 24px;
@@ -431,19 +486,21 @@ body{
     max-height: 24px;
 }
 
+/* Título de la página */
 .Pagina-titulo {
-    /* Título de página: tipografía por defecto para encabezados de sección */
     font-family: 'Space Grotesk', sans-serif;
     font-size: 22px;
     color: #0993AE;
 }
 
+/* Contenido principal */
 .MainContent {
     background-color: #8BE7F9;
     min-height: 100vh;
     margin-left: 17%;
 }
 
+/* Fondo secundario */
 .sobrefondo {
     background-color: white;
     border-radius: 10px;
@@ -453,14 +510,14 @@ body{
 }
 
 /* ====== VIEWS: TAREAS ====== */
-.card-tareas{
+.card-tareas {
     width: 20rem;
     border: solid #0993AE 5px;
     color: black;
     margin: 20px;
 }
 
-.separador{
+.separador {
     height: 70% auto;
     width: 10px;
     background-color: black;
@@ -473,7 +530,7 @@ body{
     height: 100%;
 }
 
-.bloque{
+.bloque {
     width: 30%;
     height: 60%;
     text-align: center;
@@ -481,7 +538,7 @@ body{
     align-items: center;
 }
 
-.pizarra{
+.pizarra {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -495,7 +552,8 @@ body{
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding-bottom: 16px; /* small spacing from very bottom edge if desired */
+    padding-bottom: 16px;
+    /* small spacing from very bottom edge if desired */
 }
 
 .logoBlock {
@@ -507,16 +565,16 @@ body{
 }
 
 /* Sidebar */
-.row{
+.row {
     display: flex;
     align-items: center;
 }
 
-.h33{
+.h33 {
     height: auto;
 }
 
-.main-section{
+.main-section {
     height: 100% auto;
 }
 
@@ -556,16 +614,20 @@ body{
     width: 100%;
     text-align: center;
 }
+
 .sidebar .btn-base,
 .sidebar .btn-primary,
 .sidebar .btn-outline {
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
-    width: 200px; /* mismo ancho para todos los botones del sidebar */
+    width: 200px;
+    /* mismo ancho para todos los botones del sidebar */
     text-align: center;
-    border-radius: 20px; /* esquinas suavemente curvadas */
-    padding: 10px 0; /* fijar padding vertical y centrar texto */
+    border-radius: 20px;
+    /* esquinas suavemente curvadas */
+    padding: 10px 0;
+    /* fijar padding vertical y centrar texto */
 }
 
 .sidebar img {
@@ -636,11 +698,14 @@ body{
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .img-landing {
-    width: 100%;            /* fill its column */
-    max-width: 800px;      /* slightly smaller max so it isn't too dominant */
+    width: 100%;
+    /* fill its column */
+    max-width: 800px;
+    /* slightly smaller max so it isn't too dominant */
     border-radius: 30px;
     border: 15px solid #2AD3F4;
-    box-sizing: border-box; /* include border in sizing */
+    box-sizing: border-box;
+    /* include border in sizing */
     display: inline-block;
 }
 

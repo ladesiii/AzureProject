@@ -13,9 +13,18 @@ Route::get('/', function () {
 // Web page Tareas
 Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
-//Web Page Proyecto (handled by controller)
+
+//Pagina de Proyecto
 Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
+
+//Endpoint para crear proyecto (POST)
+Route::post('/proyecto', [ProyectosController::class, 'store'])->name('proyecto.store');
+
+
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');
+
+
+
 // Registro view (simple GET route)
 Route::get('/registro', function () {
     return view('registro');

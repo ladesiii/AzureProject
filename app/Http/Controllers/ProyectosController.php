@@ -14,6 +14,22 @@ class ProyectosController extends Controller
         return view('proyecto');
     }
 
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nombre' => 'required|string|max:255',
+        ]);
+
+        if($request-> ajax()) {
+        return response()->json([
+            'message' => 'Proyecto creado exitosamente.',
+            'nombre' => $validated['nombre'],
+        ]);
+    }
+
+    return redirect()->route('proyecto')->with('success', 'Proyecto creado correctamente.');
+    }
+
 }
 
 
