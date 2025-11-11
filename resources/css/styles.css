@@ -413,34 +413,38 @@ body {
     padding: 30px;
 }
 
-/* Tarjeta de proyecto */
-.card-proyecto {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    width: 90%;
-    margin: 30px;
-}
 
 /* Cuerpo de la tarjeta */
 .card-body {
+    max-width: 20%;
     border: #0993AE 5px solid;
     border-radius: 5%;
     background-color: #8BE7F9;
     padding: 18px 18px 16px 18px;
     position: relative;
+    flex: 1 0 30%; /* explanation below */
+}
+
+/* Tarjeta de proyecto */
+.card-proyecto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 90%;
+    margin: 30px;
 }
 
 /* Contenido del proyecto en la tarjeta */
 .card-body-proyecto {
-    width: 20rem;
+    width: 33%;
+    border: solid #0993AE 5px;
+    border-radius: 15px;
     margin: 12px;
     display: flex;
     flex-direction: column;
-    min-height: 200px;
-    /* Altura mínima para mantener consistencia */
-    width: 20rem;
+    min-height: 250px;
+    padding: 0px;
 }
 
 /* Título del proyecto */
