@@ -20,7 +20,7 @@
                     </h4>
                 </div>
                 <div class="mt-5">
-                    <button type="button" class="btn-auth">CREAR PROYECTO</button>
+                    <a href="{{ route('proyecto') }}?openModal=true" class="btn-auth text-decoration-none d-inline-block text-center">CREAR PROYECTO</a>
                 </div>
             </div>
             <div class="col-12 col-lg-6 text-center">
