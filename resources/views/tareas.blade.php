@@ -2,12 +2,12 @@
 
 @section('contenido')
 
-<head>
+    <head>
 
-    <title>Tareas</title>
-    <script src="{{ asset('js/tareas.js') }}" defer></script>
+        <title>Tareas</title>
+        <script src="{{ asset('js/tareas.js') }}" defer></script>
 
-</head>
+    </head>
     <div class="sobrefondo">
         <div class="Encabezado">
             <h1 class="Pagina-titulo">TAREAS</h1>
@@ -40,11 +40,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
+                            <li class="list-group-item">descripció</li>
                             <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
+                            <li class="list-group-item">etiqueta</li>
                             <hr>
-                            <li class="list-group-item">Proxima Tarea para finalizar</li>
+                            <li class="list-group-item">usuaris</li>
+                            <hr>
+                            <li class="list-group-item">data d'entrega</li>
                             <hr>
                             <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
                                     class="d-inline-block"></a>
@@ -52,7 +54,7 @@
                                     class="d-inline-block"></a>
                         </div>
                     </div>
-                    
+
 
                 </div>
 
@@ -62,26 +64,38 @@
 
             <div class="separador"></div>
 
-            <div id="haciendo" class="bloque">
+            <div id="acabado" class="bloque">
                 <h3>ACABADO</h3>
 
                 <div class="pizarra">
 
-                    
+
                 </div>
             </div>
+
 
         </div>
 
     </div>
-    </div>
-
-    <script>
-        
-    </script>
-
-
-
 @endsection
 
-
+<!-- PLANTILLA CARD ---
+<div class="card card-tareas" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">CARD TITLE</h5>
+        <hr>
+        <li class="list-group-item">descripció</li>
+        <hr>
+        <li class="list-group-item">etiqueta</li>
+        <hr>
+        <li class="list-group-item">usuaris</li>
+        <hr>
+        <li class="list-group-item">data d'entrega</li>
+        <hr>
+        <a href="#" class="card-link"><img src="{{ asset('img/edit.png') }}" alt="edit"
+                class="d-inline-block"></a>
+        <a href="#" class="card-link"><img src="{{ asset('img/trash.png') }}" alt="trash"
+                class="d-inline-block"></a>
+    </div>
+</div>
+<-- IGNORE -->

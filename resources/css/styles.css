@@ -510,6 +510,34 @@ body {
 }
 
 /* ====== VIEWS: TAREAS ====== */
+.card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+
+#empezar .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #DC3545;
+}
+
+#haciendo .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #F4F42A;
+}
+
+#acabado .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #2AF456;
+}
+/* #DC3545     #F4F42A      #2AF456 */
+
 .card-tareas {
     width: 20rem;
     border: solid #0993AE 5px;
