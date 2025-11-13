@@ -8,7 +8,7 @@
       </div>
 
       <!-- Cuerpo -->
-      <form id="formCrearProyecto" method="POST" action="">
+      <form id="formCrearProyecto" method="POST" action="{{ route('proyecto.store')  }}">
         @csrf
         <div class="modal-body">
           <div class="mb-3">
