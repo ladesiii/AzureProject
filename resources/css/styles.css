@@ -509,7 +509,32 @@ body {
     padding-bottom: 20px;
 }
 
+
+
 /* ====== VIEWS: TAREAS ====== */
+
+#container-tareas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100% auto;
+}
+
+.sobrefondo-tareas {
+    background-color: white;
+    border-radius: 10px;
+    margin: 28px;
+    padding-bottom: 20px;
+    height: 70% auto;
+}
+
+.separador {
+    height: 70% auto;
+    width: 10px;
+    background-color: black;
+}
+
+
 .card-tareas .card-body .card-title {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -555,11 +580,7 @@ body {
     flex: 1 0 30%;
 }
 
-.separador {
-    height: 70% auto;
-    width: 10px;
-    background-color: black;
-}
+
 
 #container {
     display: flex;
