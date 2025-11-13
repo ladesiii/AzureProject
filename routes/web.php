@@ -1,13 +1,10 @@
-<?php
+﻿<?php
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareaController;
-<<<<<<< HEAD
 use App\Http\Controllers\registroController;
-=======
 use App\Http\Controllers\UsuarioController;
->>>>>>> main
 use App\Http\Controllers\ProyectosController;
 
 Route::get('/', function () {
@@ -17,28 +14,14 @@ Route::get('/', function () {
 // Web page Tareas
 Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
-
 //Pagina de Proyecto
 Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
 
 //Endpoint para crear proyecto (POST)
 Route::post('/proyecto', [ProyectosController::class, 'store'])->name('proyecto.store');
 
-
-Route::get('/login', [UsuarioController::class, 'login'])->name('login');
-
-
-
-// Registro view (simple GET route)
-Route::get('/registro', function () {
-    return view('registro');
-})->name('registro');
-
-<<<<<<< HEAD
-//Registro
+// Registro view
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
 
-Route::view('/login', 'login')->name('login');
-
-=======
->>>>>>> main
+// Login view
+Route::get('/login', [UsuarioController::class, 'login'])->name('login');
