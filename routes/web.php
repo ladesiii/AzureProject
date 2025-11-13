@@ -22,6 +22,7 @@ Route::post('/proyecto', [ProyectosController::class, 'store'])->name('proyecto.
 
 // Registro view
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
+Route::post('/registro', [registroController::class, 'store'])->name('registro.store');
 
 // Login view
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');

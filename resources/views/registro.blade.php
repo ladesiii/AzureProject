@@ -18,18 +18,35 @@
 <div id="divIzquierdo">
     <div class="contenedor-registro">
         <h2>Te damos la bienvenida a <h2 id="azpInicio">AzureProject</h2></h2>
-        <form class="formRegistro">
+        
+        {{-- Mostrar errores de validación --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form class="formRegistro" method="POST" action="{{ route('registro.store') }}">
+            @csrf
             <div class="mb-3">{{-- mb-3 es estilo de bootstrap --}}
-                <label for="emailadress" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">
-                <label for="contraseña" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
-                <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirmar Contraseña</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
             </div>
             <button type="submit" class="btn btn-primary">Registrarse</button>
         </form>
