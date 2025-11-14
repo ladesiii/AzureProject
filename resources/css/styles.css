@@ -509,32 +509,59 @@ body {
     padding-bottom: 20px;
 }
 
+/* ---------------------------------------------------- Registro -------------------------------------------------------------- */
+#divIzquierdo {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#divDerecho {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    background-color: #2AD3F4;
+}
+
+.contenedor-registro {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contenedor-registro h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+#azpInicio{
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.formRegistro{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.formRegistro .form-control{
+    border: 2px solid #0993AE;
+    border-radius: 8px;
+}
+
+#imagenRegistro {
+    max-width: 70%;
+    height: auto;
+    display: block;
+}
 
 /* ====== VIEWS: TAREAS ====== */
-
-#container-tareas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: 100% auto;
-}
-
-.sobrefondo-tareas {
-    background-color: white;
-    border-radius: 10px;
-    margin: 28px;
-    padding-bottom: 20px;
-    height: 70% auto;
-}
-
-.separador {
-    height: 70% auto;
-    width: 10px;
-    background-color: black;
-}
-
-
 .card-tareas .card-body .card-title {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -580,7 +607,11 @@ body {
     flex: 1 0 30%;
 }
 
-
+.separador {
+    height: 70% auto;
+    width: 10px;
+    background-color: black;
+}
 
 #container {
     display: flex;
