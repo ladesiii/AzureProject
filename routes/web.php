@@ -3,9 +3,12 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareaController;
+<<<<<<< HEAD
+use App\Http\Controllers\registroController;
+=======
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\ProyectoController;
-
+>>>>>>> main
+use App\Http\Controllers\ProyectosController;
 
 Route::get('/', function () {
     return view('landing');
@@ -16,10 +19,10 @@ Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
 
 //Pagina de Proyecto
-Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');
+Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
 
 //Endpoint para crear proyecto (POST)
-Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');
+Route::post('/proyecto', [ProyectosController::class, 'store'])->name('proyecto.store');
 
 
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');
@@ -31,3 +34,11 @@ Route::get('/registro', function () {
     return view('registro');
 })->name('registro');
 
+<<<<<<< HEAD
+//Registro
+Route::get('/registro', [registroController::class, 'registro'])->name('registro');
+
+Route::view('/login', 'login')->name('login');
+
+=======
+>>>>>>> main

@@ -509,7 +509,87 @@ body {
     padding-bottom: 20px;
 }
 
+/* ---------------------------------------------------- Registro -------------------------------------------------------------- */
+#divIzquierdo {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#divDerecho {
+    width: 50%;
+    float: left;
+    min-height: 100vh;
+    background-color: #2AD3F4;
+}
+
+.contenedor-registro {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contenedor-registro h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+#azpInicio{
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.formRegistro{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.formRegistro .form-control{
+    border: 2px solid #0993AE;
+    border-radius: 8px;
+}
+
+#imagenRegistro {
+    max-width: 70%;
+    height: auto;
+    display: block;
+}
+
 /* ====== VIEWS: TAREAS ====== */
+.card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+
+#empezar .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #DC3545;
+}
+
+#haciendo .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #F4F42A;
+}
+
+#acabado .pizarra .card-tareas .card-body .card-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-color: #2AF456;
+}
+/* #DC3545     #F4F42A      #2AF456 */
+
 .card-tareas {
     width: 20rem;
     border: solid #0993AE 5px;
