@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,8 +11,15 @@ class ProyectoController extends Controller
     public function proyecto()
     {
         //
-        $proyecto = session('proyecto');
-        return view('proyecto', compact('proyecto'));
+        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
+            return [
+                'id' => $p->id,
+                'nombre' => $p->nombre,
+                'tareas' => $p->tareas->pluck('nombre')->toArray(),
+            ];
+        });
+
+        return view('proyecto', compact('proyectos'));
     }
 
     /**
@@ -78,4 +84,5 @@ class ProyectoController extends Controller
     {
         //
     }
+
 }

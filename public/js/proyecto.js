@@ -41,9 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         form.reset();
     });
 
-    // Comentario: Este script permite crear dinámicamente una nueva tarjeta de proyecto en la vista de proyectos
-    // cuando el usuario rellena el formulario y pulsa "CREAR" en el modal. Corrige la interpolación de variables y rutas de imágenes.
-
 
 
 });
