@@ -11,7 +11,7 @@ class ProyectoController extends Controller
     public function proyecto()
     {
         //
-        $proyectos = Proyecto::with('tareas')->get()->map(funtion($p) {
+        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
             return [
                 'id' => $p->id,
                 'nombre' => $p->nombre,
@@ -19,7 +19,7 @@ class ProyectoController extends Controller
             ];
         });
 
-        return view('proyecto', compact('proyecto'));
+        return view('proyecto', compact('proyectos'));
     }
 
     /**
@@ -85,4 +85,4 @@ class ProyectoController extends Controller
         //
     }
 
-};
+}
