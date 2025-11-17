@@ -535,9 +535,10 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EstadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstadoController.php',
+        'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\ProyectoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProyectoController.php',
         'App\\Http\\Controllers\\RolController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolController.php',
-        'App\\Http\\Controllers\\TareaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TareaController.php',
+        'App\\Http\\Controllers\\TareasController' => __DIR__ . '/../..' . '/app/Http/Controllers/TareasController.php',
         'App\\Http\\Controllers\\TipoTareaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TipoTareaController.php',
         'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
         'App\\Http\\Controllers\\registroController' => __DIR__ . '/../..' . '/app/Http/Controllers/registroController.php',

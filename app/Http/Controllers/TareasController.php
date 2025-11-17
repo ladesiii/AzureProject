@@ -61,47 +61,8 @@ class TareasController extends Controller
      */
     public function destroy(string $tarea)
     {
-        /**
-        $tarea = session('tareas', []);
-        $t = $this->findTareaByCodi($tarea, $tarea);
-        if ($t != -1) {
-            // Remove the task from the array
-            $index = array_search($t, $tarea);
-            if ($index !== false) {
-                unset($tarea[$index]);
-                // Reindex the array
-                $tarea = array_values($tarea);
-                // Update the session
-                session(['tareas' => $tarea]);
-            }
-        }
-
-        return redirect()->route('tareas');
-        **/
+        
     }
 
-    /**
-    public function findTareaByCodi($tarea, $codi)
-    {
-        $i = 0;
-        $found = false; 
-        $t = -1;
-
-        while ($i < count($tarea) && !$found) {
-            if ($tarea[$i]->getCodi() === $codi) {
-                $found = true;
-                $t = $tarea[$i];
-            }
-            $i++;
-        }
-
-        foreach ($tarea as $t) {
-            if ($t->getCodi() === $codi) {
-                return $t;
-            }
-        }
-        return $t;
-    }
-
-    **/
+    
 }

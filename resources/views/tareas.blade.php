@@ -6,6 +6,7 @@
 
         <title>Tareas</title>
         <script src="{{ asset('js/tareas.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     </head>
     <div class="sobrefondo-tareas">
