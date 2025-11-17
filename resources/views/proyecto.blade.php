@@ -10,10 +10,9 @@
             <h1 class="Pagina-titulo">PROYECTOS</h1>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearProyecto">CREAR PROYECTO</button>
+                <button type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearProyecto" >CREAR PROYECTO</button>
             </div>
         </div>
-
 
         <div class="card-proyecto" id="contenedor-proyectos">
             <div class="card-body card-body-proyecto">

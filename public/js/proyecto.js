@@ -27,26 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const nuevoDiv = document.createElement("div");
         nuevoDiv.classList.add("card-body", "card-body-proyecto");
 
-        // Usar interpolación correcta para el nombre del proyecto
-        nuevoDiv.innerHTML = `
-            <h5 class="card-title">${nombreProyecto}</h5>
-            <hr>
-            <li class="list-group-item">Proxima Tarea para finalizar</li>
-            <li class="list-group-item">Proxima Tarea para finalizar</li>
-            <li class="list-group-item">Proxima Tarea para finalizar</li>
-            <div class="project-actions">
-                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto">
-                    <img src="/img/edit.png" alt="edit" class="d-inline-block" style="cursor:pointer;">
-                </a>
-                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto">
-                    <img src="/img/trash.png" alt="trash" class="d-inline-block" style="cursor:pointer;">
-                </a>
-                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios">
-                    <img src="/img/user.png" alt="user" class="d-inline-block" style="width: 24px; height: 24px; cursor:pointer;">
-                </a>
-            </div>
-        `;
-
         // Agregar el nuevo card-body al contenedor de proyectos
         contenedor.appendChild(nuevoDiv);
 
