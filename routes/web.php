@@ -15,7 +15,7 @@ Route::get('/', function () {
 Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
 //Pagina de Proyecto
-Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');
+Route::post('/index', [ProyectoController::class, 'proyecto'])->name('proyecto');
 
 //Endpoint para crear proyecto (POST)
 Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');

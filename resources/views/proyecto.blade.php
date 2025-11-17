@@ -23,7 +23,7 @@
                     'titulo' => $proyecto->titulo,
                     'tareas' => $proyecto->tareas,
                     'proyectoId' => $proyecto->id,
-                    'usuarios' => $proyecto->usuarios
+                    'usuarios' => $proyecto->usuarios,
                 ])
             @endforeach
         </div>

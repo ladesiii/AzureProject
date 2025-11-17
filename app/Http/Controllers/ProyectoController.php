@@ -8,17 +8,10 @@ class ProyectoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function proyecto()
+    public function index()
     {
         //
-        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
-            return [
-                'id' => $p->id,
-                'nombre' => $p->nombre,
-                'tareas' => $p->tareas->pluck('nombre')->toArray(),
-            ];
-        });
-
+        $proyectos = session('proyectos', []);
         return view('proyecto', compact('proyectos'));
     }
 
@@ -36,7 +29,6 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //
-
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
         ]);
