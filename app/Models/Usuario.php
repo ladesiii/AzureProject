@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Rol;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'nombre',
         'email',
         'password',
+        'id_rol',
     ];
 
     /**
@@ -30,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -38,11 +39,28 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array<string,mixed>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * Table and primary key configuration for non-standard column names
+     */
+    protected $table = 'usuarios';
+    protected $primaryKey = 'id_usuario';
+    public $incrementing = true;
+    protected $keyType = 'int';
+
+    /**
+     * Relationship: usuario belongs to un rol
+     */
+    public function rol()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->belongsTo(Rol::class, 'id_rol');
     }
 }
