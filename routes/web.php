@@ -5,7 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TareasController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\registroController;
-use App\Http\Controllers\ProyectosController;
+use App\Http\Controllers\ProyectoController;
 
 Route::get('/', function () {
     return view('landing');
@@ -15,10 +15,10 @@ Route::get('/', function () {
 Route::get('/tareas', [TareasController::class, 'tareas'])->name('tareas');
 
 //Pagina de Proyecto
-Route::get('/proyecto', [ProyectosController::class, 'proyecto'])->name('proyecto');
+Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');
 
 //Endpoint para crear proyecto (POST)
-Route::post('/proyecto', [ProyectosController::class, 'store'])->name('proyecto.store');
+Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');
 
 Route::get('/login', [UsuarioController::class, 'login'])->name('login');
 
