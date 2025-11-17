@@ -27,3 +27,4 @@ Route::get('/registro', [registroController::class, 'registro'])->name('registro
 
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
