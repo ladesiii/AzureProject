@@ -20,7 +20,7 @@ Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto
 //Endpoint para crear proyecto (POST)
 Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');
 
-Route::get('/login', [UsuarioController::class, 'login'])->name('login');
+// Route to UsuarioController removed to avoid conflict with LoginController
 
 //Registro
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
