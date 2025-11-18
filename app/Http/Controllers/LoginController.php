@@ -14,17 +14,21 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $usuario = Usuario::where('email', $request->email)->first();
 
         if (!$usuario || !Hash::check($request->password, $usuario->password)) {
-            $response  = redirect('/');
-            session()->flash('Success', 'Bienvenido ' . $usuario->nombre);
-        }
-        else{
-           session()->flash('error', 'Credenciales incorrectas.');
-           $response = redirect()->back()->withInput();
+            session()->flash('error', 'Credenciales incorrectas.');
+            return redirect()->back()->withInput();
         }
 
-        return $response;
+        // Log the user in and redirect to intended page
+        auth()->login($usuario);
+        session()->flash('success', 'Bienvenido ' . $usuario->email);
+        return redirect()->intended('/');
     }
 }
