@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\TareasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TareasController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\ProyectoController;
@@ -12,7 +12,7 @@ Route::get('/', function () {
 })->name('landing');
 
 // Web page Tareas
-Route::get('/tareas', [TareasController::class, 'tareas'])->name('tareas');
+Route::resource('user', TareasController::class);
 
 //Pagina de Proyecto
 Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');

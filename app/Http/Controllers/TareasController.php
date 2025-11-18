@@ -11,7 +11,7 @@ class TareasController extends Controller
      */
     public function tareas()
     {
-        $tarea = session('tareas', []);
+        $tarea = task::all();
         return view("tareas", compact('tarea'));
 
     }
