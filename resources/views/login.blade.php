@@ -11,11 +11,13 @@
     <span class="color-letra d-block mt-2">AzureProject</span>
 </h3>
 
+
+
 <form method="POST" action="{{ route('login.submit')}}">
     @csrf
     <div class="mb-3">
         <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" name="email" id="email" class="form-control" required>
+        <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required>
     </div>
 
     <div class="mb-3">
