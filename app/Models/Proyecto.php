@@ -8,7 +8,7 @@ class Proyecto extends Model
 {
     //
     protected $table = 'proyecto';
-    protected $primaryKey = 'id';
-    public $incrementing = true;
+    // protected $primaryKey = 'id';
+    //public $incrementing = true;
     public $timestamps = false;
 }
