@@ -2,32 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
     public function showLogin()
     {
-        return view('auth.login');
+        return view('login');
     }
     public function login(Request $request)
     {
-        $usuari = UsuarioController::where('email', $request->email)->first();
+        $usuario = Usuario::where('email', $request->email)->first();
 
-        if (!$usuari || !Hash::check($request->password, $usuari->password)) {
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
-        }else{
-           session()->flash('id_usuario', $usuari->id_usuario);
+        if (!$usuario || !Hash::check($request->password, $usuario->password)) {
+            $response  = redirect('/');
+            session()->flash('Success', 'Bienvenido ' . $usuario->nombre);
+        }
+        else{
+           session()->flash('error', 'Credenciales incorrectas.');
+           $response = redirect()->back()->withInput();
         }
 
-        if (auth()->attempt($credentials)) {
-            return redirect()->intended('dashboard');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return $response;
     }
 }
