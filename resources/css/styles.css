@@ -180,6 +180,36 @@ header .btn-auth:hover {
     box-shadow: 0 0 0 0.25rem rgba(9, 147, 174, 0.25);
 }
 
+/* Password toggle icon styles */
+.password-toggle-wrapper {
+    position: relative;
+}
+
+.password-toggle-wrapper .form-control {
+    padding-right: 45px;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #0993AE;
+    padding-right: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.password-toggle-btn:hover {
+    color: #077a92;
+}
+
+.password-toggle-btn i {
+    font-size: 1.2rem;
+}
+
 /* Labels: usar estilo por defecto de Bootstrap (sin overrides) */
 /* Estilos para el header del formulario */
 .form-header {

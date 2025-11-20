@@ -22,21 +22,41 @@
                         <span class="ms-2 fw-bold align-middle titulo-header">AzureProject</span>
                     </a>
                     <div class="ms-auto d-flex align-items-center">
-                        <!-- Visible on large and up: regular buttons -->
-                        <a href="{{ route('login') }}" class="btn-auth me-3 d-none d-lg-inline-block">INICIAR SESIÓN</a>
-                        <a href="" class="btn-auth me-3 d-none d-lg-inline-block">REGISTRARSE</a>
+                        @auth
+                            <div class="dropdown">
+                                <button class="btn-auth dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2" aria-hidden="true"></i>
+                                    {{ auth()->user()->name ?? auth()->user()->nombre ?? auth()->user()->email }}
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="{{ route('proyecto') }}">Mis proyectos</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('tareas') }}">Mis tareas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @else
+                            <!-- Visible on large and up: regular buttons -->
+                            <a href="{{ route('login') }}" class="btn-auth me-3 d-none d-lg-inline-block">INICIAR SESIÓN</a>
+                            <a href="{{ route('registro') }}" class="btn-auth me-3 d-none d-lg-inline-block">REGISTRARSE</a>
 
-                        <!-- Visible on tablet and smaller (< lg): dropdown -->
-                        <div class="dropdown d-block d-lg-none">
-                            <button class="btn-auth dropdown-toggle" type="button" id="authDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-list" aria-hidden="true"></i>
-                                <span class="visually-hidden">Menú</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="authDropdown">
-                                <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar sesión</a></li>
-                                <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
-                            </ul>
-                        </div>
+                            <!-- Visible on tablet and smaller (< lg): dropdown -->
+                            <div class="dropdown d-block d-lg-none">
+                                <button class="btn-auth dropdown-toggle" type="button" id="authDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-list" aria-hidden="true"></i>
+                                    <span class="visually-hidden">Menú</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="authDropdown">
+                                    <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar sesión</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
+                                </ul>
+                            </div>
+                        @endauth
                     </div>
                 </div>
             </nav>
