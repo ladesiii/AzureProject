@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    function login(){
-        return view("login");
-    }
 
     function register(){
         return view("register");

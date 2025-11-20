@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -14,17 +15,32 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $usuario = Usuario::where('email', $request->email)->first();
 
-        if (!$usuario || !Hash::check($request->password, $usuario->password)) {
-            $response  = redirect('/');
-            session()->flash('Success', 'Bienvenido ' . $usuario->nombre);
-        }
-        else{
-           session()->flash('error', 'Credenciales incorrectas.');
-           $response = redirect()->back()->withInput();
+        if (!$usuario) {
+            return redirect()->back()->withInput()->with('error_type', 'email_not_found');
         }
 
-        return $response;
+        if (!Hash::check($request->password, $usuario->password)) {
+            return redirect()->back()->withInput()->with('error_type', 'password_incorrect');
+        }
+
+        // Log the user in and redirect to intended page
+        Auth::login($usuario);
+        session()->flash('success', 'Bienvenido ' . $usuario->email);
+        return redirect()->intended('/');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('landing');
     }
 }

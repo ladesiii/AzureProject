@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
+class ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -535,6 +535,7 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EstadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstadoController.php',
+        'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\ProyectoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProyectoController.php',
         'App\\Http\\Controllers\\RolController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolController.php',
         'App\\Http\\Controllers\\TareaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TareaController.php',
@@ -543,6 +544,13 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'App\\Http\\Controllers\\registroController' => __DIR__ . '/../..' . '/app/Http/Controllers/registroController.php',
         'App\\Http\\Requests\\StoreProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreProyectRequest.php',
         'App\\Http\\Requests\\UpdateProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProyectRequest.php',
+        'App\\Models\\Estado' => __DIR__ . '/../..' . '/app/Models/Estado.php',
+        'App\\Models\\Proyecto' => __DIR__ . '/../..' . '/app/Models/Proyecto.php',
+        'App\\Models\\Rol' => __DIR__ . '/../..' . '/app/Models/Rol.php',
+        'App\\Models\\Tarea' => __DIR__ . '/../..' . '/app/Models/Tarea.php',
+        'App\\Models\\Tipo_tarea' => __DIR__ . '/../..' . '/app/Models/Tipo_tarea.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
         'App\\Policies\\ProyectPolicy' => __DIR__ . '/../..' . '/app/Policies/ProyectPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -6768,9 +6776,9 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$classMap;
 
         }, null, ClassLoader::class);
     }
