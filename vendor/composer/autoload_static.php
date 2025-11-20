@@ -544,6 +544,8 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'App\\Http\\Controllers\\registroController' => __DIR__ . '/../..' . '/app/Http/Controllers/registroController.php',
         'App\\Http\\Requests\\StoreProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreProyectRequest.php',
         'App\\Http\\Requests\\UpdateProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProyectRequest.php',
+        'App\\Models\\Rol' => __DIR__ . '/../..' . '/app/Models/Rol.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
         'App\\Policies\\ProyectPolicy' => __DIR__ . '/../..' . '/app/Policies/ProyectPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

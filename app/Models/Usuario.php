@@ -13,10 +13,11 @@ class Usuario extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-     /**
-     * Table and primary key configuration for non-standard column names
-     */
+    /**
+    * Table and primary key configuration for non-standard column names
+    */
     protected $table = 'usuario';
+    protected $primaryKey = 'id_usuario';
     public $timestamps = false;
      /**
      * Relationship: usuario belongs to un rol

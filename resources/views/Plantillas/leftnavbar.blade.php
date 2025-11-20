@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
-    
+
 </head>
 
 <body class="d-flex">
@@ -33,6 +33,9 @@
 
                 <div class="h33 sideblock">
                 <div class="h33 row">
+                    <li class="nav-item mb-3">
+                        <h5 class="text-white">Hola, {{ auth()->user()->name ?? auth()->user()->nombre ?? auth()->user()->email }}</h5>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
                     </li>
@@ -48,7 +51,10 @@
                 <div class="h33 sideblock">
                 <div class="h33 row">
                     <li class="nav-item bottonCerrar">
-                        <a href="#" class="btn-base btn-outline">Cerrar sesión</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn-base btn-outline w-100">Cerrar sesión</button>
+                        </form>
                     </li>
                 </div>
 
