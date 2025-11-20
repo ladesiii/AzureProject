@@ -17,6 +17,8 @@ return array(
     'App\\Http\\Controllers\\registroController' => $baseDir . '/app/Http/Controllers/registroController.php',
     'App\\Http\\Requests\\StoreProyectRequest' => $baseDir . '/app/Http/Requests/StoreProyectRequest.php',
     'App\\Http\\Requests\\UpdateProyectRequest' => $baseDir . '/app/Http/Requests/UpdateProyectRequest.php',
+    'App\\Models\\Rol' => $baseDir . '/app/Models/Rol.php',
+    'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Usuario' => $baseDir . '/app/Models/Usuario.php',
     'App\\Policies\\ProyectPolicy' => $baseDir . '/app/Policies/ProyectPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
