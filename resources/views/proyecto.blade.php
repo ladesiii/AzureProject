@@ -1,5 +1,4 @@
 @extends('Plantillas.leftnavbar')
-@extends('proyecto.cardProyecto')
 
 @section('contenido')
 
@@ -18,17 +17,18 @@
         </div>
 
         <div class="card-proyecto" id="contenedor-proyectos">
+
             @foreach ($proyectos as $proyecto)
 
                 <div class="card-body card-body-proyecto">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">{{ $proyecto->nombre }}</h5>
                     <hr>
                     @foreach ($proyecto->tareas as $tarea)
                         <li class="list-group-item">{{ $tarea->nombre }}</li>
 
                         -- Modificar el div para que salga la informacion de proyectos y las tareas asociadas --
 
-                        <li class="list-group-item">Proxima Tarea para finalizar</li>
+                        <li class="list-group-item">{{ $tarea->descripcion }}</li>
                         <li class="list-group-item">Proxima Tarea para finalizar</li>
                         <li class="list-group-item">Proxima Tarea para finalizar</li>
 
