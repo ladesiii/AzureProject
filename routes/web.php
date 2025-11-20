@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TareaController;
-use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\ProyectoController;
 
@@ -16,12 +15,20 @@ Route::middleware(['auth'])->group(function () {
     // Web page Tareas
     Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
+
+//Pagina de Proyecto
+Route::post('/index', [ProyectoController::class, 'proyecto'])->name('proyecto');
+
+//Endpoint para crear proyecto (POST)
+Route::resource('proyecto', ProyectoController::class);
+
     //Pagina de Proyecto
     Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');
 
     //Endpoint para crear proyecto (POST)
     Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');
 });
+
 
 // Route to UsuarioController removed to avoid conflict with LoginController
 

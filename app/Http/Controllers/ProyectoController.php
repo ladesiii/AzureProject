@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
@@ -9,11 +9,11 @@ class ProyectoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function proyecto()
+    public function index()
     {
         //
-        $proyecto = session('proyecto');
-        return view('proyecto', compact('proyecto'));
+        $proyectos = Proyecto::all();
+        return view('proyecto', compact('proyectos'));
     }
 
     /**
@@ -30,7 +30,6 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //
-
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
         ]);
@@ -78,4 +77,5 @@ class ProyectoController extends Controller
     {
         //
     }
+
 }

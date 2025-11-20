@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estado extends Model
+class Tipo_tarea extends Model
 {
-    //
-    protected $table = 'estado';
+    protected $table = 'tipo_tarea';
     // protected $primaryKey = 'id';
     //public $incrementing = true;
     public $timestamps = false;
-
 }
