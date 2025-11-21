@@ -35,7 +35,7 @@
         <div class="password-toggle-wrapper">
             <input type="password" name="password" id="password" class="form-control" required>
             <button type="button" id="passwordToggleBtn" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
-                <i class="bi bi-eye" id="toggleIcon" aria-hidden="true"></i>
+                <i class="bi bi-eye password-toggle-icon" id="toggleIcon" aria-hidden="true"></i>
             </button>
         </div>
     </div>
