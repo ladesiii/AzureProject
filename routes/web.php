@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
 //Registro
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
+Route::post('/registro', [registroController::class, 'store'])->name('registro.submit');
 
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
