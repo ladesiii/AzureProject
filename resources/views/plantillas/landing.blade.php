@@ -30,7 +30,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" href="{{ route('proyecto.index') }}">Mis proyectos</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('tareas') }}">Mis tareas</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('tareas.index') }}">Mis tareas</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">

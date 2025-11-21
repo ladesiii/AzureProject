@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TareaController;
+use App\Http\Controllers\TareasController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\ProyectoController;
 
@@ -12,15 +12,23 @@ Route::get('/', function () {
 
 // Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {
+    
     // Web page Tareas
-    Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
+    Route::resource('tareas', TareasController::class);
+
+    //Endpoint para crear proyecto (POST)
+    Route::resource('proyecto', ProyectoController::class);
+    
+    //Herramoienta para mas tarde 
+
+    // ->only(['index'])->names([
+    //     'index' => 'tareas.tareas',
+    // ]);
 
 
-
-//Endpoint para crear proyecto (POST)
-Route::resource('proyecto', ProyectoController::class);
 
 });
+
 
 
 // Route to UsuarioController removed to avoid conflict with LoginController
