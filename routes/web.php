@@ -17,7 +17,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
 //Endpoint para crear proyecto (POST)
 Route::resource('proyecto', ProyectoController::class);
 

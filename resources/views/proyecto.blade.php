@@ -28,9 +28,9 @@
 
                         -- Modificar el div para que salga la informacion de proyectos y las tareas asociadas --
 
+                        <li class="list-group-item">{{ $atrea->descripcion }}</li>
                         <li class="list-group-item">{{ $tarea->descripcion }}</li>
-                        <li class="list-group-item">Proxima Tarea para finalizar</li>
-                        <li class="list-group-item">Proxima Tarea para finalizar</li>
+                        <li class="list-group-item">{{ $tarea->descripcion }}</li>
 
                         <div class="project-actions">
                             <a href="#" class="card-link" data-bs-toggle="modal"
