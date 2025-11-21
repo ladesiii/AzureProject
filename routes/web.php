@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('proyecto', ProyectoController::class);
 
 });
+// sON UNO MAMAGUEVO
 
 
 // Route to UsuarioController removed to avoid conflict with LoginController
