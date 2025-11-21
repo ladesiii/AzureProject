@@ -1,6 +1,12 @@
 @extends('Plantillas.leftnavbar')
+@extends('proyecto.cardProyecto')
 
 @section('contenido')
+
+    <head>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <title>Proyecto</title>
+    </head>
     <div class="sobrefondo">
         <div class="Encabezado">
             <h1 class="Pagina-titulo">PROYECTOS</h1>
@@ -11,112 +17,39 @@
             </div>
         </div>
 
+        <div class="card-proyecto" id="contenedor-proyectos">
+            @foreach ($proyectos as $proyecto)
 
-        <div class="card-proyecto">
-            <div class="card-body card-body-proyecto">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
+                <div class="card-body card-body-proyecto">
+                    <h5 class="card-title">Card title</h5>
+                    <hr>
+                    @foreach ($proyecto->tareas as $tarea)
+                        <li class="list-group-item">{{ $tarea->nombre }}</li>
 
-                <div class="project-actions">
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto"><img
-                            src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto"><img
-                            src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios"><img
-                            src="{{ asset('img/user.png') }}" alt="bloq-user" class="d-inline-block"
-                            style="width: 24px; height: 24px;"></a>
+                        -- Modificar el div para que salga la informacion de proyectos y las tareas asociadas --
+
+                        <li class="list-group-item">Proxima Tarea para finalizar</li>
+                        <li class="list-group-item">Proxima Tarea para finalizar</li>
+                        <li class="list-group-item">Proxima Tarea para finalizar</li>
+
+                        <div class="project-actions">
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalEditarProyecto"><img src="{{ asset('img/edit.png') }}" alt="edit"
+                                    class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalEliminarProyecto"><img src="{{ asset('img/trash.png') }}"
+                                    alt="trash" class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalGestionarUsuarios"><img src="{{ asset('img/user.png') }}"
+                                    alt="bloq-user" class="d-inline-block" style="width: 24px; height: 24px;"></a>
+                        </div>
+                    @endforeach
                 </div>
-            </div>
-
-            <div class="card-body card-body-proyecto">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <div class="project-actions">
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto"><img
-                            src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto"><img
-                            src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios"><img
-                            src="{{ asset('img/user.png') }}" alt="bloq-user" class="d-inline-block"
-                            style="width: 24px; height: 24px;"></a>
-                </div>
-            </div>
-
-            <div class="card-body card-body-proyecto">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <div class="project-actions">
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto"><img
-                            src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto"><img
-                            src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios"><img
-                            src="{{ asset('img/user.png') }}" alt="bloq-user" class="d-inline-block"
-                            style="width: 24px; height: 24px;"></a>
-                </div>
-            </div>
-
-            <div class="card-body card-body-proyecto">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <div class="project-actions">
-                    <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto"><img
-                            src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal"
-                        data-bs-target="#modalEliminarProyecto"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                            class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal"
-                        data-bs-target="#modalGestionarUsuarios"><img src="{{ asset('img/user.png') }}" alt="bloq-user"
-                            class="d-inline-block" style="width: 24px; height: 24px;"></a>
-                </div>
-            </div>
-
-            <div class="card-body card-body-proyecto">
-                <h5 class="card-title">Card title</h5>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <li class="list-group-item">Proxima Tarea para finalizar</li>
-                <hr>
-                <div class="project-actions">
-                    <a href="#" class="card-link" data-bs-toggle="modal"
-                        data-bs-target="#modalEditarProyecto"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                            class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal"
-                        data-bs-target="#modalEliminarProyecto"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                            class="d-inline-block"></a>
-                    <a href="#" class="card-link" data-bs-toggle="modal"
-                        data-bs-target="#modalGestionarUsuarios"><img src="{{ asset('img/user.png') }}" alt="bloq-user"
-                            class="d-inline-block" style="width: 24px; height: 24px;"></a>
-                </div>
-            </div>
+            @endforeach
         </div>
-
-
     </div>
+    </div>
+    <script src="{{ asset('js/proyecto.js') }}"></script>
 @endsection
 @include('modals.crearProyecto')
 @include('modals.editarProyecto')
