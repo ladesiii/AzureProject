@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     //     'index' => 'tareas.tareas',
     // ]);
 });
+// sON UNO MAMAGUEVO
 
 
 
