@@ -34,8 +34,8 @@
         <label for="password" class="form-label">Contraseña</label>
         <div class="password-toggle-wrapper">
             <input type="password" name="password" id="password" class="form-control" required>
-            <button type="button" class="password-toggle-btn" onclick="togglePassword()">
-                <i class="bi bi-eye" id="toggleIcon"></i>
+            <button type="button" id="passwordToggleBtn" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
+                <i class="bi bi-eye" id="toggleIcon" aria-hidden="true"></i>
             </button>
         </div>
     </div>
@@ -43,7 +43,7 @@
     <button type="submit" class="btn-auth w-100">INICIAR SESIÓN</button>
 </form>
 
-<script src="{{ asset('resources/js/login.js') }}"></script>
+<script src="{{ asset('js/login.js') }}"></script>
 
 <p class="text-center mt-3">
     ¿No tienes cuenta?
