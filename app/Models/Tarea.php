@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tarea extends Model
 {
-    protected $table = 'tarea';
+    protected $table = 'tarea'; //Liaada MAX
     protected $primaryKey = 'id_tarea';
     //public $incrementing = true;
     public $timestamps = false;
