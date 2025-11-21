@@ -16,17 +16,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tareas', [TareaController::class, 'tareas'])->name('tareas');
 
 
-//Pagina de Proyecto
-Route::post('/index', [ProyectoController::class, 'proyecto'])->name('proyecto');
 
 //Endpoint para crear proyecto (POST)
 Route::resource('proyecto', ProyectoController::class);
 
-    //Pagina de Proyecto
-    Route::get('/proyecto', [ProyectoController::class, 'proyecto'])->name('proyecto');
-
-    //Endpoint para crear proyecto (POST)
-    Route::post('/proyecto', [ProyectoController::class, 'store'])->name('proyecto.store');
 });
 
 
