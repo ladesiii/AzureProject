@@ -1,5 +1,4 @@
 @extends('Plantillas.leftnavbar')
-@extends('proyecto.cardProyecto')
 
 @section('contenido')
 
@@ -18,13 +17,34 @@
         </div>
 
         <div class="card-proyecto" id="contenedor-proyectos">
+
             @foreach ($proyectos as $proyecto)
-                @include('proyecto.cardProyecto', [
-                    'titulo' => $proyecto->titulo,
-                    'tareas' => $proyecto->tareas,
-                    'proyectoId' => $proyecto->id,
-                    'usuarios' => $proyecto->usuarios
-                ])
+
+                <div class="card-body card-body-proyecto">
+                    <h5 class="card-title">{{ $proyecto->nombre }}</h5>
+                    <hr>
+                    @foreach ($proyecto->tareas as $tarea)
+                        <li class="list-group-item">{{ $tarea->nombre }}</li>
+
+                        -- Modificar el div para que salga la informacion de proyectos y las tareas asociadas --
+
+                        <li class="list-group-item">{{ $atrea->descripcion }}</li>
+                        <li class="list-group-item">{{ $tarea->descripcion }}</li>
+                        <li class="list-group-item">{{ $tarea->descripcion }}</li>
+
+                        <div class="project-actions">
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalEditarProyecto"><img src="{{ asset('img/edit.png') }}" alt="edit"
+                                    class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalEliminarProyecto"><img src="{{ asset('img/trash.png') }}"
+                                    alt="trash" class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal"
+                                data-bs-target="#modalGestionarUsuarios"><img src="{{ asset('img/user.png') }}"
+                                    alt="bloq-user" class="d-inline-block" style="width: 24px; height: 24px;"></a>
+                        </div>
+                    @endforeach
+                </div>
             @endforeach
         </div>
     </div>

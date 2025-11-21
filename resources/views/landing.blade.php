@@ -41,7 +41,7 @@
                 </div>
                 <div class="mt-5">
                     @auth
-                        <a href="{{ route('proyecto') }}?openModal=true" class="btn-auth text-decoration-none d-inline-block text-center">CREAR PROYECTO</a>
+                        <a href="{{ route('proyecto.index') }}?openModal=true" class="btn-auth text-decoration-none d-inline-block text-center">CREAR PROYECTO</a>
                     @else
                         <a href="{{ route('landing') }}?unauthorized=proyecto" class="btn-auth text-decoration-none d-inline-block text-center">CREAR PROYECTO</a>
                     @endauth

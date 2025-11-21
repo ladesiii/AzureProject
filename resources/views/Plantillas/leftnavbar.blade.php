@@ -40,7 +40,7 @@
                         <a href="{{ url('/') }}" class="btn-base btn-primary">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('proyecto') }}" class="btn-base btn-primary">PROYECTOS</a>
+                        <a href="{{ route('proyecto.index') }}" class="btn-base btn-primary">PROYECTOS</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('tareas') }}" class="btn-base btn-primary">TAREAS</a>
