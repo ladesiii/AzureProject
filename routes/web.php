@@ -24,9 +24,6 @@ Route::middleware(['auth'])->group(function () {
     // ->only(['index'])->names([
     //     'index' => 'tareas.tareas',
     // ]);
-
-
-
 });
 
 
