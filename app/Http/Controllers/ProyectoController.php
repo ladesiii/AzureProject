@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 class ProyectoController extends Controller
@@ -12,7 +11,14 @@ class ProyectoController extends Controller
     public function index()
     {
         //
-        $proyectos = Proyecto::all();
+        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
+            return [
+                'id' => $p->id,
+                'nombre' => $p->nombre,
+                'tareas' => $p->tareas->pluck('nombre')->toArray(),
+            ];
+        });
+
         return view('proyecto', compact('proyectos'));
     }
 
@@ -30,6 +36,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //
+
         $validated = $request->validate([
             'nombre' => 'required|string|max:255',
         ]);

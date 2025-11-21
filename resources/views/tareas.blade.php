@@ -6,17 +6,20 @@
 
         <title>Tareas</title>
         <script src="{{ asset('js/tareas.js') }}" defer></script>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     </head>
-    <div class="sobrefondo">
+    <div class="sobrefondo-tareas">
         <div class="Encabezado">
             <h1 class="Pagina-titulo">TAREAS</h1>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearTarea">CREAR TAREA</button>
+                <button href="" type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearTarea">
+                    CREAR TAREA
+                </button>
             </div>
         </div>
-        <div id="container">
+        <div id="container-tareas">
             <div id="empezar" class="bloque">
                 <h3>POR EMPEZAR</h3>
 
@@ -38,6 +41,25 @@
                 <div class="pizarra">
                     <div class="card card-tareas" style="width: 18rem;">
                         <div class="card-body">
+                            <h5 class="card-title">{{ $tarea->nombre }}</h5>
+                            <hr>
+                            <li class="list-group-item">{{ $tarea->descripcion }}</li>
+                            <hr>
+                            <li class="list-group-item">etiqueta</li>
+                            <hr>
+                            <li class="list-group-item">usuaris</li>
+                            <hr>
+                            <li class="list-group-item">data d'entrega</li>
+                            <hr>
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarTarea"><img
+                                    src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarTarea"><img
+                                    src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
+                        </div>
+                    </div>
+
+                    <div class="card card-tareas" style="width: 18rem;">
+                        <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <hr>
                             <li class="list-group-item">descripció</li>
@@ -48,13 +70,12 @@
                             <hr>
                             <li class="list-group-item">data d'entrega</li>
                             <hr>
-                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarTarea"><img src="{{ asset('img/edit.png') }}" alt="edit"
-                    class="d-inline-block"></a>
-                <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarTarea"><img src="{{ asset('img/trash.png') }}" alt="trash"
-                    class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarTarea"><img
+                                    src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"></a>
+                            <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarTarea"><img
+                                    src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"></a>
                         </div>
                     </div>
-
 
                 </div>
 
