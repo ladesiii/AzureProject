@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Tarea;
 use Illuminate\Http\Request;
+
 
 class TareasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function tareas()
+    public function index()
     {
-        $tarea = task::all();
-        return view("tareas", compact('tarea'));
+        $tarea = Tarea::all();
+        return view("tareas", compact('tareas'));
 
     }
 

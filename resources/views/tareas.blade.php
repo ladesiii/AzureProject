@@ -41,9 +41,9 @@
                 <div class="pizarra">
                     <div class="card card-tareas" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">{{ $tarea->nombre }}</h5>
                             <hr>
-                            <li class="list-group-item">descripció</li>
+                            <li class="list-group-item">{{ $tarea->descripcion }}</li>
                             <hr>
                             <li class="list-group-item">etiqueta</li>
                             <hr>

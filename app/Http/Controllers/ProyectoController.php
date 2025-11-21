@@ -8,7 +8,7 @@ class ProyectoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function proyecto()
+    public function index()
     {
         //
         $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
