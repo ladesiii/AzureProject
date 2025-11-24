@@ -2,6 +2,9 @@
 
 @section('contenido')
 
+@php
+
+@endphp
     <head>
 
         <title>Tareas</title>
@@ -41,9 +44,9 @@
                 <div class="pizarra">
                     <div class="card card-tareas" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $tarea->nombre }}</h5>
+                            <h5 class="card-title">{{ $tareas->nombre }}</h5>
                             <hr>
-                            <li class="list-group-item">{{ $tarea->descripcion }}</li>
+                            <li class="list-group-item">{{ $tareas->descripcion }}</li>
                             <hr>
                             <li class="list-group-item">etiqueta</li>
                             <hr>

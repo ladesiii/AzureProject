@@ -12,7 +12,7 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $tarea = Tarea::all();
+        $tareas = Tarea::all();
         return view("tareas", compact('tareas'));
 
     }
