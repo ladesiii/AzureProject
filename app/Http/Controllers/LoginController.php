@@ -31,7 +31,7 @@ class LoginController extends Controller
         }
 
         // Log the user in and redirect to intended page
-        Auth::login($usuario);
+        Auth::login( $usuario);
         session()->flash('success', 'Bienvenido ' . $usuario->email);
         return redirect()->intended('/');
     }

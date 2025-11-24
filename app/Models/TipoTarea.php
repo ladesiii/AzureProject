@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Tipo_tarea extends Model
+class TipoTarea extends Model
 {
     protected $table = 'tipo_tarea';
     // protected $primaryKey = 'id';
