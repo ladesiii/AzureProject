@@ -12,14 +12,7 @@ class ProyectoController extends Controller
     public function index()
     {
         //
-        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
-            return [
-                'id' => $p->id,
-                'nombre' => $p->nombre,
-                'tareas' => $p->tareas->pluck('nombre')->toArray(),
-            ];
-        });
-
+        $proyectos = Proyecto::all();
         return view('proyecto', compact('proyectos'));
     }
 
@@ -81,9 +74,10 @@ class ProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $proyectos)
     {
-        //
+        /*Configurar eliminar con cada proyecto y que se guarden los cambio*/
+            //    return redirect()->route('proyecto')->with('success', 'Proyecto eliminado correctamente.');
     }
 
 }
