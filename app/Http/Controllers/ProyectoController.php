@@ -12,14 +12,7 @@ class ProyectoController extends Controller
     public function index()
     {
         //
-        $proyectos = Proyecto::with('tareas')->get()->map(function($p) {
-            return [
-                'id' => $p->id,
-                'nombre' => $p->nombre,
-                'tareas' => $p->tareas->pluck('nombre')->toArray(),
-            ];
-        });
-
+    $proyectos = Proyecto::all();
         return view('proyecto', compact('proyectos'));
     }
 

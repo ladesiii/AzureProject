@@ -28,7 +28,7 @@
 
                         -- Modificar el div para que salga la informacion de proyectos y las tareas asociadas --
 
-                        <li class="list-group-item">{{ $atrea->descripcion }}</li>
+                        <li class="list-group-item">{{ $tarea->descripcion }}</li>
                         <li class="list-group-item">{{ $tarea->descripcion }}</li>
                         <li class="list-group-item">{{ $tarea->descripcion }}</li>
 
