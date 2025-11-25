@@ -435,6 +435,29 @@ body {
     margin: 30px;
 }
 
+/* Estilo de los li
+.text-muted.small.li {
+    font-size: 14px;
+    color: #555555;
+    margin-left: 6px;
+    list-style-type: square;
+} */
+
+/*Lista tareas*/
+.lista-tareas {
+    margin-left: 12px;
+    padding-left: 0;
+    list-style-type: disc;
+    font-size: 20px;
+    color: black;
+}
+
+/*iconos links : card-link*/
+.card-link img {
+    display:flex;
+    margin-right: 10px;
+}
+
 /* Contenido del proyecto en la tarjeta */
 .card-body-proyecto {
     width: 33%;
@@ -451,6 +474,8 @@ body {
 .card-body-proyecto .card-title {
     margin-bottom: 8px;
     padding: 0 6px;
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
 /* Elementos de la lista en la tarjeta */
@@ -489,7 +514,7 @@ body {
 /* Título de la página */
 .Pagina-titulo {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px;
+    font-size: 40px;
     color: #0993AE;
 }
 
