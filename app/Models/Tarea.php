@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\TipoTarea;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tarea extends Model
 {
@@ -20,7 +22,7 @@ class Tarea extends Model
     {
         return $this->belongsTo(Proyecto::class, 'id_proyecto');
     }
-    
+
     /**
      * Get the estado that owns the Tarea
      *
