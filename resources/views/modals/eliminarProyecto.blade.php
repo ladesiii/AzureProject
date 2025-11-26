@@ -8,7 +8,8 @@
       </div>
 
       <!-- Cuerpo -->
-      <form id="formEliminarProyecto" method="POST" action="">
+      <!-- La action se rellenará dinámicamente desde JS cuando se abra el modal -->
+      <form id="formEliminarProyecto" method="POST" action="{{ route('proyecto.destroy', ['proyecto' => $proyecto->nombre]) }}">
         @csrf
         @method('DELETE')
         <div class="modal-body">
