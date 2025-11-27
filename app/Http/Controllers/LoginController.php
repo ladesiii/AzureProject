@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $usuario = Usuario::where('email', $request->email)->first();
+        $usuario = User::where('email', $request->email)->first();
 
         if (!$usuario) {
             return redirect()->back()->withInput()->with('error_type', 'email_not_found');

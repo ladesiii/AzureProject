@@ -23,7 +23,6 @@ return array(
     'App\\Models\\Tarea' => $baseDir . '/app/Models/Tarea.php',
     'App\\Models\\Tipo_tarea' => $baseDir . '/app/Models/Tipo_tarea.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
-    'App\\Models\\Usuario' => $baseDir . '/app/Models/Usuario.php',
     'App\\Policies\\ProyectPolicy' => $baseDir . '/app/Policies/ProyectPolicy.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
