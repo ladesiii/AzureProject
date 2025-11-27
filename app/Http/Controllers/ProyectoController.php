@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
+use App\Models\Usuario_Proyecto;
+use Illuminate\Support\Facades\Auth;
 
 class ProyectoController extends Controller
 {
@@ -29,42 +31,28 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Crear el proyecto
+        $proyecto= new Proyecto();
+        $proyecto->nombre = $request->input('nombre');
+        $proyecto->save();
 
-        $validated = $request->validate([
-            'nombre' => 'required|string|max:255',
-        ]);
+        $Usuario_Proyecto              = new Usuario_Proyecto();
+        $Usuario_Proyecto->id_usuario  = Auth::user()->id_usuario;
+        $Usuario_Proyecto->id_proyecto = $proyecto->id_proyecto;
+        $Usuario_Proyecto->id_rol      = 1; // Asignar el rol de administrador (1)
+        $Usuario_Proyecto->save();
 
-        // // Crear y guardar el proyecto en la base de datos
-        // try {
-        //     $proyecto = new Proyecto();
-        //     // Asumimos que la columna se llama 'nombre' en la tabla 'proyecto'
-        //     $proyecto->nombre = $validated['nombre'];
+        /*Añadir un nuevo registro en la tabla usuario_proyecto_rol para tener constancia del usuario admi, id proyecto y id usuario
 
-        //     // Si en el formulario se envía un usuario (id), lo almacenamos si existe la columna
-        //     if ($request->filled('usuario')) {
-        //         // intentar asignar una columna id_usuario si existe
-        //         // Evitamos lanzar error si la propiedad no existe: usamos setAttribute
-        //         $proyecto->setAttribute('id_usuario', $request->input('usuario'));
-        //     }
+        Esto del usuario proyecto sol
+        $proyecto = new Usuario_proyecto();
+        $proyecto->nombre = $request->input('nombre');
+        $proyecto->save();
 
-        //     $proyecto->save();
+        */
+        /*Crear una check list en ves de un desplegable con los usuarios existentes y que sean no admin y esto eria un bucle*/
+        return redirect()->route('proyecto.index')->with('success', 'Proyecto creado correctamente.');
 
-        //     if ($request->ajax()) {
-        //         return response()->json([
-        //             'message' => 'Proyecto creado exitosamente.',
-        //             'id' => $proyecto->{$proyecto->getKeyName()},
-        //             'nombre'  => $proyecto->nombre,
-        //         ]);
-        //     }
-
-        //     return redirect()->route('proyecto.index')->with('success', 'Proyecto creado correctamente.');
-        // } catch (\Exception $e) {
-        //     if ($request->ajax()) {
-        //         return response()->json(['error' => 'No se pudo crear el proyecto: ' . $e->getMessage()], 500);
-        //     }
-        //     return redirect()->route('proyecto.index')->with('error', 'No se pudo crear el proyecto. ' . $e->getMessage());
-        }
     }
 
     /**
