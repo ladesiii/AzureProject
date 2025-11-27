@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Estado;
+use App\Models\Usuario;
+use App\Models\Proyecto;
 use App\Models\TipoTarea;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

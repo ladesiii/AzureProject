@@ -19,8 +19,9 @@ class Proyecto extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function tareas(): HasMany
+    public function proyecto(): HasMany
     {
         return $this->hasMany(Tarea::class, 'id_proyecto');
     }
+
 }
