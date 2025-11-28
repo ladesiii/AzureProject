@@ -15,7 +15,7 @@ class Tarea extends Model
     protected $nombre;
     protected $table = 'tarea';
     protected $primaryKey = 'id_tarea';
-    //public $incrementing = true;
+    public $incrementing = true;
     public $timestamps = false;
 
     /**
@@ -45,7 +45,7 @@ class Tarea extends Model
      */
     public function tipoTarea(): BelongsTo
     {
-        return $this->belongsTo(TipoTarea::class, 'id_tipo_tarea');
+        return $this->belongsTo(TipoTarea::class, 'id_tipo');
     }
 
     /**
