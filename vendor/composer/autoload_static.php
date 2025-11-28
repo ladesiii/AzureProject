@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
+class ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -51,7 +51,6 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'W' => 
         array (
             'Whoops\\' => 7,
-            'Webmozart\\Assert\\' => 17,
         ),
         'T' => 
         array (
@@ -190,10 +189,6 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
-        ),
-        'Webmozart\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -382,7 +377,8 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         ),
         'Nette\\' => 
         array (
-            0 => __DIR__ . '/..' . '/nette/utils/src',
+            0 => __DIR__ . '/..' . '/nette/schema/src',
+            1 => __DIR__ . '/..' . '/nette/utils/src',
         ),
         'Monolog\\' => 
         array (
@@ -544,9 +540,14 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'App\\Http\\Controllers\\registroController' => __DIR__ . '/../..' . '/app/Http/Controllers/registroController.php',
         'App\\Http\\Requests\\StoreProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreProyectRequest.php',
         'App\\Http\\Requests\\UpdateProyectRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProyectRequest.php',
+        'App\\Models\\Estado' => __DIR__ . '/../..' . '/app/Models/Estado.php',
+        'App\\Models\\Proyecto' => __DIR__ . '/../..' . '/app/Models/Proyecto.php',
         'App\\Models\\Rol' => __DIR__ . '/../..' . '/app/Models/Rol.php',
+        'App\\Models\\Tarea' => __DIR__ . '/../..' . '/app/Models/Tarea.php',
+        'App\\Models\\TipoTarea' => __DIR__ . '/../..' . '/app/Models/TipoTarea.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
+        'App\\Models\\Usuario_Proyecto' => __DIR__ . '/../..' . '/app/Models/Usuario_Proyecto.php',
         'App\\Policies\\ProyectPolicy' => __DIR__ . '/../..' . '/app/Policies/ProyectPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -6753,8 +6754,6 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
-        'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
-        'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
         'Whoops\\Exception\\Frame' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Frame.php',
@@ -6784,9 +6783,9 @@ class ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc514d8f7b9fc5970bdd94287905ef584::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit29acffb508c0857cf6239ddae20cf9f6::$classMap;
 
         }, null, ClassLoader::class);
     }

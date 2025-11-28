@@ -12,19 +12,21 @@ Route::get('/', function () {
 
 // Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {
-    
+
     // Web page Tareas
     Route::resource('tareas', TareasController::class);
 
     //Endpoint para crear proyecto (POST)
     Route::resource('proyecto', ProyectoController::class);
-    
-    //Herramoienta para mas tarde 
+
+    //Herramoienta para mas tarde
 
     // ->only(['index'])->names([
     //     'index' => 'tareas.tareas',
     // ]);
+
 });
+// sON UNO MAMAGUEVO
 
 
 
@@ -32,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
 
 //Registro
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
+Route::post('/registro', [registroController::class, 'store'])->name('registro.submit');
 
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');

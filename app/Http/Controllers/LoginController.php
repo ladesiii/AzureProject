@@ -20,6 +20,16 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+
+        // $usuario = new Usuario();
+
+        // $usuario->nombre = "Pepe";
+        // $usuario->email = "pepe@example.com";
+        // $usuario->password = bcrypt("12345");
+        // $usuario->id_rol = 2;
+
+        // $usuario->save();
+
         $usuario = Usuario::where('email', $request->email)->first();
 
         if (!$usuario) {
@@ -31,7 +41,7 @@ class LoginController extends Controller
         }
 
         // Log the user in and redirect to intended page
-        Auth::login($usuario);
+        Auth::login( $usuario);
         session()->flash('success', 'Bienvenido ' . $usuario->email);
         return redirect()->intended('/');
     }
