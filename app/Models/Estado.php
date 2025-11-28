@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Models;
@@ -17,4 +18,4 @@ class Estado extends Model
         return $this->hasMany(Tarea::class, 'id_estado');
     }
 }
-
+main
