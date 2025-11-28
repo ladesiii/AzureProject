@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Estado extends Model
 {
-    //
     protected $table = 'estado';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id_estado';
     //public $incrementing = true;
     public $timestamps = false;
 
