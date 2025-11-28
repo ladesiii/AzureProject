@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tarea extends Model
 {
+
+    protected $nombre;
     protected $table = 'tarea';
     protected $primaryKey = 'id_tarea';
     //public $incrementing = true;
