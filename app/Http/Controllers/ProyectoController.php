@@ -2,8 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
-use Illuminate\Http\Request;
 use App\Models\Usuario_Proyecto;
+use App\Models\Usuario;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProyectoController extends Controller
@@ -14,8 +15,12 @@ class ProyectoController extends Controller
     public function index()
     {
         //
+        // CAMBIO: Obtener todos los proyectos
         $proyectos = Proyecto::all();
-        return view('proyecto', compact('proyectos'));
+        // CAMBIO: Obtener todos los usuarios (para el dropdown de agregar usuario)
+        $usuarios = Usuario::all();
+        // CAMBIO: Pasar ambas variables a la vista
+        return view('proyecto', compact('proyectos', 'usuarios'));
     }
 
     /**
@@ -32,7 +37,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //Crear el proyecto
-        $proyecto= new Proyecto();
+        $proyecto         = new Proyecto();
         $proyecto->nombre = $request->input('nombre');
         $proyecto->save();
 
@@ -76,9 +81,39 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            // CAMBIO: Buscar proyecto por ID
+            $proyecto = Proyecto::findOrFail($id);
+            
+            // CAMBIO: Actualizar nombre si se proporciona
+            if ($request->filled('nombre')) {
+                $proyecto->nombre = $request->input('nombre');
+                $proyecto->save();
+            }
 
-        return redirect()->route('proyecto.index')->with('success', 'Proyecto actualizado correctamente.');
+            // CAMBIO: Agregar usuario al proyecto (evitando duplicados)
+            if ($request->filled('usuario_add')) {
+                $usuarioId = $request->input('usuario_add');
+                if (!Usuario_Proyecto::where('id_usuario', $usuarioId)->where('id_proyecto', $proyecto->id_proyecto)->exists()) {
+                    $usuario_proyecto = new Usuario_Proyecto();
+                    $usuario_proyecto->id_usuario = $usuarioId;
+                    $usuario_proyecto->id_proyecto = $proyecto->id_proyecto;
+                    $usuario_proyecto->id_rol = 2; // CAMBIO: Rol usuario (2)
+                    $usuario_proyecto->save();
+                }
+            }
+
+            // CAMBIO: Remover usuario del proyecto
+            if ($request->filled('usuario_remove')) {
+                Usuario_Proyecto::where('id_usuario', $request->input('usuario_remove'))
+                    ->where('id_proyecto', $proyecto->id_proyecto)
+                    ->delete();
+            }
+
+            return redirect()->route('proyecto.index')->with('success', 'Proyecto actualizado correctamente.');
+        } catch (\Exception $e) {
+            return redirect()->route('proyecto.index')->with('error', 'No se pudo actualizar el proyecto: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -109,6 +144,21 @@ class ProyectoController extends Controller
         } catch (\Exception $e) {
             // En caso de cualquier error (no encontrado o conversión) redirigimos con mensaje de error
             return redirect()->route('proyecto.index')->with('error', 'No se pudo eliminar el proyecto: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * CAMBIO: Obtener usuarios asignados a un proyecto (método API para llenar dropdown)
+     */
+    public function obtenerUsuarios(string $id)
+    {
+        try {
+            $proyecto = Proyecto::findOrFail($id);
+            // CAMBIO: Obtener usuarios a través de la relación many-to-many
+            $usuarios = $proyecto->usuarios()->get();
+            return response()->json(['usuarios' => $usuarios], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Proyecto no encontrado'], 404);
         }
     }
 

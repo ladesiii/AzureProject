@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
     //Endpoint para crear proyecto (POST)
     Route::resource('proyecto', ProyectoController::class);
 
+    // CAMBIO: Ruta API para obtener usuarios de un proyecto (para llenar dropdown dinámicamente)
+    Route::get('/proyecto/{id}/usuarios', [ProyectoController::class, 'obtenerUsuarios']);
+
     //Herramoienta para mas tarde
 
     // ->only(['index'])->names([

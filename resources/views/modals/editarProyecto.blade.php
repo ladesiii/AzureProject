@@ -8,7 +8,8 @@
       </div>
 
       <!-- Cuerpo -->
-      <form id="formEditarProyecto" method="POST" action="{{ route('proyecto.update') }}">
+      <!-- CAMBIO: La action se rellenará dinámicamente desde JS usando data del botón -->
+      <form id="formEditarProyecto" method="POST" action="#">
         @csrf
         @method('PUT')
         <div class="modal-body">
@@ -19,11 +20,12 @@
 
           <div class="mb-3">
             <label for="usuarioBusquedaEdit" class="form-label">Añadir usuarios</label>
+            <!-- CAMBIO: Dropdown inicial con todos los usuarios (se llena desde el controlador) -->
             <select class="form-select custom-input" id="usuarioBusquedaEdit" name="usuario_add">
               <option selected disabled>Selecciona un usuario</option>
               @isset($usuarios)
                 @foreach($usuarios as $u)
-                  <option value="{{ $u->id }}">{{ $u->name ?? $u->nombre ?? '' }}</option>
+                  <option value="{{ $u->id_usuario }}">{{ $u->nombre ?? $u->name ?? '' }}</option>
                 @endforeach
               @endisset
             </select>
@@ -31,13 +33,9 @@
 
           <div class="mb-3">
             <label for="usuarioQuitarEdit" class="form-label">Quitar usuarios</label>
+            <!-- CAMBIO: Dropdown se llena dinámicamente desde JS con usuarios del proyecto -->
             <select class="form-select custom-input" id="usuarioQuitarEdit" name="usuario_remove">
               <option selected disabled>Selecciona un usuario</option>
-              @isset($usuariosProyecto)
-                @foreach($usuariosProyecto as $u)
-                  <option value="{{ $u->id }}">{{ $u->name ?? $u->nombre ?? '' }}</option>
-                @endforeach
-              @endisset
             </select>
           </div>
         </div>
@@ -51,3 +49,4 @@
     </div>
   </div>
 </div>
+
