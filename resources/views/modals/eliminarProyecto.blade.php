@@ -8,13 +8,13 @@
       </div>
 
       <!-- Cuerpo -->
-      <!-- La action se rellenará dinámicamente desde JS cuando se abra el modal -->
-      <form id="formEliminarProyecto" method="POST" action="{{ route('proyecto.destroy', ['proyecto' => $proyecto->nombre]) }}">
+      <!-- CAMBIO: La action se rellenará dinámicamente desde JS usando data-action del botón -->
+      <form id="formEliminarProyecto" method="POST" action="#">
         @csrf
         @method('DELETE')
         <div class="modal-body">
           <p class="text-center mb-4" style="font-size: 1.1rem;">
-            ¿Estás seguro que quieres eliminar el proyecto (nombre del proyecto)<strong id="nombreProyectoEliminar"></strong>?
+            ¿Estás seguro que quieres eliminar el proyecto<strong id="nombreProyectoEliminar"></strong>?
           </p>
         </div>
 
@@ -27,3 +27,4 @@
     </div>
   </div>
 </div>
+

@@ -1,69 +1,48 @@
-@extends('Plantillas.auth')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'Registro')
-
-@section('side-position', 'right')
-@section('side-title', 'Comienza a gestionar tus proyectos')
-
-@section('form-content')
-<h3 class="mb-4 text-center auth-title">
-    Bienvenido a
-    <span class="color-letra d-block mt-2">AzureProject</span>
-</h3>
-
-@if(session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-@endif
-
-@if($errors->any())
-    <div class="alert alert-danger">
-        <ul class="mb-0">
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+    <title>Registro</title>
+</head>
+{{-- el css es el de la carpeta public --}}
+<body>
+<div id="divIzquierdo">
+    <div class="contenedor-registro">
+        <h2>Te damos la bienvenida a <h2 id="azpInicio">AzureProject</h2></h2>
+        <form class="formRegistro">
+            <div class="mb-3">{{-- mb-3 es estilo de bootstrap --}}
+                <label for="emailadress" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="confirmarContraseña" class="form-label">Confirmar Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+            <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
     </div>
-@endif
-
-<form method="POST" action="{{ route('registro.submit') }}">
-    @csrf
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" name="nombre" id="nombre" class="form-control" value="{{ old('nombre') }}" required>
+</div>
+<div id="divDerecho">
+    <div class="textoDerecho">
+        <h2>COMIENZA A GESTIONAR</h2>
+        <h2>TUS PROYECTOS</h2>
     </div>
+    <img class="imagenRegistro" src="{{ asset('img/logo.png') }}" alt="Imagen de registro">
+</div>
+</body>
 
-    <div class="mb-3">
-        <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required>
-    </div>
-
-
-    <div class="mb-3">
-        <label for="password" class="form-label">Contraseña</label>
-        <div class="password-toggle-wrapper">
-            <input type="password" name="password" id="password" class="form-control" required>
-            <button type="button" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
-                <i class="bi bi-eye password-toggle-icon" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
-        <div class="password-toggle-wrapper">
-            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
-            <button type="button" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
-                <i class="bi bi-eye password-toggle-icon" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-
-    <button type="submit" class="btn-auth w-100">REGISTRARSE</button>
-</form>
-
-<p class="text-center mt-3">
-    ¿Ya tienes cuenta?
-    <a href="{{ route('login') }}" class="color-letra">Inicia sesión</a>
-</p>
-<script src="{{ asset('js/login.js') }}"></script>
-@endsection
+</html>
