@@ -12,11 +12,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Tarea extends Model
 {
 
-    protected $nombre;
     protected $table = 'tarea';
     protected $primaryKey = 'id_tarea';
     public $incrementing = true;
     public $timestamps = false;
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'id_proyecto',
+        'id_estado',
+        'id_tipo',
+        'id_usuario'
+    ];
 
     /**
      * Get the user that owns the Tarea
