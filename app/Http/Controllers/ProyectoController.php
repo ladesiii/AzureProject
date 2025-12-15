@@ -2,8 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
-use Illuminate\Http\Request;
 use App\Models\Usuario_Proyecto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProyectoController extends Controller
@@ -32,7 +32,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //Crear el proyecto
-        $proyecto= new Proyecto();
+        $proyecto         = new Proyecto();
         $proyecto->nombre = $request->input('nombre');
         $proyecto->save();
 
@@ -84,32 +84,19 @@ class ProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $proyecto)
+    public function destroy(Proyecto $proyecto)
     {
-        // Aceptamos que la ruta nos pueda dar un id (int) o, por error, el nombre.
-        // Primero intentamos con ID numérico, si no, intentamos buscar por nombre.
         try {
-            if (is_numeric($proyecto)) {
-                $proj = Proyecto::findOrFail((int) $proyecto);
-            } else {
-                // Si recibimos un nombre por error, intentamos buscar por nombre
-                $proj = Proyecto::where('nombre', $proyecto)->firstOrFail();
-            }
-
-            // Si el proyecto tiene tareas relacionadas, eliminarlas primero para evitar problemas de FK
-            if (method_exists($proj, 'tareas')) {
-                $proj->tareas()->delete();
-            }
-
-            // Eliminar el proyecto
-            $proj->delete();
-
-            // Redirigir a la lista de proyectos con mensaje de éxito
-            return redirect()->route('proyecto.index')->with('success', 'Proyecto eliminado correctamente.');
-        } catch (\Exception $e) {
-            // En caso de cualquier error (no encontrado o conversión) redirigimos con mensaje de error
-            return redirect()->route('proyecto.index')->with('error', 'No se pudo eliminar el proyecto: ' . $e->getMessage());
+            $proyecto->tareas()->delete();// Eliminar tareas relacionadas al proyecto
+            $proyecto->delete();// Eliminar el proyecto
+              $response = redirect()->route('proyecto.index')
+            ->with('success', 'Proyecto eliminado correctamente.');
+        }catch (\Exception $e) {
+            $response = redirect()->route('proyecto.index')
+            ->with('error', 'Error al eliminar el proyecto: ' . $e->getMessage());
         }
+        return $response;
+
     }
 
 }

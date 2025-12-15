@@ -1,46 +1,36 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     const form = document.getElementById("formCrearProyecto");
-//     const contenedor = document.getElementById("contenedor-proyectos");
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('modalEditarProyecto');
 
-//     // Verificar si hay un parámetro en la URL para abrir el modal
-//     const urlParams = new URLSearchParams(window.location.search);
-//     if (urlParams.get('openModal') === 'true') {
-//         const modalElement = document.getElementById('modalCrearProyecto');
-//         const modal = new bootstrap.Modal(modalElement);
-//         modal.show();
-//         // Limpiar el parámetro de la URL sin recargar la página
-//         window.history.replaceState({}, document.title, window.location.pathname);
-//     }
+    modal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
 
-//     // Evento para crear un nuevo proyecto dinámicamente en la vista
-//     form.addEventListener("submit", function (event) {
-//         event.preventDefault(); // Evita que se recargue la página
+        const proyectoId = button.getAttribute('data-id');
+        const nombre = button.getAttribute('data-nombre');
 
-//         const nombreProyecto = document.getElementById("nombreProyecto").value.trim();
+        const form = document.getElementById('formEditarProyecto');
+        form.action = `/proyecto/${proyectoId}`;
 
-//         if (!nombreProyecto) {
-//             alert("Por favor ingresa un nombre de proyecto.");
-//             return;
-//         }
+        document.getElementById('nombreProyectoEdit').value = nombre;
+    });
+});
 
-//         // Crear un nuevo div para el proyecto
-//         const nuevoDiv = document.createElement("div");
-//         nuevoDiv.classList.add("card-body", "card-body-proyecto");
+document.addEventListener('DOMContentLoaded', function () {
+    const modalEliminar = document.getElementById('modalEliminarProyecto');
 
-//         // Agregar el nuevo card-body al contenedor de proyectos
-//         contenedor.appendChild(nuevoDiv);
+    modalEliminar.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
 
-//         // Cerrar el popup usando Bootstrap
-//         const modalElement = document.getElementById('modalCrearProyecto');
-//         const modal = bootstrap.Modal.getInstance(modalElement);
-//         if (modal) {
-//             modal.hide();
-//         }
+        const proyectoId = button.getAttribute('data-id');
+        const nombre = button.getAttribute('data-nombre');
 
-//         // Limpiar el formulario
-//         form.reset();
-//     });
+        // Formulario
+        const form = document.getElementById('formEliminarProyecto');
+        form.action = `/proyecto/${proyectoId}`; // <-- action correcto
+
+        // Mostrar nombre en el modal
+        document.getElementById('nombreProyectoEliminar').textContent = nombre;
+    });
+});
 
 
 
-// });
