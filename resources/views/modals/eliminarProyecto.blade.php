@@ -1,4 +1,4 @@
-<!-- Modal Eliminar Proyecto -->
+{{-- <!-- Modal Eliminar Proyecto -->
 <div class="modal fade" id="modalEliminarProyecto" tabindex="-1" aria-labelledby="modalEliminarProyectoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content custom-modal-create">
@@ -26,4 +26,4 @@
       </form>
     </div>
   </div>
-</div>
+</div> --}}

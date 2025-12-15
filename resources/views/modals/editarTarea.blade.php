@@ -1,4 +1,7 @@
 <!-- Modal Editar Tarea -->
+@php
+	$tarea = $tarea ?? null;
+@endphp
 <div class="modal fade" id="modalEditarTarea" tabindex="-1" aria-labelledby="modalEditarTareaLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content custom-modal-create">
@@ -7,11 +10,11 @@
 				<h5 class="modal-title text-white fw-bold mb-0" id="modalEditarTareaLabel">EDITAR TAREA</h5>
 			</div>
 			<!-- Body -->
-			<form id="formEditarTarea" method="POST" action="">
+			<form id="formEditarTarea" method="POST" action="{{ route('tareas.update', $tarea->id_tarea ?? '') }}">
 				@csrf
 				@method('PUT')
 				<div class="modal-body">
-					<input type="hidden" id="editarTareaId" name="tarea_id" value="{{ $tarea->id ?? '' }}">
+					<input type="hidden" id="editarTareaId" name="tarea_id" value="{{ $tarea->id_tarea ?? '' }}">
 
 					<div class="mb-3">
 						<label for="editarNombreTarea" class="form-label">Nombre de la tarea</label>
@@ -25,12 +28,12 @@
 
 					<div class="mb-3">
 						<label for="editarTipoTarea" class="form-label">Tipo de tarea</label>
-						<select class="form-select custom-input" id="editarTipoTarea" name="tipo_tarea" required>
+						<select class="form-select custom-input" id="editarTipoTarea" name="id_tipo" required>
 							<option disabled {{ isset($tarea) ? '' : 'selected' }}>Selecciona un tipo</option>
 							@isset($tiposTarea)
 								@foreach($tiposTarea as $tipo)
-									<option value="{{ $tipo->id }}"
-										@if(isset($tarea) && (($tarea->tipo_tarea_id ?? $tarea->tipo_tarea ?? null) == $tipo->id)) selected @endif>
+									<option value="{{ $tipo->id_tipo }}"
+										@if(isset($tarea) && (($tarea->id_tipo ?? null) == $tipo->id_tipo)) selected @endif>
 										{{ $tipo->nombre ?? $tipo->tipo ?? '' }}
 									</option>
 								@endforeach
@@ -44,19 +47,30 @@
 							<input type="date" class="form-control custom-input" id="editarFechaInicio" name="fecha_inicio" value="{{ old('fecha_inicio', isset($tarea->fecha_inicio) ? \Illuminate\Support\Carbon::parse($tarea->fecha_inicio)->format('Y-m-d') : '') }}" required>
 						</div>
 						<div class="col-12 col-md-6 mb-3">
-							<label for="editarFechaFin" class="form-label">Fecha fin</label>
-							<input type="date" class="form-control custom-input" id="editarFechaFin" name="fecha_fin" value="{{ old('fecha_fin', isset($tarea->fecha_fin) ? \Illuminate\Support\Carbon::parse($tarea->fecha_fin)->format('Y-m-d') : '') }}" required>
+							<label for="editarFechaFinal" class="form-label">Fecha fin</label>
+							<input type="date" class="form-control custom-input" id="editarFechaFinal" name="fecha_final" value="{{ old('fecha_final', isset($tarea->fecha_final) ? \Illuminate\Support\Carbon::parse($tarea->fecha_final)->format('Y-m-d') : '') }}" required>
 						</div>
+					</div>
+					<div class="mb-3">
+						<label for="editarEstadoTarea" class="form-label">Estado</label>
+						<select class="form-select custom-input" id="editarEstadoTarea" name="id_estado" required>
+							<option disabled {{ isset($tarea) ? '' : 'selected' }}>Selecciona un estado</option>
+							@isset($estados)
+								@foreach($estados as $estado)
+									<option value="{{ $estado->id_estado }}" @selected(isset($tarea) ? ($tarea->id_estado ?? null) == $estado->id_estado : old('id_estado') == $estado->id_estado)>{{ $estado->nombre ?? $estado->estado ?? ('Estado '.$estado->id_estado) }}</option>
+								@endforeach
+							@endisset
+						</select>
 					</div>
 
 					<div class="mb-3">
 						<label for="editarUsuarioAsignado" class="form-label">Usuario asignado</label>
-						<select class="form-select custom-input" id="editarUsuarioAsignado" name="usuario_id" required>
+						<select class="form-select custom-input" id="editarUsuarioAsignado" name="id_usuario" required>
 							<option disabled {{ isset($tarea) ? '' : 'selected' }}>Selecciona un usuario</option>
 							@isset($usuarios)
 								@foreach($usuarios as $u)
-									<option value="{{ $u->id }}"
-										@if(isset($tarea) && (($tarea->usuario_id ?? $tarea->user_id ?? null) == $u->id)) selected @endif>
+									<option value="{{ $u->id_usuario }}"
+										@if(isset($tarea) && (($tarea->id_usuario ?? null) == $u->id_usuario)) selected @endif>
 										{{ $u->name ?? $u->nombre ?? '' }}
 									</option>
 								@endforeach

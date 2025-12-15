@@ -26,17 +26,16 @@ Route::middleware(['auth'])->group(function () {
     // ]);
 
 });
-// sON UNO MAMAGUEVO
 
 
 
-// Route to UsuarioController removed to avoid conflict with LoginController
+
 
 //Registro
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
 Route::post('/registro', [registroController::class, 'store'])->name('registro.submit');
 
-
+//Login y Logout
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -8,7 +8,7 @@
 			</div>
 
 			<!-- Cuerpo -->
-			<form id="formEliminarTarea" method="POST" action="">
+			<form id="formEliminarTarea" method="POST" action="{{ route('tareas.destroy', $tarea->id ?? '') }}">
 				@csrf
 				@method('DELETE')
 				<input type="hidden" name="tarea_id" id="eliminarTareaId" value="{{ $tarea->id ?? '' }}">

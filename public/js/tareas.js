@@ -105,10 +105,92 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //
-    // CREAR NUEVAS TARJETAS
+    //  ELIMINAR TARJETAS
     //
+    const deleteModal = document.getElementById('modalEliminarTarea');
+    if (deleteModal) {
+        const deleteForm = deleteModal.querySelector('#formEliminarTarea');
+        const deleteName = deleteModal.querySelector('#nombreTareaEliminar');
+        const deleteHiddenId = deleteModal.querySelector('#eliminarTareaId');
 
+        if (deleteForm) {
+            const deleteTemplate = deleteForm.dataset.actionTemplate || '';
 
+            deleteModal.addEventListener('show.bs.modal', (event) => {
+                const trigger = event.relatedTarget;
+                if (!trigger) return;
+
+                const tareaId = trigger.getAttribute('data-tarea-id') || '';
+                const tareaNombre = trigger.getAttribute('data-tarea-nombre') || 'la tarea';
+                let deleteUrl = trigger.getAttribute('data-tarea-delete-url') || '';
+                if (!deleteUrl && deleteTemplate && tareaId) {
+                    deleteUrl = deleteTemplate.replace('__TAREA__', tareaId);
+                }
+
+                deleteForm.action = deleteUrl;
+                if (deleteHiddenId) deleteHiddenId.value = tareaId;
+                if (deleteName) deleteName.textContent = tareaNombre;
+            });
+
+            deleteModal.addEventListener('hidden.bs.modal', () => {
+                deleteForm.action = '';
+                if (deleteHiddenId) deleteHiddenId.value = '';
+                if (deleteName) deleteName.textContent = '';
+            });
+        }
+    }
+
+    //
+    //  EDITAR TARJETAS
+    //
+    const editModal = document.getElementById('modalEditarTarea');
+    if (editModal) {
+        const editForm = editModal.querySelector('#formEditarTarea');
+        const editTemplate = editForm ? editForm.dataset.actionTemplate || '' : '';
+        const tareaIdInput = editModal.querySelector('#editarTareaId');
+        const nombreInput = editModal.querySelector('#editarNombreTarea');
+        const descripcionInput = editModal.querySelector('#editarDescripcionTarea');
+        const tipoSelect = editModal.querySelector('#editarTipoTarea');
+        const fechaInicioInput = editModal.querySelector('#editarFechaInicio');
+        const fechaFinalInput = editModal.querySelector('#editarFechaFinal');
+        const estadoSelect = editModal.querySelector('#editarEstadoTarea');
+        const usuarioSelect = editModal.querySelector('#editarUsuarioAsignado');
+
+        if (editForm) {
+            editModal.addEventListener('show.bs.modal', (event) => {
+                const trigger = event.relatedTarget;
+                if (!trigger) return;
+
+                const tareaId = trigger.getAttribute('data-tarea-id') || '';
+                let editUrl = trigger.getAttribute('data-edit-url') || '';
+                if (!editUrl && editTemplate && tareaId) {
+                    editUrl = editTemplate.replace('__TAREA__', tareaId);
+                }
+                editForm.action = editUrl;
+
+                if (tareaIdInput) tareaIdInput.value = tareaId;
+                if (nombreInput) nombreInput.value = trigger.getAttribute('data-tarea-nombre') || '';
+                if (descripcionInput) descripcionInput.value = trigger.getAttribute('data-tarea-descripcion') || '';
+                if (tipoSelect) tipoSelect.value = trigger.getAttribute('data-tarea-tipo') || '';
+                if (fechaInicioInput) fechaInicioInput.value = trigger.getAttribute('data-tarea-fecha-inicio') || '';
+                if (fechaFinalInput) fechaFinalInput.value = trigger.getAttribute('data-tarea-fecha-final') || '';
+                if (estadoSelect) estadoSelect.value = trigger.getAttribute('data-tarea-estado') || '';
+                if (usuarioSelect) usuarioSelect.value = trigger.getAttribute('data-tarea-usuario') || '';
+            });
+
+            editModal.addEventListener('hidden.bs.modal', () => {
+                editForm.action = '';
+                if (tareaIdInput) tareaIdInput.value = '';
+                if (nombreInput) nombreInput.value = '';
+                if (descripcionInput) descripcionInput.value = '';
+                if (tipoSelect) tipoSelect.value = '';
+                if (fechaInicioInput) fechaInicioInput.value = '';
+                if (fechaFinalInput) fechaFinalInput.value = '';
+                if (estadoSelect) estadoSelect.value = '';
+                if (usuarioSelect) usuarioSelect.value = '';
+            });
+        }
+    }
 
 });
 
@@ -159,74 +241,77 @@ document.addEventListener('DOMContentLoaded', function () {
     if (modalCrear && empezarPizarra) {
         const form = modalCrear.querySelector('form');
         if (form) {
-            form.addEventListener('submit', (ev) => {
-                ev.preventDefault();
-                const getField = (names) => {
-                    for (const n of names) {
-                        const el = form.querySelector(`[name="${n}"]`) || form.querySelector(`#${n}`);
-                        if (el) return (el.value || el.textContent || '').trim();
-                    }
-                    return '';
-                };
+            const submitMode = (form.dataset.submitMode || '').toLowerCase();
+            if (submitMode === 'local') {
+                form.addEventListener('submit', (ev) => {
+                    ev.preventDefault();
+                    const getField = (names) => {
+                        for (const n of names) {
+                            const el = form.querySelector(`[name="${n}"]`) || form.querySelector(`#${n}`);
+                            if (el) return (el.value || el.textContent || '').trim();
+                        }
+                        return '';
+                    };
 
-                const title = getField(['title', 'titulo', 'name', 'nombre']) || 'Nueva tarea';
-                const desc = getField(['description', 'descripcion', 'desc']) || 'Descripción';
-                const tag = getField(['etiqueta', 'tag']) || 'Etiqueta';
-                const users = getField(['usuarios', 'users']) || 'Usuarios';
-                const fecha = getField(['fecha', 'due_date', 'date']) || 'Fecha';
+                    const title = getField(['title', 'titulo', 'name', 'nombre']) || 'Nueva tarea';
+                    const desc = getField(['description', 'descripcion', 'desc']) || 'Descripción';
+                    const tag = getField(['etiqueta', 'tag']) || 'Etiqueta';
+                    const users = getField(['usuarios', 'users']) || 'Usuarios';
+                    const fecha = getField(['fecha_final', 'fecha', 'due_date', 'date']) || 'Fecha';
 
-                const tpl = document.querySelector('.card-tareas');
-                let card;
-                if (tpl) {
-                    card = tpl.cloneNode(true);
-                    card.id = `card-${Date.now()}`;
-                    const h5 = card.querySelector('h5.card-title'); if (h5) h5.textContent = title;
-                    const lis = card.querySelectorAll('.list-group-item');
-                    if (lis && lis.length >= 4) {
-                        lis[0].textContent = desc;
-                        lis[1].textContent = tag;
-                        lis[2].textContent = users;
-                        lis[3].textContent = fecha;
-                    }
-                } else {
-                    card = document.createElement('div');
-                    card.className = 'card card-tareas';
-                    card.style.width = '18rem';
-                    card.id = `card-${Date.now()}`;
-                    card.innerHTML = `
-                        <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <hr>
-                            <li class="list-group-item">${desc}</li>
-                            <hr>
-                            <li class="list-group-item">${tag}</li>
-                            <hr>
-                            <li class="list-group-item">${users}</li>
-                            <hr>
-                            <li class="list-group-item">${fecha}</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="/img/edit.png" alt="edit" class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="/img/trash.png" alt="trash" class="d-inline-block"></a>
-                        </div>
-                    `;
-                }
-
-                empezarPizarra.appendChild(card);
-                try { makeCardDraggable(card, document.querySelectorAll('.card-tareas').length - 1); } catch (e) { }
-                const hh = card.querySelector('h5.card-title'); if (hh) hh.style.backgroundColor = '#DC3545';
-
-                // Cerrar modal
-                try {
-                    if (window.bootstrap && bootstrap.Modal) {
-                        (bootstrap.Modal.getInstance(modalCrear) || new bootstrap.Modal(modalCrear)).hide();
+                    const tpl = document.querySelector('.card-tareas');
+                    let card;
+                    if (tpl) {
+                        card = tpl.cloneNode(true);
+                        card.id = `card-${Date.now()}`;
+                        const h5 = card.querySelector('h5.card-title'); if (h5) h5.textContent = title;
+                        const lis = card.querySelectorAll('.list-group-item');
+                        if (lis && lis.length >= 4) {
+                            lis[0].textContent = desc;
+                            lis[1].textContent = tag;
+                            lis[2].textContent = users;
+                            lis[3].textContent = fecha;
+                        }
                     } else {
-                        modalCrear.classList.remove('show'); modalCrear.style.display = 'none';
-                        const bd = document.querySelector('.modal-backdrop'); if (bd) bd.remove();
+                        card = document.createElement('div');
+                        card.className = 'card card-tareas';
+                        card.style.width = '18rem';
+                        card.id = `card-${Date.now()}`;
+                        card.innerHTML = `
+                            <div class="card-body">
+                                <h5 class="card-title">${title}</h5>
+                                <hr>
+                                <li class="list-group-item">${desc}</li>
+                                <hr>
+                                <li class="list-group-item">${tag}</li>
+                                <hr>
+                                <li class="list-group-item">${users}</li>
+                                <hr>
+                                <li class="list-group-item">${fecha}</li>
+                                <hr>
+                                <a href="#" class="card-link"><img src="/img/edit.png" alt="edit" class="d-inline-block"></a>
+                                <a href="#" class="card-link"><img src="/img/trash.png" alt="trash" class="d-inline-block"></a>
+                            </div>
+                        `;
                     }
-                } catch (err) { console.warn(err); }
 
-                try { form.reset(); } catch (e) { }
-            });
+                    empezarPizarra.appendChild(card);
+                    try { makeCardDraggable(card, document.querySelectorAll('.card-tareas').length - 1); } catch (e) { }
+                    const hh = card.querySelector('h5.card-title'); if (hh) hh.style.backgroundColor = '#DC3545';
+
+                    // Cerrar modal
+                    try {
+                        if (window.bootstrap && bootstrap.Modal) {
+                            (bootstrap.Modal.getInstance(modalCrear) || new bootstrap.Modal(modalCrear)).hide();
+                        } else {
+                            modalCrear.classList.remove('show'); modalCrear.style.display = 'none';
+                            const bd = document.querySelector('.modal-backdrop'); if (bd) bd.remove();
+                        }
+                    } catch (err) { console.warn(err); }
+
+                    try { form.reset(); } catch (e) { }
+                });
+            }
         }
     }
 
@@ -236,6 +321,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //  ELIMINAR TARJETAS
     //
 
-    
+
 });
 
