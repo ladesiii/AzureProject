@@ -1,4 +1,4 @@
-@extends('Plantillas.leftnavbar')
+@extends('plantillas.leftnavbar')
 
 @section('contenido')
 
