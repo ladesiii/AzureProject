@@ -50,10 +50,10 @@
 
                     {{-- Iconos de acciones (una sola vez por tarjeta) --}}
                     <div class="project-actions mt-3">
-                        <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto">
+                        {{-- <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto">
                             <img src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"
                                 style="width:20px;height:20px;">
-                        </a>
+                        </a> --}}
                         <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto">
                             <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"
                                 style="width:20px;height:20px;">
@@ -67,7 +67,6 @@
                 </div>
             @endforeach
         </div>
-    </div>
     </div>
     <script src="{{ asset('js/proyecto.js') }}"></script>
 @endsection
