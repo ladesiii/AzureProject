@@ -17,4 +17,3 @@ class Estado extends Model
         return $this->hasMany(Tarea::class, 'id_estado');
     }
 }
-

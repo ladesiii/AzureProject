@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tarea extends Model
 {
+
     protected $table = 'tarea';
     protected $primaryKey = 'id_tarea';
     public $incrementing = true;
@@ -38,6 +39,15 @@ class Tarea extends Model
     {
         return $this->fecha_final;
     }
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'id_proyecto',
+        'id_estado',
+        'id_tipo',
+        'id_usuario'
+    ];
 
     /**
      * Get the user that owns the Tarea

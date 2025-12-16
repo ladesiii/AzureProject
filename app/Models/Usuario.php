@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use App\Models\Rol;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Usuario extends Authenticatable
 {
@@ -20,7 +19,6 @@ class Usuario extends Authenticatable
     protected $table = 'usuario';
     protected $primaryKey = 'id_usuario';
     public $timestamps = false;
-
      /**
      * Relationship: usuario belongs to un rol
      */
@@ -29,14 +27,4 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Rol::class, 'id_rol');
     }
 
-    /**
-     * Get all of the tareas for the Usuario
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function tareas(): HasMany
-    {
-        return $this->hasMany(Tarea::class, 'id_usuario');
-    }
-    
 }

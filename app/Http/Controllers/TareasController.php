@@ -18,6 +18,7 @@ class TareasController extends Controller
      */
     public function index()
     {
+
         $tareas = Tarea::with(['estado', 'tipoTarea', 'usuario', 'proyectos'])->get();
         $tiposTarea = TipoTarea::orderBy('id_tipo')->get();
         $usuarios = Usuario::orderBy('id_usuario')->get();

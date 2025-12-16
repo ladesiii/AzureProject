@@ -14,7 +14,8 @@
             <h1 class="Pagina-titulo">TAREAS</h1>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button href="" type="button" class="btn-auth btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearTarea">
+                <button href="" type="button" class="btn-auth btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#modalCrearTarea">
                     CREAR TAREA
                 </button>
             </div>
@@ -149,7 +150,6 @@
                     @empty
                         <p class="text-muted">No hay tareas en esta columna.</p>
                     @endforelse
-
                 </div>
 
 

@@ -587,6 +587,13 @@ body {
 }
 
 /* ====== VIEWS: TAREAS ====== */
+#container-tareas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+}
+
 .card-tareas .card-body .card-title {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -633,17 +640,11 @@ body {
 }
 
 .separador {
-    height: 70% auto;
+    height: 70%;
     width: 10px;
     background-color: black;
 }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: 100%;
-}
 
 .bloque {
     width: 30%;

@@ -1,6 +1,7 @@
-/* ====== GENERAL (base, botones, tipografía) ====== */
+/* ====== GENERAL (base, botones, tipografía) ======
 /* Nota: Secciones por vistas más abajo: LANDING, LOGIN, PROYECTOS, TAREAS, y al final MODALS */
 /* ====== GENERAL: base ====== */
+
 body {
     padding: 0;
     margin: 0;
@@ -21,10 +22,6 @@ body {
     border: none;
     text-decoration: none !important;
     transition: background-color 0.3s ease;
-    position: relative;
-    box-sizing: border-box;
-    display: inline-block;
-    cursor: pointer;
 }
 
 header .btn-auth:hover {
@@ -832,4 +829,4 @@ body {
 .color-letra {
     color: #0993AE;
     font-weight: bold;
-}
+} */
