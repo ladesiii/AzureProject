@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+}); // Cierre del primer DOMContentLoaded
 
 
 // Código adicional: manejar creación desde botón/modal
