@@ -829,3 +829,41 @@ body {
     color: #0993AE;
     font-weight: bold;
 }
+
+/* Password Toggle Styles */
+.password-toggle-wrapper {
+    position: relative;
+}
+
+.password-toggle-wrapper .form-control {
+    padding-right: 3rem;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 0.75rem;
+    cursor: pointer;
+    color: #0993AE;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.password-toggle-btn:hover {
+    color: #077a92;
+}
+
+.password-toggle-btn:focus {
+    outline: none;
+}
+
+.password-toggle-btn i {
+    font-size: 1.2rem;
+}

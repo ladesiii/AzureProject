@@ -43,7 +43,7 @@
                         <a href="{{ route('proyecto.index') }}" class="btn-base btn-primary">PROYECTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('tareas.index') }}" class="btn-base btn-primary">TAREAS</a>
+                        <a href="{{ route('tareas.index') }}" class="btn-base btn-primary">TAREAS</a>
                     </li>
 
                 </div>
