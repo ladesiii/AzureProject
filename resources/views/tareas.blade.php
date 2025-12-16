@@ -62,6 +62,7 @@
                                 <hr>
                                 <li class="list-group-item">{{ optional($tarea->fecha_final)->format('d/m/Y') ?: 'Sin fecha' }}</li>
                                 <hr>
+                                @if($tarea->id_tarea)
                                 <a href="#"
                                    class="card-link"
                                    data-bs-toggle="modal"
@@ -86,6 +87,7 @@
                                    data-tarea-delete-url="{{ route('tareas.destroy', $tarea->id_tarea) }}">
                                     <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block">
                                 </a>
+                                @endif
                             </div>
                         </div>
                     @empty
@@ -116,6 +118,7 @@
                                 <hr>
                                 <li class="list-group-item">{{ optional($tarea->fecha_final)->format('d/m/Y') ?: 'Sin fecha' }}</li>
                                 <hr>
+                                @if($tarea->id_tarea)
                                 <a href="#"
                                    class="card-link"
                                    data-bs-toggle="modal"
@@ -140,6 +143,7 @@
                                    data-tarea-delete-url="{{ route('tareas.destroy', $tarea->id_tarea) }}">
                                     <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block">
                                 </a>
+                                @endif
                             </div>
                         </div>
                     @empty
@@ -171,6 +175,7 @@
                                 <hr>
                                 <li class="list-group-item">{{ optional($tarea->fecha_final)->format('d/m/Y') ?: 'Sin fecha' }}</li>
                                 <hr>
+                                @if($tarea->id_tarea)
                                 <a href="#"
                                    class="card-link"
                                    data-bs-toggle="modal"
@@ -195,6 +200,7 @@
                                    data-tarea-delete-url="{{ route('tareas.destroy', $tarea->id_tarea) }}">
                                     <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block">
                                 </a>
+                                @endif
                             </div>
                         </div>
                     @empty

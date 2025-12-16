@@ -1,4 +1,4 @@
-<!-- Modal Eliminar Tarea -->
+{{-- <!-- Modal Eliminar Tarea -->
 <div class="modal fade" id="modalEliminarTarea" tabindex="-1" aria-labelledby="modalEliminarTareaLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content custom-modal-create">
@@ -27,4 +27,4 @@
 		</div>
 	</div>
 </div>
-
+ --}}
