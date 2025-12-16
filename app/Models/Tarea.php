@@ -16,15 +16,29 @@ class Tarea extends Model
     protected $primaryKey = 'id_tarea';
     public $incrementing = true;
     public $timestamps = false;
-
     protected $fillable = [
         'nombre',
         'descripcion',
-        'id_proyecto',
-        'id_estado',
+        'fecha_inicio',
+        'fecha_final',
         'id_tipo',
-        'id_usuario'
+        'id_usuario',
+        'id_estado',
+        'id_proyecto',
     ];
+
+    protected $casts = [
+        'fecha_inicio' => 'date',
+        'fecha_final' => 'date',
+    ];
+
+    /**
+     * Allow legacy access to fecha_fin while migrating templates.
+     */
+    public function getFechaFinAttribute()
+    {
+        return $this->fecha_final;
+    }
 
     /**
      * Get the user that owns the Tarea

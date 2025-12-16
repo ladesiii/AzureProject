@@ -1,20 +1,19 @@
 <!-- Modal Eliminar Tarea -->
-<div class="modal fade" id="modalEliminarTarea" tabindex="-1" aria-labelledby="modalEliminarTareaLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminarTarea{{ $tarea->id_tarea }}" tabindex="-1" aria-labelledby="modalEliminarTareaLabel{{ $tarea->id_tarea }}" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content custom-modal-create">
 			<!-- Header personalizado -->
 			<div class="modal-header custom-modal-header">
-				<h5 class="modal-title text-white fw-bold mb-0" id="modalEliminarTareaLabel">ELIMINAR TAREA</h5>
+				<h5 class="modal-title text-white fw-bold mb-0" id="modalEliminarTareaLabel{{ $tarea->id_tarea }}">ELIMINAR TAREA</h5>
 			</div>
 
 			<!-- Cuerpo -->
-			<form id="formEliminarTarea" method="POST" action="">
+			<form method="POST" action="{{ route('tareas.destroy', $tarea->id_tarea) }}">
 				@csrf
 				@method('DELETE')
-				<input type="hidden" name="tarea_id" id="eliminarTareaId" value="{{ $tarea->id ?? '' }}">
 				<div class="modal-body">
 					<p class="text-center mb-4" style="font-size: 1.1rem;">
-						¿Estás seguro que quieres eliminar la tarea <strong id="nombreTareaEliminar">{{ $tarea->nombre ?? '' }}</strong>?
+						¿Estás seguro que quieres eliminar la tarea <strong>{{ $tarea->nombre }}</strong>?
 					</p>
 				</div>
 
@@ -27,4 +26,3 @@
 		</div>
 	</div>
 </div>
-

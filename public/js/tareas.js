@@ -104,13 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //
-    // CREAR NUEVAS TARJETAS
-    //
+}); // Cierre del primer DOMContentLoaded
 
-
-
-});
 
 // Código adicional: manejar creación desde botón/modal
 document.addEventListener('DOMContentLoaded', function () {
@@ -159,74 +154,77 @@ document.addEventListener('DOMContentLoaded', function () {
     if (modalCrear && empezarPizarra) {
         const form = modalCrear.querySelector('form');
         if (form) {
-            form.addEventListener('submit', (ev) => {
-                ev.preventDefault();
-                const getField = (names) => {
-                    for (const n of names) {
-                        const el = form.querySelector(`[name="${n}"]`) || form.querySelector(`#${n}`);
-                        if (el) return (el.value || el.textContent || '').trim();
-                    }
-                    return '';
-                };
+            const submitMode = (form.dataset.submitMode || '').toLowerCase();
+            if (submitMode === 'local') {
+                form.addEventListener('submit', (ev) => {
+                    ev.preventDefault();
+                    const getField = (names) => {
+                        for (const n of names) {
+                            const el = form.querySelector(`[name="${n}"]`) || form.querySelector(`#${n}`);
+                            if (el) return (el.value || el.textContent || '').trim();
+                        }
+                        return '';
+                    };
 
-                const title = getField(['title', 'titulo', 'name', 'nombre']) || 'Nueva tarea';
-                const desc = getField(['description', 'descripcion', 'desc']) || 'Descripción';
-                const tag = getField(['etiqueta', 'tag']) || 'Etiqueta';
-                const users = getField(['usuarios', 'users']) || 'Usuarios';
-                const fecha = getField(['fecha', 'due_date', 'date']) || 'Fecha';
+                    const title = getField(['title', 'titulo', 'name', 'nombre']) || 'Nueva tarea';
+                    const desc = getField(['description', 'descripcion', 'desc']) || 'Descripción';
+                    const tag = getField(['etiqueta', 'tag']) || 'Etiqueta';
+                    const users = getField(['usuarios', 'users']) || 'Usuarios';
+                    const fecha = getField(['fecha_final', 'fecha', 'due_date', 'date']) || 'Fecha';
 
-                const tpl = document.querySelector('.card-tareas');
-                let card;
-                if (tpl) {
-                    card = tpl.cloneNode(true);
-                    card.id = `card-${Date.now()}`;
-                    const h5 = card.querySelector('h5.card-title'); if (h5) h5.textContent = title;
-                    const lis = card.querySelectorAll('.list-group-item');
-                    if (lis && lis.length >= 4) {
-                        lis[0].textContent = desc;
-                        lis[1].textContent = tag;
-                        lis[2].textContent = users;
-                        lis[3].textContent = fecha;
-                    }
-                } else {
-                    card = document.createElement('div');
-                    card.className = 'card card-tareas';
-                    card.style.width = '18rem';
-                    card.id = `card-${Date.now()}`;
-                    card.innerHTML = `
-                        <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <hr>
-                            <li class="list-group-item">${desc}</li>
-                            <hr>
-                            <li class="list-group-item">${tag}</li>
-                            <hr>
-                            <li class="list-group-item">${users}</li>
-                            <hr>
-                            <li class="list-group-item">${fecha}</li>
-                            <hr>
-                            <a href="#" class="card-link"><img src="/img/edit.png" alt="edit" class="d-inline-block"></a>
-                            <a href="#" class="card-link"><img src="/img/trash.png" alt="trash" class="d-inline-block"></a>
-                        </div>
-                    `;
-                }
-
-                empezarPizarra.appendChild(card);
-                try { makeCardDraggable(card, document.querySelectorAll('.card-tareas').length - 1); } catch (e) { }
-                const hh = card.querySelector('h5.card-title'); if (hh) hh.style.backgroundColor = '#DC3545';
-
-                // Cerrar modal
-                try {
-                    if (window.bootstrap && bootstrap.Modal) {
-                        (bootstrap.Modal.getInstance(modalCrear) || new bootstrap.Modal(modalCrear)).hide();
+                    const tpl = document.querySelector('.card-tareas');
+                    let card;
+                    if (tpl) {
+                        card = tpl.cloneNode(true);
+                        card.id = `card-${Date.now()}`;
+                        const h5 = card.querySelector('h5.card-title'); if (h5) h5.textContent = title;
+                        const lis = card.querySelectorAll('.list-group-item');
+                        if (lis && lis.length >= 4) {
+                            lis[0].textContent = desc;
+                            lis[1].textContent = tag;
+                            lis[2].textContent = users;
+                            lis[3].textContent = fecha;
+                        }
                     } else {
-                        modalCrear.classList.remove('show'); modalCrear.style.display = 'none';
-                        const bd = document.querySelector('.modal-backdrop'); if (bd) bd.remove();
+                        card = document.createElement('div');
+                        card.className = 'card card-tareas';
+                        card.style.width = '18rem';
+                        card.id = `card-${Date.now()}`;
+                        card.innerHTML = `
+                            <div class="card-body">
+                                <h5 class="card-title">${title}</h5>
+                                <hr>
+                                <li class="list-group-item">${desc}</li>
+                                <hr>
+                                <li class="list-group-item">${tag}</li>
+                                <hr>
+                                <li class="list-group-item">${users}</li>
+                                <hr>
+                                <li class="list-group-item">${fecha}</li>
+                                <hr>
+                                <a href="#" class="card-link"><img src="/img/edit.png" alt="edit" class="d-inline-block"></a>
+                                <a href="#" class="card-link"><img src="/img/trash.png" alt="trash" class="d-inline-block"></a>
+                            </div>
+                        `;
                     }
-                } catch (err) { console.warn(err); }
 
-                try { form.reset(); } catch (e) { }
-            });
+                    empezarPizarra.appendChild(card);
+                    try { makeCardDraggable(card, document.querySelectorAll('.card-tareas').length - 1); } catch (e) { }
+                    const hh = card.querySelector('h5.card-title'); if (hh) hh.style.backgroundColor = '#DC3545';
+
+                    // Cerrar modal
+                    try {
+                        if (window.bootstrap && bootstrap.Modal) {
+                            (bootstrap.Modal.getInstance(modalCrear) || new bootstrap.Modal(modalCrear)).hide();
+                        } else {
+                            modalCrear.classList.remove('show'); modalCrear.style.display = 'none';
+                            const bd = document.querySelector('.modal-backdrop'); if (bd) bd.remove();
+                        }
+                    } catch (err) { console.warn(err); }
+
+                    try { form.reset(); } catch (e) { }
+                });
+            }
         }
     }
 
@@ -236,6 +234,5 @@ document.addEventListener('DOMContentLoaded', function () {
     //  ELIMINAR TARJETAS
     //
 
-    
-});
 
+});
