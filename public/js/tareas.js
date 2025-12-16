@@ -104,95 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //
-    //  ELIMINAR TARJETAS
-    //
-    const deleteModal = document.getElementById('modalEliminarTarea');
-    if (deleteModal) {
-        const deleteForm = deleteModal.querySelector('#formEliminarTarea');
-        const deleteName = deleteModal.querySelector('#nombreTareaEliminar');
-        const deleteHiddenId = deleteModal.querySelector('#eliminarTareaId');
 
-        if (deleteForm) {
-            const deleteTemplate = deleteForm.dataset.actionTemplate || '';
-
-            deleteModal.addEventListener('show.bs.modal', (event) => {
-                const trigger = event.relatedTarget;
-                if (!trigger) return;
-
-                const tareaId = trigger.getAttribute('data-tarea-id') || '';
-                const tareaNombre = trigger.getAttribute('data-tarea-nombre') || 'la tarea';
-                let deleteUrl = trigger.getAttribute('data-tarea-delete-url') || '';
-                if (!deleteUrl && deleteTemplate && tareaId) {
-                    deleteUrl = deleteTemplate.replace('__TAREA__', tareaId);
-                }
-
-                deleteForm.action = deleteUrl;
-                if (deleteHiddenId) deleteHiddenId.value = tareaId;
-                if (deleteName) deleteName.textContent = tareaNombre;
-            });
-
-            deleteModal.addEventListener('hidden.bs.modal', () => {
-                deleteForm.action = '';
-                if (deleteHiddenId) deleteHiddenId.value = '';
-                if (deleteName) deleteName.textContent = '';
-            });
-        }
-    }
-
-    //
-    //  EDITAR TARJETAS
-    //
-    const editModal = document.getElementById('modalEditarTarea');
-    if (editModal) {
-        const editForm = editModal.querySelector('#formEditarTarea');
-        const editTemplate = editForm ? editForm.dataset.actionTemplate || '' : '';
-        const tareaIdInput = editModal.querySelector('#editarTareaId');
-        const nombreInput = editModal.querySelector('#editarNombreTarea');
-        const descripcionInput = editModal.querySelector('#editarDescripcionTarea');
-        const tipoSelect = editModal.querySelector('#editarTipoTarea');
-        const fechaInicioInput = editModal.querySelector('#editarFechaInicio');
-        const fechaFinalInput = editModal.querySelector('#editarFechaFinal');
-        const estadoSelect = editModal.querySelector('#editarEstadoTarea');
-        const usuarioSelect = editModal.querySelector('#editarUsuarioAsignado');
-
-        if (editForm) {
-            editModal.addEventListener('show.bs.modal', (event) => {
-                const trigger = event.relatedTarget;
-                if (!trigger) return;
-
-                const tareaId = trigger.getAttribute('data-tarea-id') || '';
-                let editUrl = trigger.getAttribute('data-edit-url') || '';
-                if (!editUrl && editTemplate && tareaId) {
-                    editUrl = editTemplate.replace('__TAREA__', tareaId);
-                }
-                editForm.action = editUrl;
-
-                if (tareaIdInput) tareaIdInput.value = tareaId;
-                if (nombreInput) nombreInput.value = trigger.getAttribute('data-tarea-nombre') || '';
-                if (descripcionInput) descripcionInput.value = trigger.getAttribute('data-tarea-descripcion') || '';
-                if (tipoSelect) tipoSelect.value = trigger.getAttribute('data-tarea-tipo') || '';
-                if (fechaInicioInput) fechaInicioInput.value = trigger.getAttribute('data-tarea-fecha-inicio') || '';
-                if (fechaFinalInput) fechaFinalInput.value = trigger.getAttribute('data-tarea-fecha-final') || '';
-                if (estadoSelect) estadoSelect.value = trigger.getAttribute('data-tarea-estado') || '';
-                if (usuarioSelect) usuarioSelect.value = trigger.getAttribute('data-tarea-usuario') || '';
-            });
-
-            editModal.addEventListener('hidden.bs.modal', () => {
-                editForm.action = '';
-                if (tareaIdInput) tareaIdInput.value = '';
-                if (nombreInput) nombreInput.value = '';
-                if (descripcionInput) descripcionInput.value = '';
-                if (tipoSelect) tipoSelect.value = '';
-                if (fechaInicioInput) fechaInicioInput.value = '';
-                if (fechaFinalInput) fechaFinalInput.value = '';
-                if (estadoSelect) estadoSelect.value = '';
-                if (usuarioSelect) usuarioSelect.value = '';
-            });
-        }
-    }
-
-});
 
 // Código adicional: manejar creación desde botón/modal
 document.addEventListener('DOMContentLoaded', function () {
@@ -323,4 +235,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-
