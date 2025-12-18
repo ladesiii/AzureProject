@@ -1,4 +1,4 @@
-<!-- Modal Eliminar Tarea -->
+<!-- Modal Eliminar Tarea: confirma la eliminación de una tarea -->
 <div class="modal fade" id="modalEliminarTarea{{ $tarea->id_tarea }}" tabindex="-1" aria-labelledby="modalEliminarTareaLabel{{ $tarea->id_tarea }}" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content custom-modal-create">
@@ -12,12 +12,14 @@
 				@csrf
 				@method('DELETE')
 				<div class="modal-body">
+					<!-- Mensaje de confirmación con el nombre de la tarea -->
 					<p class="text-center mb-4" style="font-size: 1.1rem;">
 						¿Estás seguro que quieres eliminar la tarea <strong>{{ $tarea->nombre }}</strong>?
 					</p>
 				</div>
 
 				<!-- Footer -->
+				<!-- Botones para eliminar o cancelar -->
 				<div class="modal-footer justify-content-end border-0 gap-2">
 					<button type="submit" class="btn-auth btn-pill bg-danger text-white">ELIMINAR</button>
 					<button type="button" class="btn-auth btn-pill" data-bs-dismiss="modal">CANCELAR</button>

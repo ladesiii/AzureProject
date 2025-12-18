@@ -32,7 +32,7 @@
 
             @foreach ($proyectos as $proyecto)
                 <div class="card-body card-body-proyecto">
-                    <a href="{{ route('tareas.index', ['proyecto' => $proyecto->id_proyecto]) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('tareas.proyecto', ['proyecto' => $proyecto->id_proyecto]) }}" style="text-decoration: none; color: inherit;">
                         <h5 class="card-title">{{ $proyecto->nombre }}</h5>
                     </a>
                     <hr>
