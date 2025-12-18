@@ -1,4 +1,4 @@
-@extends('plantillas.landing')
+@extends('plantillas.headerLanding')
 
 @section('content')
     {{-- Sección de alerta si un invitado intenta crear proyecto desde landing --}}
