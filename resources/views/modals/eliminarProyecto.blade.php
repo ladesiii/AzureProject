@@ -1,5 +1,7 @@
 <!-- Modal Eliminar Proyecto -->
-<div class="modal fade" id="modalEliminarProyecto-{{ $proyecto->id_proyecto }}" tabindex="-1" aria-labelledby="modalEliminarProyectoLabel-{{ $proyecto->id_proyecto }}" aria-hidden="true">
+
+<!--<div class="modal fade" id="modalEliminarProyecto-{{ $proyecto->id_proyecto }}" tabindex="-1" aria-labelledby="modalEliminarProyectoLabel-{{ $proyecto->id_proyecto }}" aria-hidden="true"> -->
+<div class="modal fade" id="modalEliminarProyecto" tabindex="-1" aria-labelledby="modalEliminarProyectoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content custom-modal-create">
       <!-- Header personalizado -->
@@ -8,12 +10,15 @@
       </div>
 
       <!-- Cuerpo -->
-      <form method="POST" action="{{ route('proyecto.destroy', $proyecto->id_proyecto) }}">
+    <!--  <form method="POST" action="{{ route('proyecto.destroy', $proyecto->id_proyecto) }}"> -->
+      <!-- CAMBIO: La action se rellenará dinámicamente desde JS usando data-action del botón -->
+      <form id="formEliminarProyecto" method="POST" action="#">
         @csrf
         @method('DELETE')
         <div class="modal-body">
           <p class="text-center mb-4" style="font-size: 1.1rem;">
-            ¿Estás seguro que quieres eliminar el proyecto <strong>{{ $proyecto->nombre }}</strong>?
+            <!-- ¿Estás seguro que quieres eliminar el proyecto <strong>{{ $proyecto->nombre }}</strong>? -->
+            ¿Estás seguro que quieres eliminar el proyecto<strong id="nombreProyectoEliminar"></strong>?
           </p>
         </div>
 

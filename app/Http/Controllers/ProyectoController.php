@@ -2,8 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proyecto;
-use Illuminate\Http\Request;
 use App\Models\Usuario_Proyecto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 
@@ -33,7 +33,7 @@ class ProyectoController extends Controller
     public function store(Request $request)
     {
         //Crear el proyecto
-        $proyecto= new Proyecto();
+        $proyecto         = new Proyecto();
         $proyecto->nombre = $request->input('nombre');
         $proyecto->save();
 
@@ -85,9 +85,8 @@ class ProyectoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $proyecto)
+    public function destroy(Proyecto $proyecto)
     {
-
         try {
             // Normalizar a instancia de Proyecto (acepta id numérico, nombre o binding)
             if ($proyecto instanceof Proyecto) {
@@ -113,10 +112,6 @@ class ProyectoController extends Controller
             report($e);
             return redirect()->route('proyecto.index')->with('error', 'No se pudo eliminar el proyecto: ' . $e->getMessage());
         }
-
-
-
-
 
         // try {
 

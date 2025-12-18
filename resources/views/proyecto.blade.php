@@ -1,5 +1,6 @@
 @extends('plantillas.leftnavbar')
 
+
 @section('contenido')
 
     <head>
@@ -17,9 +18,9 @@
                 data-bs-target="#modalCrearProyecto">
                 CREAR PROYECTO
             </button>
-
             </div>
         </div>
+    </div>
 
         <div class="card-proyecto" id="contenedor-proyectos">
 
@@ -58,21 +59,52 @@
                     {{-- Iconos de acciones (una sola vez por tarjeta) --}}
                     {{-- ACCIONES --}}
                      {{-- EDITAR --}}
-                    <div class="project-actions mt-3">
+                     <!-- <div class="project-actions mt-3">
                         <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarProyecto" data-id="{{ $proyecto->id_proyecto }}" data-nombre="{{ $proyecto->nombre }}">
                             <img src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"
                                 style="width:20px;height:20px;">
-                        </a>
+                        </a>-->
                     {{-- ELIMINAR --}}
-                        <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto-{{ $proyecto->id_proyecto }}">
+                        <!--  <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEliminarProyecto-{{ $proyecto->id_proyecto }}">
+                            <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"
+                                style="width:20px;height:20px;">
+                        </a>-->
+                    {{-- GESTIONAR USUARIOS --}}
+                         <!-- <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios"> -->
+
+                    <div class="project-actions mt-3">
+
+                        {{-- EDITAR --}}
+                        <a href="#"
+                        class="card-link"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEditarProyecto"
+                        data-id="{{ $proyecto->id_proyecto }}"
+                        data-nombre="{{ $proyecto->nombre }}">
+                            <img src="{{ asset('img/edit.png') }}" alt="edit" class="d-inline-block"
+                                style="width:20px;height:20px;">
+                        </a>
+
+                        {{-- ELIMINAR --}}
+                        <a href="#"
+                        class="card-link"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalEliminarProyecto"
+                        data-id="{{  $proyecto->id_proyecto }}"
+                        data-nombre="{{ $proyecto->nombre }}">
                             <img src="{{ asset('img/trash.png') }}" alt="trash" class="d-inline-block"
                                 style="width:20px;height:20px;">
                         </a>
-                    {{-- GESTIONAR USUARIOS --}}
-                        <a href="#" class="card-link" data-bs-toggle="modal" data-bs-target="#modalGestionarUsuarios">
+
+                        {{-- USUARIO --}}
+                        <a href="#"
+                        class="card-link"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalGestionarUsuarios">
                             <img src="{{ asset('img/user.png') }}" alt="user" class="d-inline-block"
                                 style="width:20px;height:20px;">
                         </a>
+
                     </div>
                     {{-- Modal eliminar específico de este proyecto --}}
                     @include('modals.eliminarProyecto', ['proyecto' => $proyecto])

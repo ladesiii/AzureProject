@@ -8,6 +8,7 @@
       </div>
 
       <!-- Cuerpo -->
+      <!-- CAMBIO: Form para crear proyecto con acción POST a proyecto.store -->
       <form id="formCrearProyecto" method="POST" action="{{ route('proyecto.store')  }}">
         @csrf
         <div class="modal-body">
@@ -18,11 +19,12 @@
 
           <div class="mb-3">
             <label for="usuarioBusqueda" class="form-label">Añadir usuarios</label>
+            <!-- CAMBIO: Dropdown de usuarios se llena desde el controlador index() -->
             <select class="form-select custom-input" id="usuarioBusqueda" name="usuario">
               <option selected disabled>Selecciona un usuario</option>
               @isset($usuarios)
                 @foreach($usuarios as $u)
-                  <option value="{{ $u->id }}">{{ $u->name ?? $u->nombre ?? '' }}</option>
+                  <option value="{{ $u->id_usuario }}">{{ $u->nombre ?? $u->name ?? '' }}</option>
                 @endforeach
               @endisset
             </select>
@@ -38,4 +40,5 @@
     </div>
   </div>
 </div>
+
 

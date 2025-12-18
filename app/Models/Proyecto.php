@@ -20,14 +20,22 @@ class Proyecto extends Model
         return 'id_proyecto';
     }
 
+    public $incrementing = true;
+
     /**
      * Get all of the comments for the Proyecto
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function tareas(): HasMany
+
+    public function Tarea(): HasMany
     {
         return $this->hasMany(Tarea::class, 'id_proyecto');
+    }
+
+    public function Usuario_Proyecto()
+    {
+        return $this->hasMany(Usuario_Proyecto::class, 'id_proyecto');
     }
 
 }
