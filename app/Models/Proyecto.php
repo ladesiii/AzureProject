@@ -13,13 +13,19 @@ class Proyecto extends Model
     protected $primaryKey = 'id_proyecto';
     //public $incrementing = true;
     public $timestamps = false;
+    protected $keyType = 'int';
+
+    public function getRouteKeyName()
+    {
+        return 'id_proyecto';
+    }
 
     /**
      * Get all of the comments for the Proyecto
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function proyecto(): HasMany
+    public function tareas(): HasMany
     {
         return $this->hasMany(Tarea::class, 'id_proyecto');
     }

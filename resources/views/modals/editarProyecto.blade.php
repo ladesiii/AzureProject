@@ -1,4 +1,4 @@
-{{-- <!-- Modal Editar Proyecto -->
+<!-- Modal Editar Proyecto -->
 <div class="modal fade" id="modalEditarProyecto" tabindex="-1" aria-labelledby="modalEditarProyectoLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content custom-modal-create">
@@ -8,7 +8,7 @@
       </div>
 
       <!-- Cuerpo -->
-      <form id="formEditarProyecto" method="POST" action="{{ route('proyecto.update') }}">
+      <form id="formEditarProyecto" method="POST" action="{{ route('proyecto.update', $proyecto) }}">
         @csrf
         @method('PUT')
         <div class="modal-body">
@@ -50,4 +50,4 @@
       </form>
     </div>
   </div>
-</div> --}}
+</div>
