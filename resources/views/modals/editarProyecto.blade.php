@@ -8,7 +8,7 @@
       </div>
 
       <!-- Cuerpo -->
-      <form id="formEditarProyecto" method="POST" action="{{ route('proyecto.update') }}">
+      <form id="formEditarProyecto" method="POST" action="{{ route('proyecto.update', $proyecto) }}">
         @csrf
         @method('PUT')
         <div class="modal-body">
