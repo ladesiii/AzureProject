@@ -5,6 +5,7 @@ use App\Models\Proyecto;
 use App\Models\Usuario_Proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 
 class ProyectoController extends Controller
 {
@@ -87,15 +88,68 @@ class ProyectoController extends Controller
     public function destroy(Proyecto $proyecto)
     {
         try {
-            $proyecto->tareas()->delete();// Eliminar tareas relacionadas al proyecto
-            $proyecto->delete();// Eliminar el proyecto
-              $response = redirect()->route('proyecto.index')
-            ->with('success', 'Proyecto eliminado correctamente.');
-        }catch (\Exception $e) {
-            $response = redirect()->route('proyecto.index')
-            ->with('error', 'Error al eliminar el proyecto: ' . $e->getMessage());
+            // Normalizar a instancia de Proyecto (acepta id numérico, nombre o binding)
+            if ($proyecto instanceof Proyecto) {
+                $proj = $proyecto;
+            } elseif (is_numeric($proyecto)) {
+                $proj = Proyecto::findOrFail((int) $proyecto);
+            } else {
+                $proj = Proyecto::where('nombre', $proyecto)->firstOrFail();
+            }
+
+            // Eliminar dependencias antes del proyecto (para respetar FKs en SQL Server)
+            if (method_exists($proj, 'tareas')) {
+                $proj->tareas()->delete();
+            }
+            // Eliminar relaciones de usuarios-proyecto-rol si existen
+            \App\Models\Usuario_Proyecto::where('id_proyecto', $proj->id_proyecto)->delete();
+
+            // Eliminar el proyecto
+            $proj->delete();
+
+            return redirect()->route('proyecto.index')->with('success', 'Proyecto eliminado correctamente.');
+        } catch (\Throwable $e) {
+            report($e);
+            return redirect()->route('proyecto.index')->with('error', 'No se pudo eliminar el proyecto: ' . $e->getMessage());
         }
-        return $response;
+
+        // try {
+
+        // $proyecto->tareas()->delete();// Eliminar tareas relacionadas al proyecto
+        // $proyecto->delete();// Eliminar el proyecto
+        // $response = redirect()->route('proyecto.index')->with('success', 'Proyecto eliminado correctamente.');
+        // }catch (\Exception $e) {
+        //     $response = redirect()->route('proyecto.index')
+        //     ->with('error', 'Error al eliminar el proyecto: ' . $e->getMessage());
+        // }
+        // return $response;
+
+
+        // // Aceptamos que la ruta nos pueda dar un id (int) o, por error, el nombre.
+        // // Primero intentamos con ID numérico, si no, intentamos buscar por nombre.
+
+        // try {
+        //     if (is_numeric($proyecto)) {
+        //         $proj = Proyecto::findOrFail((int) $proyecto);
+        //     } else {
+        //         // Si recibimos un nombre por error, intentamos buscar por nombre
+        //         $proj = Proyecto::where('nombre', $proyecto)->firstOrFail();
+        //     }
+
+        //     // Si el proyecto tiene tareas relacionadas, eliminarlas primero para evitar problemas de FK
+        //     if (method_exists($proj, 'tareas')) {
+        //         $proj->tareas()->delete();
+        //     }
+
+        //     // Eliminar el proyecto
+        //     $proj->delete();
+
+        //     // Redirigir a la lista de proyectos con mensaje de éxito
+        //     return redirect()->route('proyecto.index')->with('success', 'Proyecto eliminado correctamente.');
+        // } catch (\Exception $e) {
+        //     // En caso de cualquier error (no encontrado o conversión) redirigimos con mensaje de error
+        //     return redirect()->route('proyecto.index')->with('error', 'No se pudo eliminar el proyecto: ' . $e->getMessage());
+        // }
 
     }
 

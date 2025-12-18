@@ -1,12 +1,16 @@
 /* ====== GENERAL (base, botones, tipografía) ====== */
 /* Nota: Secciones por vistas más abajo: LANDING, LOGIN, PROYECTOS, TAREAS, y al final MODALS */
 /* ====== GENERAL: base ====== */
+html, body {
+    min-height: 100vh;
+}
 body {
     padding: 0;
     margin: 0;
     text-decoration: none !important;
     height: 100%;
     width: 100%;
+    background-color: #8BE7F9;
 }
 
 /* ====== GENERAL: botones ====== */
@@ -435,14 +439,6 @@ body {
     margin: 30px;
 }
 
-/* Estilo de los li
-.text-muted.small.li {
-    font-size: 14px;
-    color: #555555;
-    margin-left: 6px;
-    list-style-type: square;
-} */
-
 /*Lista tareas*/
 .lista-tareas {
     margin-left: 12px;
@@ -451,23 +447,10 @@ body {
     font-size: 20px;
     color: black;
 }
-
 /*iconos links : card-link*/
 .card-link img {
-    display:flex;
-    margin-right: 10px;
-}
-
-/* Contenido del proyecto en la tarjeta */
-.card-body-proyecto {
-    width: 33%;
-    border: solid #0993AE 5px;
-    border-radius: 15px;
-    margin: 12px;
     display: flex;
-    flex-direction: column;
-    min-height: 250px;
-    padding: 0px;
+    margin-right: 10px;
 }
 
 /* Título del proyecto */
@@ -534,6 +517,16 @@ body {
     padding-bottom: 20px;
 }
 
+.sobrefondo-tareas {
+    background-color: white;
+    border-radius: 10px;
+    margin: 28px;
+    padding-bottom: 20px;
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+}
+
 /* ---------------------------------------------------- Registro -------------------------------------------------------------- */
 #divIzquierdo {
     width: 50%;
@@ -591,7 +584,56 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 100%;
+    align-items: flex-start;
+    min-height: calc(100vh - 140px);
+    flex: 1;
+}
+
+/* Badge para tipo de tarea */
+.tipo-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.tipo-1 { /* tipo 1 */
+    background-color: #6C63FF;
+    color: #ffffff;
+}
+.tipo-2 { /* tipo 2 */
+    background-color: #FFA94D;
+    color: #5A2B00;
+}
+.tipo-3 { /* tipo 3 */
+    background-color: #FF8BC2;
+    color: #5A173C;
+}
+.tipo-4 { /* tipo 4 */
+    background-color: #B08C6B;
+    color: #3C2A1A;
+}
+.tipo-0, .tipo-default {
+    background-color: #E0E0E0;
+    color: #333;
+}
+
+.task-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.card-tareas hr {
+    border-top: 1px solid #0993AE;
+    margin: 10px 0;
 }
 
 .card-tareas .card-body .card-title {
@@ -624,34 +666,37 @@ body {
 
 .card-tareas {
     width: 20rem;
-    border: solid #0993AE 5px;
+    border: solid #0993AE 2px;
     color: black;
     margin: 20px;
+    border-radius: 15px;
+    background-color: #8BE7F9;
+    display: block;
 }
 
 .card-tareas .card-body {
     max-width: 100%;
-    border: #0993AE 5px solid;
-    border-radius: 5%;
     background-color: #8BE7F9;
     padding: 18px 18px 16px 18px;
     position: relative;
-    flex: 1 0 30%;
+    display: block;
 }
 
 .separador {
-    height: 70%;
     width: 10px;
     background-color: black;
+    align-self: stretch;
+    min-height: 100%;
 }
-
 
 .bloque {
     width: 30%;
-    height: 60%;
+    min-height: 100%;
     text-align: center;
     margin: 10px;
     align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .pizarra {
@@ -660,6 +705,8 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 300px;
+    align-items: stretch;
+    flex: 1;
 }
 
 /*Botton de cerrar sesion*/
@@ -811,7 +858,6 @@ body {
     border: solid #8BE7F9 30px;
     padding: 10px;
 }
-
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .img-landing {
     width: 100%;

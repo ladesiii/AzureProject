@@ -6,11 +6,13 @@
 @section('side-title', 'Sigue gestionando tus proyectos')
 
 @section('form-content')
+{{-- Formulario de inicio de sesión: muestra errores específicos y envía a login.submit --}}
 <h3 class="mb-4 text-center auth-title">
     Hola de nuevo a
     <span class="color-letra d-block mt-2">AzureProject</span>
 </h3>
 
+{{-- Errores de autenticación: correo no encontrado o contraseña incorrecta --}}
 @if(session('error_type') === 'email_not_found')
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>¡Error!</strong> Este correo no está registrado.
@@ -23,6 +25,7 @@
     </div>
 @endif
 
+{{-- Formulario principal de login --}}
 <form method="POST" action="{{ route('login.submit')}}">
     @csrf
     <div class="mb-3">
@@ -34,6 +37,7 @@
         <label for="password" class="form-label">Contraseña</label>
         <div class="password-toggle-wrapper">
             <input type="password" name="password" id="password" class="form-control" required>
+            {{-- Botón para mostrar/ocultar contraseña. Gestionado por public/js/login.js --}}
             <button type="button" id="passwordToggleBtn" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
                  <i class="bi bi-eye password-toggle-icon" id="toggleIcon" aria-hidden="true"></i>
             </button>
@@ -43,6 +47,7 @@
     <button type="submit" class="btn-auth w-100">INICIAR SESIÓN</button>
 </form>
 
+{{-- Enlace a registro para usuarios sin cuenta --}}
 <p class="text-center mt-3">
     ¿No tienes cuenta?
     <a href="{{ route('registro') }}" class="color-letra">Regístrate</a>

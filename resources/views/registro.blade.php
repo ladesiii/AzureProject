@@ -6,11 +6,13 @@
 @section('side-title', 'Comienza a gestionar tus proyectos')
 
 @section('form-content')
+{{-- Formulario de registro: crea un nuevo usuario y muestra validaciones --}}
 <h3 class="mb-4 text-center auth-title">
     Bienvenido a
     <span class="color-letra d-block mt-2">AzureProject</span>
 </h3>
 
+{{-- Mensajes de éxito y listado de errores de validación --}}
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif
@@ -38,16 +40,18 @@
         <label for="password" class="form-label">Contraseña</label>
         <div class="password-toggle-wrapper">
             <input type="password" name="password" id="password" class="form-control" required>
+            {{-- Botón para mostrar/ocultar contraseña --}}
             <button type="button" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
                  <i class="bi bi-eye password-toggle-icon" aria-hidden="true"></i>
             </button>
         </div>
     </div>
-    
+
     <div class="mb-3">
         <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
         <div class="password-toggle-wrapper">
             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+            {{-- Botón para mostrar/ocultar confirmación de contraseña --}}
             <button type="button" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
                 <i class="bi bi-eye password-toggle-icon" aria-hidden="true"></i>
             </button>

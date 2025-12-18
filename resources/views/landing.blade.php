@@ -1,6 +1,7 @@
 @extends('plantillas.landing')
 
 @section('content')
+    {{-- Sección de alerta si un invitado intenta crear proyecto desde landing --}}
     @guest
         @if(request()->get('unauthorized') === 'proyecto')
             <!-- Modal de alerta -->
@@ -40,6 +41,7 @@
                     </h4>
                 </div>
                 <div class="mt-5">
+                    {{-- CTA de "CREAR PROYECTO": autenticado abre el índice con modal, invitado muestra aviso --}}
                     @auth
                         <a href="{{ route('proyecto.index') }}?openModal=true" class="btn-auth text-decoration-none d-inline-block text-center">CREAR PROYECTO</a>
                     @else

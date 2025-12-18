@@ -6,6 +6,7 @@ use App\Http\Controllers\TareasController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\ProyectoController;
 
+// Ruta pública para la página de aterrizaje
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
@@ -13,10 +14,13 @@ Route::get('/', function () {
 // Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {
 
-    // Web page Tareas
+    // Listado de tareas filtradas por proyecto: tareas/proyecto/{id}
+    Route::get('tareas/proyecto/{proyecto}', [TareasController::class, 'index'])->name('tareas.proyecto');
+
+    // Recurso REST de tareas (index, store, update, destroy, etc.)
     Route::resource('tareas', TareasController::class);
 
-    //Endpoint para crear proyecto (POST)
+    // Recurso REST de proyectos
     Route::resource('proyecto', ProyectoController::class);
 
     // CAMBIO: Ruta API para obtener usuarios de un proyecto (para llenar dropdown dinámicamente)
@@ -34,11 +38,11 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-//Registro
+// Registro de usuarios (público)
 Route::get('/registro', [registroController::class, 'registro'])->name('registro');
 Route::post('/registro', [registroController::class, 'store'])->name('registro.submit');
 
-//Login y Logout
+// Login y Logout (público)
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

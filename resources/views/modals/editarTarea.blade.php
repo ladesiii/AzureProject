@@ -1,4 +1,4 @@
-<!-- Modal Editar Tarea -->
+<!-- Modal Editar Tarea: formulario para actualizar una tarea existente -->
 <div class="modal fade" id="modalEditarTarea{{ $tarea->id_tarea }}" tabindex="-1" aria-labelledby="modalEditarTareaLabel{{ $tarea->id_tarea }}" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content custom-modal-create">
@@ -11,14 +11,17 @@
 				@csrf
 				@method('PUT')
 				<div class="modal-body">
+					<!-- Campo: nombre -->
 					<div class="mb-3">
 						<label for="editarNombreTarea{{ $tarea->id_tarea }}" class="form-label">Nombre de la tarea</label>
 						<input type="text" class="form-control custom-input" id="editarNombreTarea{{ $tarea->id_tarea }}" name="nombre" placeholder="Ej. Diseñar mockups" value="{{ old('nombre', $tarea->nombre) }}" required>
 					</div>
+					<!-- Campo: descripción -->
 					<div class="mb-3">
 						<label for="editarDescripcionTarea{{ $tarea->id_tarea }}" class="form-label">Descripción</label>
 						<textarea class="form-control custom-input" id="editarDescripcionTarea{{ $tarea->id_tarea }}" name="descripcion" rows="3" placeholder="Detalles de la tarea" required>{{ old('descripcion', $tarea->descripcion) }}</textarea>
 					</div>
+					<!-- Selector: tipo de tarea -->
 					<div class="mb-3">
 						<label for="editarTipoTarea{{ $tarea->id_tarea }}" class="form-label">Tipo de tarea</label>
 						<select class="form-select custom-input" id="editarTipoTarea{{ $tarea->id_tarea }}" name="id_tipo" required>
@@ -30,6 +33,7 @@
 							@endisset
 						</select>
 					</div>
+					<!-- Fechas: inicio y fin -->
 					<div class="row g-3">
 						<div class="col-12 col-md-6 mb-3">
 							<label for="editarFechaInicio{{ $tarea->id_tarea }}" class="form-label">Fecha de inicio</label>
@@ -40,6 +44,7 @@
 							<input type="date" class="form-control custom-input" id="editarFechaFinal{{ $tarea->id_tarea }}" name="fecha_final" value="{{ old('fecha_final', optional($tarea->fecha_final)->format('Y-m-d')) }}" required>
 						</div>
 					</div>
+					<!-- Selector: estado -->
 					<div class="mb-3">
 						<label for="editarEstadoTarea{{ $tarea->id_tarea }}" class="form-label">Estado</label>
 						<select class="form-select custom-input" id="editarEstadoTarea{{ $tarea->id_tarea }}" name="id_estado" required>
@@ -51,6 +56,7 @@
 							@endisset
 						</select>
 					</div>
+					<!-- Selector: usuario asignado -->
 					<div class="mb-3">
 						<label for="editarUsuarioAsignado{{ $tarea->id_tarea }}" class="form-label">Usuario asignado</label>
 						<select class="form-select custom-input" id="editarUsuarioAsignado{{ $tarea->id_tarea }}" name="id_usuario" required>
@@ -64,6 +70,7 @@
 					</div>
 				</div>
 				<!-- Footer -->
+				<!-- Botones para guardar cambios o cancelar -->
 				<div class="modal-footer justify-content-end border-0 gap-2">
 					<button type="submit" class="btn-auth btn-pill">GUARDAR</button>
 					<button type="button" class="btn-auth btn-pill bg-danger text-white" data-bs-dismiss="modal">CANCELAR</button>

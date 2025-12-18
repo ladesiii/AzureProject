@@ -13,6 +13,12 @@ class Proyecto extends Model
     protected $primaryKey = 'id_proyecto';
     //public $incrementing = true;
     public $timestamps = false;
+    protected $keyType = 'int';
+
+    public function getRouteKeyName()
+    {
+        return 'id_proyecto';
+    }
 
     public $incrementing = true;
 
@@ -21,6 +27,7 @@ class Proyecto extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+
     public function Tarea(): HasMany
     {
         return $this->hasMany(Tarea::class, 'id_proyecto');
