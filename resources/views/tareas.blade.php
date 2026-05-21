@@ -5,8 +5,7 @@
     <head>
 
         <title>Tareas</title>
-        <script src="{{ asset('js/tareas.js') }}" defer></script>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        @vite(['resources/css/styles.css', 'resources/js/tareas.js'])
 
     </head>
     <div class="sobrefondo-tareas">

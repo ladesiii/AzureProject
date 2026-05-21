@@ -4,7 +4,7 @@
 @section('contenido')
 
     <head>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        @vite(['resources/css/styles.css'])
         <title>Proyecto</title>
     </head>
     <div class="sobrefondo">
